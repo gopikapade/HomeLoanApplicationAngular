@@ -1,0 +1,27 @@
+#main{
+    height: 100vh;
+}
+.fa-solid{
+    color:rgb(238, 216, 216)
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    color: #f7efef;
+    background-color: #60a0e4;
+  }
+  .sidebar {
+   height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 20px;
+  }

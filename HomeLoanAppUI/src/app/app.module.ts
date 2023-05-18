@@ -8,6 +8,8 @@ import { LandingPageComponent } from './templates/landing-page/landing-page.comp
 import { LoginComponent } from './templates/login/login.component';
 import { EnquiryComponent } from './templates/enquiry/enquiry.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

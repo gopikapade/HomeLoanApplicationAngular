@@ -26,19 +26,22 @@
             ],
             "styles": [
               "src/styles.css",
-               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-               "node_modules/jquery-ui/themes/base/all.css",
-               "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
-               "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
-               "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
-               "node_modules/aos/demo/css/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/jquery-ui/themes/base/all.css",
+              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "node_modules/aos/demo/css/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": [
-                      "node_modules/bootstrap/dist/js/bootstrap.min.js",
-                      "node_modules/jquery-ui/ui/jquery-patch.js",
-                      "node_modules/owl.carousel/dist/owl.carousel.min.js",
-                      "node_modules/aos/dist/aos.js"
-                ]
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery-ui/ui/jquery-patch.js",
+              "node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/aos/dist/aos.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

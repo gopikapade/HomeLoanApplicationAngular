@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './templates/landing-page/landing-page.component';
+import { DashComponent } from './dashbord/templates/dash/dash.component';
+
 
 const routes: Routes = [
-  {path:'', component:LandingPageComponent}
+  {path:'', loadChildren:()=> import('src/app/dashbord/dashbord.module').then(e=>e.DashbordModule)}
 ];
 
 @NgModule({
