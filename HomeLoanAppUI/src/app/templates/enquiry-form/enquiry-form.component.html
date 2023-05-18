@@ -1,0 +1,69 @@
+
+
+<div class="container">
+    <div class="progress">
+      <div class="progress-bar" [style.width.%]="progressPercentage" role="progressbar" [attr.aria-valuenow]="progressPercentage"
+        aria-valuemin="0" aria-valuemax="100">{{ currentStep }} of 2</div>
+    </div>
+  
+    <form [formGroup]="enquiryForm" (ngSubmit)="submitForm()" #form="ngForm">
+  
+      <div *ngIf="currentStep === 1" class="step-container">
+        <h3>Step 1: Personal Information</h3>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" formControlName="firstName">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" formControlName="lastName">
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age" formControlName="age">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="mobileNo">Mobile Number</label>
+          <input type="tel" class="form-control" id="mobileNo" formControlName="mobileNo">
+        </div>
+        <div class="form-group">
+          <label for="pancardNo">PAN Card Number</label>
+          <input type="text" class="form-control" id="pancardNo" formControlName="pancardNo">
+        </div>
+        <div class="form-group">
+          <label for="maritalStatus">Marital Status</label>
+          <select class="form-control" id="maritalStatus" formControlName="maritalStatus">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="income">Income</label>
+          <input type="number" class="form-control" id="income" formControlName="income">
+        </div>
+        <div class="form-group">
+          <label for="loanAmount">Loan Amount</label>
+          <input type="number" class="form-control" id="loanAmount" formControlName="loanAmount">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="next()">Next</button>
+      </div>
+  
+      <div *ngIf="currentStep === 2" class="step-container">
+        <h3>Step 2: Education</h3>
+        <div class="form-group">
+          <label for="education">Education</label>
+          <input type="text" class="form-control" id="education" formControlName="education">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  
+    </form>
+  </div>
+  

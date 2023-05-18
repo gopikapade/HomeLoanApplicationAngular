@@ -3,24 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmiCalculatorComponent } from './templates/emi-calculator/emi-calculator.component';
+
 import { LandingPageComponent } from './templates/landing-page/landing-page.component';
 import { LoginComponent } from './templates/login/login.component';
-import { EnquiryComponent } from './templates/enquiry/enquiry.component';
+import { EnquiryFormComponent } from './templates/enquiry-form/enquiry-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmiCalculatorComponent,
+
     LandingPageComponent,
     LoginComponent,
-    EnquiryComponent
+    EnquiryFormComponent,
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

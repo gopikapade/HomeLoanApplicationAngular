@@ -1,0 +1,22 @@
+.container {
+    max-width: 600px;
+    margin: 10px auto;
+   
+  }
+  
+  .progress {
+    margin-bottom: 20px;
+  }
+  
+  .step-container {
+   
+  }
+  
+  .step-container h3 {
+    margin-top: 0;
+  }
+  
+  .step-container.active {
+    display: block;
+  }
+  
