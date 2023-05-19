@@ -33,7 +33,7 @@
                     <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
 
                     <li><a href="#services-section" class="nav-link">Services</a></li>
-                    
+
                     <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li class="has-children">
                       <a href="#">More Links</a>
@@ -49,9 +49,9 @@
 
                 <li><a href="#blog-section" class="nav-link">Blog</a></li>
                 <li><a href="#emical-section" class="nav-link">EMI Calculator</a></li>
-                   <li><a href="#enquiry-section" class="nav-link">Enquiry</a></li>
+                   <li><a routerLink="enquiry" class="nav-link">Enquiry</a></li>
                 <li><a routerLink="login" class="nav-link">Login</a></li>
-               
+
               </ul>
             </nav>
           </div>
@@ -70,13 +70,16 @@
 
       <div class="container">
         <div class="row align-items-center justify-content-center">
-           
 
+
+          <div class="router">
+            <router-outlet></router-outlet>
+           </div>
           <div class="col-md-10 mt-lg-5 text-center">
             <div class="single-text owl-carousel">
               <div class="slide">
                 <h1 class="text-uppercase" data-aos="fade-up">Banking Solutions</h1>
-                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Repudiandae minima delectus accusamus accusantium deleniti libero excepturi porro illo.</p>
                 <div data-aos="fade-up" data-aos-delay="100">
                   <a href="#" target="_blank" class="btn  btn-primary mr-2 mb-2">Get In Touch</a>
@@ -144,8 +147,8 @@
     </div>
 
     <section class="site-section" id="emical-section">
-<app-emi-calculator></app-emi-calculator>
-      
+
+
 
 
     </section>
@@ -162,7 +165,7 @@
         </div>
 
         <div class="row align-items-lg-center" >
-          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
 
             <div class="owl-carousel slide-one-item-alt">
               <img src="images/img_1.jpg" alt="Image" class="img-fluid">
@@ -253,21 +256,7 @@
     </section>
 
 
-<section class="ite-section bg-light" id="enquiry-section">
 
-<div class="container">
-
-  <div class="lm-50">
-    <h2 style="text-align: center;margin-top: 15px;">Enquiry Here</h2>
-
-    <app-enquiry-form></app-enquiry-form>
-
-  </div>
-
-</div>
-
-
-</section>
 
 
 
@@ -288,11 +277,8 @@
               <h2 class="font-size-regular"><a href="#">THE BENEFITS OF APPLYING FOR A HOME LOAN IN PRESENT TIMES</a></h2>
               <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
               <p>‘Home’ brings to mind comfort, joy, pride and family time. Every homeowner will tell you that her home gives her a sense of identity and its ownership is sacrosanct; this is one asset she would never trade for anything in the world.
-
                 To experience this sense of ownership, pride and joy, now would be a good time to plan your home purchase. Becoming a homeowner needn’t be hard on your pocket. You can Apply for Home Loan and bring alive your dream of owning a home. There are numerous benefits of availing a home loan; you get tax benefits on interest paid and loan amount repaid; with a Home Loan Apply to achieve homeownership today instead of in future; the home loan provider assists you in terms of assessing the builder’s credibility and track record and the legal documents pertaining to the building.
-                
                 In addition to these benefits, there are 3 key benefits of becoming a homeowner in present times:
-                
                 </p>
               <p><a href="#">Continue Reading...</a></p>
             </div>
@@ -307,12 +293,12 @@
               <p>Using the online route to make your purchases, make payments, do your banking and other tasks is convenient, time-saving and easy. This also applies to online home loans. Instead of visiting the office of the loan provider along with the necessary documents and spending precious time in the commute, it makes sense to simply apply for home loan online. While most people are convinced about the advantages of making home loan application online, they are unsure about how to go about it. They hesitate because they believe it would be difficult to do and they could possibly make mistakes. The truth is - applying for home loan online is super simple and convenient.
 
                 Let’s discuss how to apply for home loan online. Here is a step-by-step process for you to follow:
-                
+
                 </p>
               <p><a href="#">Continue Reading...</a></p>
             </div>
           </div>
-          <div class="col-md-6 cocl-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-4 cocl-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="h-entry">
               <a href="single.html">
                 <img src="assets\5 mistakes to avoid while taking a Loan Against Property.jpeg" alt="Image" class="img-fluid">
@@ -329,95 +315,12 @@
       </div>
     </section>
 
-  
 
 
-    <section class="site-section bg-light" id="contact-section" data-aos="fade">
+
+    <section class="site-section bg-light mb-5" id="contact-section" data-aos="fade">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-3">Contact Us</h2>
-          </div>
-        </div>
-        <div class="row mb-5">
-
-
-
-          <div class="col-md-4 text-center">
-            <p class="mb-4">
-              <span class="icon-room d-block h2 text-primary"></span>
-              <span>203 Vishwas Nagar, Mumbai, Maharashatra, India</span>
-            </p>
-          </div>
-          <div class="col-md-4 text-center">
-            <p class="mb-4">
-              <span class="icon-phone d-block h2 text-primary"></span>
-              <a href="#">+91 985 3235 324</a>
-            </p>
-          </div>
-          <div class="col-md-4 text-center">
-            <p class="mb-0">
-              <span class="icon-mail_outline d-block h2 text-primary"></span>
-              <a href="#">youremail@domain.com</a>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 mb-5">
-
-
-
-            <form action="#" class="p-5 bg-white">
-
-              <h2 class="h4 text-black mb-5">Enquiry Here</h2>
-
-              <app-enquiry-form></app-enquiry-form>
-
-              <!-- <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label>
-                  <input type="email" id="email" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label>
-                  <input type="subject" id="subject" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
-                </div>
-              </div> -->
-
-
-            </form>
-          </div>
-
-        </div>
+        <app-enquiry-form></app-enquiry-form>
       </div>
     </section>
 

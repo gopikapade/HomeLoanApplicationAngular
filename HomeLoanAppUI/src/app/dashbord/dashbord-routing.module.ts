@@ -24,6 +24,7 @@ import { DashComponent } from './templates/dash/dash.component';
 //        loadChildren:()=> import('src/app/moduleExe/AH/ah/ah-routing.module').then(e=>e.AhRoutingModule)
 //      }
 //   ]}
+
 ];
 
 @NgModule({
