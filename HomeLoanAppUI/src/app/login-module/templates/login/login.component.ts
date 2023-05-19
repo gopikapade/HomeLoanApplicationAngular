@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private router:Router, private fb:FormBuilder){}
+  constructor(private router:Router, private fb:FormBuilder, private login:LoginService){}
 
   logIn:FormGroup;
 
@@ -24,7 +25,13 @@ export class LoginComponent {
   signIn(){
 
     console.log(this.logIn.value)
-   // this.router.navigate(['dash'])
+    this.login.validateLogin(this.logIn.value.username, this.logIn.value.password).subscribe((data:any)=>{
+         console.log(data);
+         this.router.navigate(['dash'], {state:{data:data}})
+    },(responce:any)=>
+    alert(responce.error))
+
+
   }
 
 }

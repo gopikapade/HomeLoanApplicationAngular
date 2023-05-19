@@ -10,6 +10,12 @@ export class NavComponent {
 
   constructor(private routes:Router){}
 
-role:string;
+  role:String;
+
+  menues:any;
+  ngOnInit(){
+   const data = sessionStorage.getItem("menuesData")
+   this.menues = JSON.parse(data);
+  }
 
 }

@@ -13,17 +13,12 @@ export class SidenavComponent {
 
   constructor(){}
 
-  roleMenues:Array<any>=Menues.RoleMenus;
+
   roles:string;
-
-
+  menues:any;
   ngOnInit(){
-
-    // this.roles = sessionStorage.getItem('userType');
-    // console.log(this.roles)
-
-
-
+   const data = sessionStorage.getItem("menuesData")
+   this.menues = JSON.parse(data);
   }
 
   toggleSideNav() {
