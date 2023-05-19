@@ -10,6 +10,7 @@ import { NavComponent } from './templates/nav/nav.component';
 import { TransformNamePipe } from './Pipe/transform-name.pipe';
 
 
+
 @NgModule({
   declarations: [
     SidenavComponent,

@@ -859,6 +859,7 @@ body:after {
   background-repeat: no-repeat;
   background-position: top;
   background-position: center center;
+  background-image: url(src\assets\hero_2.jpg);
 }
 
 .site-blocks-cover.overlay {
