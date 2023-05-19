@@ -9,9 +9,9 @@
     </div>
 
     <!-- Login Form -->
-    <form (ngSubmit)="signIn()">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br>
+    <form [formGroup]="logIn" (ngSubmit)="signIn()">
+      <input type="text" formControlName="username" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input type="text" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="password"><br>
       <button  class="fadeIn fourth btn btn-success mb-3 mt-1" value="Log In">LOG IN</button>
     </form>
 
