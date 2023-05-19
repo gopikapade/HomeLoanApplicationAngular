@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EnquiryService } from 'src/app/service/enquiry.service';
 
 @Component({
   selector: 'app-enquiry-form',
@@ -14,21 +15,26 @@ export class EnquiryFormComponent implements OnInit {
   progressPercentage: number = 50;
   enquiryForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,private enquiryservice:EnquiryService) {
    
   }
   ngOnInit() {
     this.enquiryForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      age: [null, Validators.required],
+      age: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mobileNo: ['', Validators.required],
       pancardNo: ['', Validators.required],
-      maritalStatus: ['single', Validators.required],
-      income: [null, Validators.required],
-      loanAmount: [null, Validators.required],
-      education: ['', Validators.required]
+      marrtialStatus: ['', Validators.required],
+      income: ['', Validators.required],
+      loanAmmount: ['', Validators.required],
+        education:this.formBuilder.group({
+          higherEducation:[]
+
+
+
+     })
     }); 
    
   }
@@ -48,7 +54,7 @@ export class EnquiryFormComponent implements OnInit {
 
   submitForm() {
     if (this.enquiryForm.valid) {
-      // Form submission logic here
+      this.enquiryservice.saveenquiry(this.enquiryForm).subscribe()
       console.log(this.enquiryForm.value);
     } else {
       // Handle invalid form
