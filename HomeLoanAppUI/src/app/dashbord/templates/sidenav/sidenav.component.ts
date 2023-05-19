@@ -9,17 +9,18 @@ import { Menues } from 'src/app/model/menues';
   styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent {
-  elementRef: any;
   isSideNavVisible: boolean;
 
   constructor(){}
 
   roleMenues:Array<any>=Menues.RoleMenus;
   roles:string;
+
+
   ngOnInit(){
 
-    this.roles = sessionStorage.getItem('userType');
-    console.log(this.roles)
+    // this.roles = sessionStorage.getItem('userType');
+    // console.log(this.roles)
 
 
 

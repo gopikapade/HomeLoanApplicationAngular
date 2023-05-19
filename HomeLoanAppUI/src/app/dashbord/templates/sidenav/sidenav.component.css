@@ -19,9 +19,9 @@
     background-color: #60a0e4;
   }
   .sidebar {
-   height: 100vh;
+    height: 100vh;
     position: sticky;
     top: 0;
-    z-index: 1;
     padding: 20px;
+    background-color: rgb(65, 119, 165);
   }
