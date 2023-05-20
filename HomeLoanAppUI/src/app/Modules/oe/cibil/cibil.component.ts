@@ -8,11 +8,13 @@ import { EnquiryService } from 'src/app/service/enquiry.service';
   styleUrls: ['./cibil.component.css']
 })
 export class CibilComponent {
+  remarkModal: any;
 
   constructor(private enquiryService:EnquiryService, private cibil:CibilService){}
 
   enquiries:any
   cibilScore:any
+  enquiry:any
     ngOnInit()
     {
      this.enquiryService.oeGetEnquiries().subscribe((data:any)=>{
@@ -42,4 +44,29 @@ export class CibilComponent {
         return '';
       }
     }
-}
+
+    remark: string;
+    id:number
+    openRemarkPopup() {
+      this.remark = ''; // Clear previous remark
+      this.remarkModal.show();
+    }
+
+
+    passEnquiry(enquiry:any){
+      this.enquiry=enquiry
+    }
+
+    submitRemark() {
+      this.enquiry.cibilEnquiry.remark =this.remark
+       console.log("id", this.id)
+       console.log(this.enquiry)
+
+      this.cibil.addRemark(this.enquiry).subscribe((data:any)=>{
+         console.log(data)
+      })
+      console.log(this.remark);
+      window.location.reload()
+    }
+
+  }

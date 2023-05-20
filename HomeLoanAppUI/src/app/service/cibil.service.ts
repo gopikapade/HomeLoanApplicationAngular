@@ -13,4 +13,9 @@ getCibilCheck(enquiry)
   return this.http.post("http://localhost:8080/cibil/", enquiry);
 }
 
+addRemark(enquiry){
+    return   this.http.put("http://localhost:8080/remarkadd/", enquiry)
+
+}
+
 }
