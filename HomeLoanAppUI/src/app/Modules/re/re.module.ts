@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { ReRoutingModule } from './re-routing.module';
 import { CheckEnquiryComponent } from './check-enquiry/check-enquiry.component';
+import { LoanApplicationComponent } from './loan-application/loan-application.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    CheckEnquiryComponent
+    CheckEnquiryComponent,
+    LoanApplicationComponent
   ],
   imports: [
     CommonModule,
-    ReRoutingModule
+    ReRoutingModule,ReactiveFormsModule
   ]
 })
 export class ReModule { }

@@ -11,6 +11,6 @@ export class EnquiryService {
 
   saveenquiry(enquiryForm:FormGroup){
 
-    return this.http.post("http://localhost:7575/enquiry/addenquiry",enquiryForm.value)
+    return this.http.post("http://localhost:8080/enquiry/addenquiry",enquiryForm.value)
   }
 }
