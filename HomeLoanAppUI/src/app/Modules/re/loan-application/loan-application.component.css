@@ -1,0 +1,31 @@
+h3 {
+  font-family: "Montserrat", Arial, sans-serif;
+  /* Add any other desired styling */
+}
+.btn-primary {
+  background-color: #FF5722; /* Set primary button background color */
+  color: #FFFFFF; /* Set primary button text color */
+  /* Add any other desired styling */
+}
+.btn-primary:hover {
+  background-color: #FF7F50; /* Set primary button hover background color */
+  color: #FFFFFF; /* Set primary button hover text color */
+  /* Add any other desired hover animation */
+}
+.container {
+  max-width: 600px;
+  margin: 5px auto;
+ 
+}
+.progress {
+  margin-bottom: 20px;
+}
+.step-container {
+ 
+}
+.step-container h3 {
+  margin-top: 0;
+}
+.step-container.active {
+  display: block;
+}
