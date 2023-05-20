@@ -12,15 +12,11 @@
     <div class="offcanvas-body">
         <div>
             <span class="d-block-inline mt-5">Welcome</span>
-
             <ul class="nav flex-column sticky-top pl-0 pt-3 mt-2">
-                <li *ngFor="let m of menues.body.menues">
+                <li *ngFor="let m of menues.menues">
                     <button class="button" data-bs-dismiss="offcanvas" aria-label="Close"
-                       [routerLink]="[menues.body.role, m.path]">{{m.label}}</button>
+                       [routerLink]="[menues.role, m.path]">{{m.label}}</button>
                 </li>
-
-
-                <a routerLink="re/loan">Loan Application</a>
             </ul>
         </div>
     </div>

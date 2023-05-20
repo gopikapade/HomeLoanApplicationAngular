@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash',
@@ -8,16 +8,20 @@ import { Router } from '@angular/router';
 })
 export class DashComponent {
 
-  constructor(private router:Router){}
+  constructor(private router:ActivatedRoute){}
 
 
-  data?:any = this.router.getCurrentNavigation()?.extras?.state?.['data']
-
-  roleType:any = this.data;
 
 
+
+   roleType:any
   ngOnInit(){
-    console.log(this.data);
+
+      this.router.paramMap.subscribe(param=>{
+          const data = param.get('data');
+          this.roleType    = JSON.parse(data).body;
+          console.log(this.roleType)
+      })
     sessionStorage.setItem("menuesData", JSON.stringify(this.roleType));
   }
 

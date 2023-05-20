@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Enquiry } from 'src/app/model/enquiry';
+import { CibilService } from 'src/app/service/cibil.service';
 import { EnquiryService } from 'src/app/service/enquiry.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { EnquiryService } from 'src/app/service/enquiry.service';
 })
 export class CheckEnquiryComponent {
 
-  constructor(private enquiryServices:EnquiryService){}
+  constructor(private enquiryServices:EnquiryService, private cibil:CibilService){}
 
   enquries:Array<Enquiry>=[]
 
@@ -21,8 +22,8 @@ export class CheckEnquiryComponent {
      }
 
     forwrdToOe(id:number, enquiry:Enquiry){
-
         this.enquiryServices.oeForward(id, enquiry).subscribe((data:any)=>{console.log(data)})
+        window.location.reload();
      }
 
 }

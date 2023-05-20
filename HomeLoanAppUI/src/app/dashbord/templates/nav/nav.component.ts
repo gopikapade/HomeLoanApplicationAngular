@@ -8,13 +8,13 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 })
 export class NavComponent {
 
-  constructor(private routes:Router){}
+  constructor(private routes:ActivatedRoute){}
 
   role:String;
 
   menues:any;
   ngOnInit(){
-   const data = sessionStorage.getItem("menuesData")
+   const data = sessionStorage.getItem("menuesData");
    this.menues = JSON.parse(data);
   }
 

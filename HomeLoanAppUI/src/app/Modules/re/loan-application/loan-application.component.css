@@ -15,14 +15,12 @@ h3 {
 .container {
   max-width: 600px;
   margin: 5px auto;
- 
+
 }
 .progress {
   margin-bottom: 20px;
 }
-.step-container {
- 
-}
+
 .step-container h3 {
   margin-top: 0;
 }

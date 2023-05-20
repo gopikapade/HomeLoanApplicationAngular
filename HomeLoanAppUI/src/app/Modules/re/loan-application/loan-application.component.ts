@@ -10,7 +10,7 @@ import { ReserviceService } from 'src/app/service/reservice.service';
 export class LoanApplicationComponent {
   addressProof:File;
   constructor(private formBuilder: FormBuilder,private reservice:ReserviceService) {
-   
+
   }
   pancard:File;
   incomeTax:File;
@@ -35,7 +35,7 @@ export class LoanApplicationComponent {
       status1:[''],
   status2:[''],
 
-    
+
 
     enq : this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -51,8 +51,8 @@ export class LoanApplicationComponent {
           higherEducation:[]
      })
     })
-  }) 
-   
+  })
+
   }
   next() {
     this.currentStep = this.currentStep+1;
@@ -80,14 +80,14 @@ export class LoanApplicationComponent {
       data.append('estimate',this.estimate);
       data.append('noc',this.noc)
 
-      this.reservice.saveLoanApplication(data).subscribe((data: any) =>
-      console.log(data.value))
+      this.reservice.saveLoanApplication(data).subscribe((data: any) =>{console.log(data.value)})
 
 
-      
+
+
     } else {
       // Handle invalid form
-      
+
     }
   }
 
@@ -139,7 +139,7 @@ this.salarySlip=event.target.files[0]
     this.estimate=event.target.files[0]
   }
   onNoc(event){
-this.noc=event.target.files[0]
+   this.noc=event.target.files[0]
 
   }
 }
