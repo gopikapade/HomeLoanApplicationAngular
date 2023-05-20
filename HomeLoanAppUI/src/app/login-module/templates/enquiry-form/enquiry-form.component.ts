@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { EnquiryService } from 'src/app/service/enquiry.service';
 
 @Component({
@@ -15,8 +16,8 @@ export class EnquiryFormComponent implements OnInit {
   progressPercentage: number = 50;
   enquiryForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private enquiryservice:EnquiryService) {
-   
+  constructor(private formBuilder: FormBuilder,private enquiryservice:EnquiryService, private router:Router) {
+
   }
   ngOnInit() {
     this.enquiryForm = this.formBuilder.group({
@@ -32,16 +33,10 @@ export class EnquiryFormComponent implements OnInit {
         education:this.formBuilder.group({
           higherEducation:[]
 
-
-
      })
-    }); 
-   
+    });
+
   }
-
-
-
-
   next() {
     this.currentStep = 2;
     this.progressPercentage = 100;
@@ -54,8 +49,11 @@ export class EnquiryFormComponent implements OnInit {
 
   submitForm() {
     if (this.enquiryForm.valid) {
-      this.enquiryservice.saveenquiry(this.enquiryForm).subscribe()
+      this.enquiryservice.saveenquiry(this.enquiryForm).subscribe((data:any)=>{console.log(data)})
+      this.router.navigate([''])
+      alert("Responce Submitted Sucessfully")
       console.log(this.enquiryForm.value);
+
     } else {
       // Handle invalid form
       console.log('Invalid form');
