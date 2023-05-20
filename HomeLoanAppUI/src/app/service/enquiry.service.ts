@@ -10,7 +10,6 @@ export class EnquiryService {
   constructor(private http:HttpClient) { }
 
   saveenquiry(enquiryForm:FormGroup){
-
     return this.http.post("http://localhost:8080/enquiry/addenquiry", enquiryForm.value)
   }
 
@@ -19,7 +18,11 @@ export class EnquiryService {
   }
 
   oeForward(id, enquiry){
-    return   this.http.put("http://localhost:8080/enquiry/oeForward/"+id, enquiry)
+    return this.http.put("http://localhost:8080/enquiry/oeForward/"+id, enquiry)
+  }
+
+  oeGetEnquiries(){
+     return this.http.get("http://localhost:8080/enquiry/oeGetEnquiries")
   }
 
 }

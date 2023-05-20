@@ -1,4 +1,3 @@
-
 <table class="table align-middle mb-0 bg-white mx-auto mt-5 text-dark">
     <thead class="bg-light">
       <tr>
@@ -13,11 +12,10 @@
         <th>Income</th>
         <th>Loan Ammount</th>
         <th>Eduction</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let enqury of enquries let i=index">
+      <tr *ngFor="let enqury of enquiries let i=index">
          <td>{{i+1}}</td>
          <td>{{enqury.firstName}}</td>
          <td>{{enqury.lastName}}</td>
@@ -29,9 +27,5 @@
          <td>{{enqury.income}}</td>
          <td>{{enqury.loanAmmount}}</td>
          <td>{{enqury.education.higherEducation}}</td>
-         <td *ngIf="enqury.forwardToOe!=true, else other">
-            <a (click)="forwrdToOe(enqury.enquryId, enqury)" >
-              <i class="fa-solid fa-forward"></i>br<span class="">To OE</span></a></td>
-         <ng-template #other><td><i class="fa-solid fa-check"></i></td></ng-template>
       </tr>
 </table>
