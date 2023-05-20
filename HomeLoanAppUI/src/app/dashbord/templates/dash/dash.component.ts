@@ -11,7 +11,7 @@ export class DashComponent {
   constructor(private router:Router){}
 
 
-  data:any = this.router.getCurrentNavigation().extras.state['data']
+  data?:any = this.router.getCurrentNavigation()?.extras?.state?.['data']
 
   roleType:any = this.data;
 
