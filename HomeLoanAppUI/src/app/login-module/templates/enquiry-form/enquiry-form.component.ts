@@ -37,6 +37,10 @@ export class EnquiryFormComponent implements OnInit {
     });
 
   }
+
+
+
+
   next() {
     this.currentStep = 2;
     this.progressPercentage = 100;
@@ -46,6 +50,8 @@ export class EnquiryFormComponent implements OnInit {
     this.currentStep = 1;
     this.progressPercentage = 50;
   }
+
+
 
   submitForm() {
     if (this.enquiryForm.valid) {
@@ -58,6 +64,8 @@ export class EnquiryFormComponent implements OnInit {
       // Handle invalid form
       console.log('Invalid form');
     }
+
+
   }
 
 

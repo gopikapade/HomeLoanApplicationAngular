@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Menues } from 'src/app/model/menues';
 
 
 
