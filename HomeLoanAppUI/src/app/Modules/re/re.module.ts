@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReRoutingModule } from './re-routing.module';
 import { CheckEnquiryComponent } from './check-enquiry/check-enquiry.component';
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReRoutingModule,ReactiveFormsModule
+    ReRoutingModule,ReactiveFormsModule,FormsModule
   ]
 })
 export class ReModule { }

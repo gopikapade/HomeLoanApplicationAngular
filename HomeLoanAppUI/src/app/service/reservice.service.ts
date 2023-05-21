@@ -14,7 +14,11 @@ export class ReserviceService {
 
     return this.http.post("http://localhost:8080//documents/adddocuments",data)
 
+  }
+  emailsend(data:any){
 
+
+    return this.http.post("http://localhost:8080/mail/send",data.value)
   }
 
 
