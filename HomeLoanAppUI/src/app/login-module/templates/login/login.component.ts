@@ -24,11 +24,11 @@ export class LoginComponent {
 
   signIn(){
 
-    
+
     console.log(this.logIn.value)
     this.login.validateLogin(this.logIn.value.username, this.logIn.value.password).subscribe((data:any)=>{
          console.log(data);
-         this.router.navigate(['dash'], {state:{data:data}})
+         this.router.navigateByUrl('dash/'+ JSON.stringify(data))
     },(responce:any)=>
     alert(responce.error))
 

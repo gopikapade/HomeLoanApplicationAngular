@@ -26,7 +26,7 @@ export class EnquiryFormComponent implements OnInit {
       age: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mobileNo: ['', Validators.required],
-      pancardNo: ['', Validators.required],
+      pancardNo: ['', [Validators.required, Validators.pattern("[A-Z]{5}[0-9]{4}[A-Z]{1}")]],
       marrtialStatus: ['', Validators.required],
       income: ['', Validators.required],
       loanAmmount: ['', Validators.required],

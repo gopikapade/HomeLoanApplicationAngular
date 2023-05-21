@@ -6,7 +6,7 @@ const routes: Routes = [
   {path:'',
   loadChildren:()=> import('src/app/login-module/login-module.module').then(e=>e.LoginModuleModule)},
 
-  {path:'dash',
+  {path:'dash/:data',
   loadChildren:()=> import('src/app/dashbord/dashbord.module').then(e=>e.DashbordModule)},
 
 ];

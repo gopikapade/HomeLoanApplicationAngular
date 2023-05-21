@@ -12,7 +12,7 @@ export class ReserviceService {
 
   saveLoanApplication(data:any):Observable<any>{
 
-    return this.http.post("http://localhost:8080//documents/adddocuments",data)
+    return this.http.post("http://localhost:8080//documents/adddocuments", data)
 
   }
   emailsend(data:any){

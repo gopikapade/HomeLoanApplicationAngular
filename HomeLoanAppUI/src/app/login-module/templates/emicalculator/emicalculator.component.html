@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <h2>Loan EMI Calculator</h2>
+    <span class="div-bar"></span>
+    <div class="calculator">
+        <div class="calculator-input">
+            <label for="loan_amount">Loan Amount (Rs.):</label>
+            <input type="number" id="loan_amount" [(ngModel)]="loanAmount">
+        </div>
+        <div class="calculator-input">
+            <label for="loan_tenure">Loan Tenure (Year.):</label>
+            <input type="number" id="loan_tenure" [(ngModel)]="loanTenure">
+        </div>
+        <div class="calculator-input">
+            <label for="loan_interest">Interest Rate (%):</label>
+            <input type="number" id="loan_interest" [(ngModel)]="loanRate">
+        </div>
+        <div class="calculator-input">
+            <button class="calculator-btn" (click)="calculateLoan()">Calculate EMI</button>
+        </div>
+    </div>
+
+    <div class="calculator-result">
+        <div>
+            <canvas #loanChart id="loanChart"></canvas>
+        </div>
+
+        <ul>
+            <li>Monthly Loan EMI: <span class="loan_emi">{{ loanEmi }}</span></li>
+            <li>Principle Amount: <span class="loan_principle">{{ loanPrinciple }}</span></li>
+            <li>Loan on Interest: <span class="loan_interest_rate">{{ loanInterest }}</span></li>
+            <li>Total Amount to be paid: <span class="loan_total">{{ loanTotal }}</span></li>
+        </ul>
+    </div>
+</div>

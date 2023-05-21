@@ -64,8 +64,11 @@
         <label for="education">Education</label>
         <input type="text" class="form-control" id="education" formControlName="higherEducation">
       </div>
+      <div>
+          <span class="text-info text-center mt-2">All Details Are Mandatory, Please Provide All Details</span>
+      </div>
       <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-success ms-2" [disabled]="!enquiryForm.valid">Submit</button>
     </div>
 
   </form>

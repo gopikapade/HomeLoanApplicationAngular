@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { OeRoutingModule } from './oe-routing.module';
 import { EnquiriesComponent } from './enquiries/enquiries.component';
 import { CibilComponent } from './cibil/cibil.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CibilComponent } from './cibil/cibil.component';
   ],
   imports: [
     CommonModule,
-    OeRoutingModule
+    OeRoutingModule,
+    FormsModule
   ]
 })
 export class OeModule { }

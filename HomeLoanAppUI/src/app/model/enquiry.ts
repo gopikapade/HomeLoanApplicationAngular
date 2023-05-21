@@ -15,8 +15,19 @@ export class Enquiry {
 	 cmResponce:boolean
      forwardToOe:boolean;
 	 education:EducationlInfo;
+     cibilEnquiry: Cibil;
 
 }
 export class EducationlInfo{
     higherEducation:string
+}
+
+export class Cibil{
+
+	 cbillScore:number
+     data:string
+     status:boolean
+     remark:String
+
+
 }
