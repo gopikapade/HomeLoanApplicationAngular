@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingPageComponent } from './templates/landing-page/landing-page.component';
 import { EnquiryFormComponent } from './templates/enquiry-form/enquiry-form.component';
 import { LoginComponent } from './templates/login/login.component';
+import { EMIcalculatorComponent } from './templates/emicalculator/emicalculator.component';
 
 
 
@@ -13,7 +14,8 @@ import { LoginComponent } from './templates/login/login.component';
   declarations: [
         LandingPageComponent,
         EnquiryFormComponent,
-        LoginComponent
+        LoginComponent,
+        EMIcalculatorComponent
   ],
   imports: [
     CommonModule,
