@@ -1,0 +1,128 @@
+
+<table class="table table-light">
+    <thead>
+      <tr>
+            <th scope="col">Index</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col" >Email</th>
+            <th scope="col">Pancard</th>
+            <th scope="col">Action</th>
+
+        <!-- <th scope="col">Address Proof</th>
+        <th scope="col">Pancard</th>
+        <th scope="col">Income Tax</th>
+        <th scope="col">Aadharcard</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Salary Slip</th>
+        <th scope="col">Building Permission</th>
+        <th scope="col">Layout</th>
+        <th scope="col">Building Plan</th>
+        <th scope="col">Estimate</th>
+        <th scope="col">NOC</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doc of documents, let i=index">
+        <td>{{i+1}}</td>
+        <td>{{doc.enq.firstName}}</td>
+         <td>{{doc.enq.lastName}}</td>
+      <td>{{doc.enq.email}}</td>
+      <td>{{doc.enq.pancardNo}}</td>
+
+      <td><button type="button" class="btn btn-warning" (click)="openModal(doc)">Check Documents</button></td>
+
+<!-- The modal -->
+
+</tr>
+ </tbody>
+</table>
+
+
+<!-- The modal -->
+<div class="modal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <!-- Modal header -->
+        <div class="modal-header">
+          <h5 class="modal-title">Document Details</h5>
+          <button type="button" class="close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <label>Address Proof</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.addressProof" class="document-image">
+            </div>
+            <div class="col">
+              <label>Pancard</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.pancard" class="document-image">
+            </div>
+            <div class="col">
+              <label>Income Tax</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.incomeTax" class="document-image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Aadhar Card</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.aadharCard" class="document-image">
+            </div>
+            <div class="col">
+              <label>Photo</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.photo" class="document-image">
+            </div>
+            <div class="col">
+              <label>Salary Slip</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.salarySlip" class="document-image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Building Permission</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments && selectedDoc.personalDocuments.propertyDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.propertyDocuments.buildingpermission" class="document-image">
+            </div>
+            <div class="col">
+              <label>Layout</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments && selectedDoc.personalDocuments.propertyDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.propertyDocuments.layout" class="document-image">
+            </div>
+            <div class="col">
+              <label>Building Plan</label>
+              <img *ngIf="selectedDoc && selectedDoc.personalDocuments && selectedDoc.personalDocuments.propertyDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.propertyDocuments.buildingPlan" class="document-image">
+            </div>
+            <div class="col">
+                <label>Estimate</label>
+                <img *ngIf="selectedDoc && selectedDoc.personalDocuments && selectedDoc.personalDocuments.propertyDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.propertyDocuments.estimate" class="document-image">
+              </div>
+              <div class="col">
+                <label>NOC</label>
+                <img *ngIf="selectedDoc && selectedDoc.personalDocuments && selectedDoc.personalDocuments.propertyDocuments" [src]="'data:image/jpeg;base64,'+selectedDoc.personalDocuments.propertyDocuments.noc" class="document-image">
+              </div>
+
+            </div>
+            <button class="btn btn-outline-success text-dark" (click)="updateDocumentStatus()">Submit</button>
+            <button class="btn btn-outline-warning ms-3">Add Remark</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  <!-- <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.addressProof
+            " height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.pancard" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.incomeTax" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.aadharCard" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.photo" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.salarySlip" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.propertyDocuments.buildingpermission" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.propertyDocuments.layout" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.propertyDocuments.buildingPlan" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.propertyDocuments.estimate" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.personalDocuments.propertyDocuments.noc" height="150"></td> -->

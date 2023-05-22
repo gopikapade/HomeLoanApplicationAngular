@@ -1,0 +1,50 @@
+<!-- {{documents[0]  | json}} -->
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col" >Email</th>
+      <th scope="col">Pancard</th>
+      <th scope="col">Education</th>
+      <th scope="col">Loan Ammount</th>
+      <!-- <th scope="col"></th>
+        <th scope="col">Layout</th>
+        <th scope="col">Building Plan</th>
+        <th scope="col">Estimate</th>
+        <th scope="col">NOC</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of documents, let i=index">
+      <td>{{i+1}}</td>
+      <td>{{doc.enq.firstName}}</td>
+      <td>{{doc.enq.lastName}}</td>
+      <td>{{doc.enq.email}}</td>
+      <td>{{doc.enq.pancardNo}}</td>
+      <td>{{doc.enq.education.higherEducation}}</td>
+      <td>{{doc.enq.loanAmmount}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<!-- <tr *ngFor="let doc of documents">
+        <td>{{doc.documentId}}</td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.addressProof" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.pancard" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.incomeTax" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.aadharCard" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.photo" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.salarySlip" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.propertyDocuments.buildingpermission" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.propertyDocuments.layout" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.propertyDocuments.buildingPlan" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.propertyDocuments.estimate" height="150"></td>
+        <td><img [src]="'data:image/jpeg;base64,'+doc.propertyDocuments.noc" height="150"></td>
+    </tr> -->

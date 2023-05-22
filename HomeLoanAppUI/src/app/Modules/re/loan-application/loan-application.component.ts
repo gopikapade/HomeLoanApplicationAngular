@@ -80,11 +80,10 @@ export class LoanApplicationComponent {
      this.loanapplicationform.controls['enq'].get('education').patchValue({
       higherEducation:this.data.education.higherEducation
      })
-  }
 
   }
 
-
+  }
 
   filterNames() {
     if (!this.search) {
