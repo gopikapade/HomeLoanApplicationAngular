@@ -137,9 +137,9 @@
                     accept="image/*" required>
             </div>
         </div>
-        <button type="button" class="btn btn-primary previous-button" *ngIf="currentStep != 1"
+        <button type="button" class="btn btn-outline-warning previous-button" *ngIf="currentStep != 1"
             (click)="previous()">Previous</button>
-        <button type="button" class="btn btn-primary next-button" *ngIf="currentStep != 3" (click)="next()">Next</button>
-        <button type="submit" class="btn btn-primary submit-button" *ngIf="currentStep == 3">Submit</button>
+        <button type="button" class="btn btn-outline-info next-button ms-2"  *ngIf="currentStep != 3" (click)="next()">Next</button>
+        <button type="submit" class="btn btn-outline-success submit-button" style="margin-left: 10px;" *ngIf="currentStep == 3">Submit</button>
     </form>
 </div>

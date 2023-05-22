@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class EnquiryService {
 
+
   constructor(private http:HttpClient) { }
 
   saveenquiry(enquiryForm:FormGroup){
@@ -23,6 +24,10 @@ export class EnquiryService {
 
   oeGetEnquiries(){
      return this.http.get("http://localhost:8080/enquiry/oeGetEnquiries")
+  }
+
+  deleteEnquiry(id: number) {
+    return this.http.delete("http://localhost:8080/enquiry/deleteEnquiries/"+id)
   }
 
 }

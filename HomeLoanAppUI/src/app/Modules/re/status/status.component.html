@@ -37,7 +37,7 @@
       <td>{{enqury.cibilEnquiry.remark}}</td>
 
 
-      <td><a class="btn btn-danger">Cancle</a></td>
+      <td><button class="btn btn-danger" (click)="deleteEnq(enqury.enquryId)">Cancle</button></td>
       <td *ngIf="enqury.cibilEnquiry.cbillScore>=500"><button class="btn btn-primary"
           (click)="application(enqury)">Application</button></td>
           <td>

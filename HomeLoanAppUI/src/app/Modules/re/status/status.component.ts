@@ -105,6 +105,7 @@ export class StatusComponent {
 
   application(enqury)
   {
+    // const enquirys =JSON.stringify(enqury)
     const url = this.router.url
     this.router.navigate([url, 'loan'],   {state:{data:enqury}})
     //  const data  = sessionStorage.getItem('menuesData')
@@ -112,6 +113,14 @@ export class StatusComponent {
   }
 
    //this.router.navigate(['/view'], { replaceUrl: true });
+
+
+   deleteEnq(id:number){
+    this.enquiryServices.deleteEnquiry(id).subscribe((data:any)=>{
+       console.log(data.responseMessage)
+    }, (error:any)=>{alert(error.error.massage)})
+     window.location.reload();
+   }
 
 
   }
