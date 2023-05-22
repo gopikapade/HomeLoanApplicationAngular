@@ -18,6 +18,7 @@ export class SidenavComponent {
   ngOnInit(){
    const data = sessionStorage.getItem("menuesData")
    this.menues = JSON.parse(data);
+   console.log(data)
   }
 
   toggleSideNav() {

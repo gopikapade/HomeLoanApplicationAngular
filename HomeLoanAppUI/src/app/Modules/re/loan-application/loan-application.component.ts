@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Enquiry } from 'src/app/model/enquiry';
 import { EnquiryService } from 'src/app/service/enquiry.service';
 import { ReserviceService } from 'src/app/service/reservice.service';
 @Component({
@@ -9,7 +11,9 @@ import { ReserviceService } from 'src/app/service/reservice.service';
 })
 export class LoanApplicationComponent {
   addressProof:File;
-  constructor(private formBuilder: FormBuilder,private reservice:ReserviceService) {
+  filteredNames: string[];
+  constructor(private formBuilder: FormBuilder,private reservice:ReserviceService,
+    private enquries:EnquiryService, private router:Router) {
 
   }
   pancard:File;
@@ -24,19 +28,22 @@ export class LoanApplicationComponent {
   noc:File;
   reader=new FileReader();
   showPass=null;
-
+  enquiries:Array<Enquiry>;
+  search:string
 
   currentStep: number = 1;
   progressPercentage: number = 40;
   loanapplicationform: FormGroup;
+
+
+  data:any = this.router.getCurrentNavigation()?.extras?.state?.['data']
+
+
   ngOnInit() {
     this.loanapplicationform=this.formBuilder.group({
-      email:[''],
+      remark:[''],
       status1:[''],
-  status2:[''],
-
-
-
+      status2:[''],
     enq : this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -53,7 +60,46 @@ export class LoanApplicationComponent {
     })
   })
 
+  this.enquries.getEnqiries().subscribe((data: any) => {
+    this.enquiries = data.body;
+  });
+
+  if(this.data!=null){
+    this.loanapplicationform.get('enq').patchValue({
+      firstName: this.data.firstName,
+      lastName: this.data.lastName,
+      age:  this.data.age,
+      email:  this.data.email,
+      mobileNo:  this.data.mobileNo,
+      pancardNo: this.data.pancardNo,
+      marrtialStatus: this.data.marrtialStatus,
+      income: this.data.income,
+      loanAmmount: this.data.loanAmmount
+     })
+
+     this.loanapplicationform.controls['enq'].get('education').patchValue({
+      higherEducation:this.data.education.higherEducation
+     })
   }
+
+  }
+
+
+
+  filterNames() {
+    if (!this.search) {
+      this.filteredNames = this.enquiries.map(enquiry => enquiry.firstName);
+    } else {
+      const query = this.search.toLowerCase();
+      this.filteredNames = this.enquiries
+        .filter(enquiry => enquiry.firstName.toLowerCase().includes(query))
+        .map(enquiry => enquiry.firstName);
+    }
+  }
+
+
+
+
   next() {
     this.currentStep = this.currentStep+1;
     this.progressPercentage = this.progressPercentage+30;
@@ -80,7 +126,11 @@ export class LoanApplicationComponent {
       data.append('estimate',this.estimate);
       data.append('noc',this.noc)
 
-      this.reservice.saveLoanApplication(data).subscribe((data: any) =>{console.log(data.value)})
+      this.reservice.saveLoanApplication(data).subscribe((data: any) =>{
+            alert("Apllication Saved Sucessfully")
+            this.loanapplicationform.reset();
+      },(responce:any)=>{alert(responce.error.massage)});
+
 
 
 
@@ -93,8 +143,8 @@ export class LoanApplicationComponent {
 
 
   onAddressProof(event){
-this.addressProof=event.target.files[0];
-this.reader.onload=e=>this.showPass=this.reader.result;
+   this.addressProof=event.target.files[0];
+   this.reader.onload=e=>this.showPass=this.reader.result;
     this.reader.readAsDataURL(this.addressProof);
   }
 
@@ -117,8 +167,7 @@ this.pancard=event.target.files[0];
   }
 
   onSalarySlip(event){
-this.salarySlip=event.target.files[0]
-
+   this.salarySlip=event.target.files[0]
   }
 
   onBuildingPermission(event){
@@ -140,6 +189,6 @@ this.salarySlip=event.target.files[0]
   }
   onNoc(event){
    this.noc=event.target.files[0]
-
   }
+
 }

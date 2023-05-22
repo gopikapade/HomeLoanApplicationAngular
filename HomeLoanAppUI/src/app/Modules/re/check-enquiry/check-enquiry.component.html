@@ -16,7 +16,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let enqury of enquries let i=index">
+    <tr *ngFor="let enqury of enquries
+    | paginate
+      : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };
+  let i = index
+    ">
       <td>{{i+1}}</td>
       <td>{{enqury.firstName}}</td>
       <td>{{enqury.lastName}}</td>
@@ -32,47 +40,16 @@
         <a (click)="forwrdToOe(enqury.enquryId, enqury)">
           <i class="fa-solid fa-forward"></i>br<span class="">To OE</span></a>
       </td>
-      <td>
-
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          (click)="forMailData(enqury)">Send Mail</button>
-      </td>
       <ng-template #other>
         <td><i class="fa-solid fa-check"></i></td>
       </ng-template>
-
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Email To: </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form [formGroup]="emailform">
-                <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Recipient:</label>
-                  <input type="text" class="form-control" id="recipient-name" [value]="email" formControlName="to">
-                </div>
-                <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Subject:</label>
-                  <textarea class="form-control" id="message-text" formControlName="subject"></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Message:</label>
-                  <textarea class="form-control" id="message-text" formControlName="textBodyMsg"></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" (click)="sendEmail()">Send message</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </tr>
 </table>
+<div class="d-flex justify-content-center mt-2">
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onTableDataChange($event)"
+  >
+  </pagination-controls>
+</div>

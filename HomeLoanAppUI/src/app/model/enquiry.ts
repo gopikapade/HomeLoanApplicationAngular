@@ -15,6 +15,7 @@ export class Enquiry {
 	 cmResponce:boolean
      forwardToOe:boolean;
 	 education:EducationlInfo;
+     cibilEnquiry: Cibil;
 
 }
 export class EducationlInfo{

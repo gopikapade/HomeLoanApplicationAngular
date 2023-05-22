@@ -12,6 +12,10 @@ export class CibilComponent {
 
   constructor(private enquiryService:EnquiryService, private cibil:CibilService){}
 
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 3;
+
   enquiries:any
   cibilScore:any
   enquiry:any
@@ -21,7 +25,6 @@ export class CibilComponent {
            this.enquiries=data.body;
      })
     }
-
 
     checkCibil(enquiry)
     {
@@ -69,4 +72,18 @@ export class CibilComponent {
       window.location.reload()
     }
 
+
+    onTableDataChange(event: any) {
+      this.page = event;
+      this.enquiryService.oeGetEnquiries().subscribe((data:any)=>{
+        this.enquiries=data.body;
+       })
+    }
+    onTableSizeChange(event: any): void {
+      this.tableSize = event.target.value;
+      this.page = 1;
+      this.enquiryService.oeGetEnquiries().subscribe((data:any)=>{
+        this.enquiries=data.body;
+        })
+    }
   }

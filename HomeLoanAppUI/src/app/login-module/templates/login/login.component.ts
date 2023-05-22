@@ -29,6 +29,7 @@ export class LoginComponent {
     this.login.validateLogin(this.logIn.value.username, this.logIn.value.password).subscribe((data:any)=>{
          console.log(data);
          this.router.navigateByUrl('dash/'+ JSON.stringify(data))
+        // this.router.navigate(['dash'] ,{ state:{data:data} })
     },(responce:any)=>
     alert(responce.error))
 

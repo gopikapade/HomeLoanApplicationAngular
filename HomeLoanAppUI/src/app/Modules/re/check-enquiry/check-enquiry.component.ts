@@ -11,14 +11,17 @@ import { ReserviceService } from 'src/app/service/reservice.service';
   styleUrls: ['./check-enquiry.component.css']
 })
 export class CheckEnquiryComponent {
+POSTS: any;
 
-  constructor(private enquiryServices: EnquiryService, private formbuilder: FormBuilder,private reservice:ReserviceService) { }
+  constructor(private enquiryServices: EnquiryService, private formbuilder: FormBuilder, private reservice: ReserviceService) { }
 
 
-
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 7;
 
   enquries: Array<Enquiry> = []
-  emailform: FormGroup
+
   email: String
   firstname: String
   ngOnInit() {
@@ -27,43 +30,33 @@ export class CheckEnquiryComponent {
     this.enquiryServices.getEnqiries().subscribe((data: any) => {
       this.enquries = data.body;
     })
-
-     
-    this.emailform = this.formbuilder.group({
-      to:[],
-      subject:[],
-      textBodyMsg:[]
-    })
-
   }
 
   forwrdToOe(id: number, enquiry: Enquiry) {
 
     this.enquiryServices.oeForward(id, enquiry).subscribe((data: any) => { console.log(data) })
+    window.location.reload();
   }
-
- 
-
-  sendEmail() {
-    this.emailform.patchValue({
-      to:this.email
-    })
-     
-this.reservice.emailsend(this.emailform).subscribe((data:any)=>{
-
-  console.log(data)
-})
-
-  }
-
-
 
 
   forMailData(enqury: any) {
     this.email = enqury.email
     this.firstname = enqury.firstname
-   
+  }
 
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.enquiryServices.getEnqiries().subscribe((data: any) => {
+      this.enquries = data.body;
+    })
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.enquiryServices.getEnqiries().subscribe((data: any) => {
+      this.enquries = data.body;
+    })
 
   }
 
