@@ -71,6 +71,30 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+
+                <div formGroupName="cibilEnquiry">
+                    <div class="form-group row">
+
+
+                        <div class="form-group"  class="col-sm-6">
+                            <label for="cbillScore">Cibile Score</label>
+                            <input type="number" class="form-control" id="cbillScore" formControlName="cbillScore">
+                        </div>
+                       
+    
+                        <div class="form-group" class="col-sm-6" >
+                            <label for="remark">Remark</label>
+                            <input type="text" class="form-control" id="remark" formControlName="remark">
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
         </div>
         <div class="step-container" *ngIf="currentStep == 2">
             <div class="container">
@@ -141,5 +165,6 @@
             (click)="previous()">Previous</button>
         <button type="button" class="btn btn-outline-info next-button ms-2"  *ngIf="currentStep != 3" (click)="next()">Next</button>
         <button type="submit" class="btn btn-outline-success submit-button" style="margin-left: 10px;" *ngIf="currentStep == 3">Submit</button>
+        
     </form>
 </div>

@@ -56,6 +56,12 @@ export class LoanApplicationComponent {
       loanAmmount: ['', Validators.required],
         education:this.formBuilder.group({
           higherEducation:[]
+     }),
+     cibilEnquiry:this.formBuilder.group({
+      cbillScore:['', Validators.required],
+    
+      remark:['', Validators.required],
+     
      })
     })
   })

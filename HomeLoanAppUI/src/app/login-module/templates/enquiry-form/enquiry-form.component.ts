@@ -29,6 +29,7 @@ export class EnquiryFormComponent implements OnInit {
       pancardNo: ['', Validators.required],
       marrtialStatus: ['', Validators.required],
       income: ['', Validators.required],
+      tenure:['', Validators.required],
       loanAmmount: ['', Validators.required],
         education:this.formBuilder.group({
           higherEducation:[]
