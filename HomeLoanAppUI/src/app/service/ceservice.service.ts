@@ -15,6 +15,11 @@ export class CeserviceService {
 
   updateDocumentstatus(document)
   {
-    return this.http.put("http://localhost:8080/documents/updatedocument", document);
+    return this.http.put("http://localhost:8080/documents/updateStaus", document);
+  }
+
+  updateReamrak(selectedDoc, remark)
+  {
+     return this.http.put("http://localhost:8080/documents/updateremark/"+remark, selectedDoc);
   }
 }

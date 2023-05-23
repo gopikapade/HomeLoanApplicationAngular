@@ -15,7 +15,6 @@ getCibilCheck(enquiry)
 
 addRemark(enquiry){
     return   this.http.put("http://localhost:8080/remarkadd/", enquiry)
-
 }
 
 }

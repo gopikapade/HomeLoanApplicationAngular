@@ -16,7 +16,7 @@ export class ApplicationComponent {
   documents:any[]=[];
   ngOnInit()
   {
-    this.ces.getData().subscribe((data:any)=>{
+      this.ces.getData().subscribe((data:any)=>{
       this.documents=data.body
       console.log(this.documents)
    })

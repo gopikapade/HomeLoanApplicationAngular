@@ -39,11 +39,37 @@ updateDocumentStatus(){
 this.ces.updateDocumentstatus(this.selectedDoc).subscribe((data:any)=>{
    console.log(data);
    alert(data.responseMessage);
+
+   setInterval(()=>{
+    window.location.reload();
+   },1000)
+
 }, (error:any)=>{
   alert(error.error.massage);
 });
 
-window.location.reload
+
+  }
+  massage:string;
+  remark:boolean=false;
+
+  updateDocumentRemark()
+  {
+   this.ces.updateReamrak(this.selectedDoc, this.remark).subscribe((data:any)=>{
+         alert(data.responseMessage)
+
+         setInterval(()=>{
+          window.location.reload();
+         },1000)
+
+   }, (error:any)=>{
+    alert(error.error.massage);
+   })
+   this.remark=false
+  }
+
+  addremark(){
+     this.remark = true;
   }
 
 }

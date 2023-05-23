@@ -30,7 +30,6 @@ export class StatusComponent {
   ngOnInit() {
     this.enquiryServices.getEnqiries().subscribe((data: any) => {
       const allEnquries = data.body;
-
       allEnquries.forEach(element => {
         if (element.cibilEnquiry != null) {
           this.enquries.push(element);
@@ -58,9 +57,7 @@ export class StatusComponent {
     this.emailform.patchValue({
       to: this.email
     })
-
     this.reservice.emailsend(this.emailform).subscribe((data: any) => {
-
       console.log(data)
     })
 
