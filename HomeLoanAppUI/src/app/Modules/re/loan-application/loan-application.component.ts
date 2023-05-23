@@ -56,6 +56,12 @@ export class LoanApplicationComponent {
       loanAmmount: ['', Validators.required],
         education:this.formBuilder.group({
           higherEducation:[]
+     }),
+     cibilEnquiry:this.formBuilder.group({
+      cbillScore:['', Validators.required],
+    
+      remark:['', Validators.required],
+     
      })
     })
   })
@@ -80,6 +86,16 @@ export class LoanApplicationComponent {
      this.loanapplicationform.controls['enq'].get('education').patchValue({
       higherEducation:this.data.education.higherEducation
      })
+
+     this.loanapplicationform.controls['enq'].get('cibilEnquiry').patchValue({
+      higherEducation:this.data.education.higherEducation,
+
+      cbillScore:this.data.cibilEnquiry.cbillScore,
+    
+      remark:this.data.cibilEnquiry.remark,
+     })
+
+
 
   }
 
