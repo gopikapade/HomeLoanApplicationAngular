@@ -22,4 +22,15 @@ export class CeserviceService {
   {
      return this.http.put("http://localhost:8080/documents/updateremark/"+remark, selectedDoc);
   }
+
+  getEMI(doc){
+     return this.http.get("http://localhost:8080/emi/emicalculate/"+JSON.stringify(doc))
+  }
+
+  genrateSanctionLetter(sanctionLetter, doc){
+    return this.http.put("http://localhost:8080/pdf/sanctionletterpdf/"+JSON.stringify(sanctionLetter), doc);
+  }
+
+
+
 }

@@ -8,6 +8,7 @@
         <th scope="col">Pancard</th>
         <th scope="col">Loan Ammount</th>
         <th scope="col">Tenure</th>
+        <th>CalculateEmi</th>
         <th scope="cpl">sanction Letter</th>
       </tr>
     </thead>
@@ -20,7 +21,11 @@
         <td>{{doc.enq.pancardNo}}</td>
         <td>{{doc.enq.loanAmmount}}</td>
         <td>{{doc.enq.tenure}}</td>
-        <td><button class="btn btn-warning">Genrate</button></td>
+        <td><button class="btn btn-success" (click)="calculateEmi(doc)" >EMI</button></td>
+        <td *ngIf="doc.creditManeger==null else gerrated"><button class="btn btn-warning" (click)="getSanctionLettter(doc)">Genrate</button></td>
+        <ng-template #gerrated> <td>
+              <label>Genrated</label>
+        </td> </ng-template>
       </tr>
     </tbody>
   </table>

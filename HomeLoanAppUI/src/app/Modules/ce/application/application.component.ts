@@ -18,7 +18,7 @@ export class ApplicationComponent {
   {
       this.ces.getData().subscribe((data:any)=>{
       this.documents=data.body
-      console.log(this.documents)
+      console.log(this.documents);
    })
   }
 
