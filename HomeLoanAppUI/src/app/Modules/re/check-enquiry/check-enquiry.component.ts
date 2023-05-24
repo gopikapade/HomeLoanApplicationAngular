@@ -30,7 +30,7 @@ POSTS: any;
     this.enquiryServices.getEnqiries().subscribe((data: any) => {
       const array = data.body;
       array.forEach(element => {
-          if(element.oeForward!=true) {
+          if(element.oeForward!=true && element.loanApplication!==true) {
              this.enquries.push(element)
           }
       });

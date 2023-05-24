@@ -24,7 +24,7 @@ export class SanctionLetterComponent {
          const array = data.body
 
          array.forEach(element => {
-            if (element.status2 == true) {
+            if (element.status1 == true) {
                this.documents.push(element)
             }
             console.log(this.documents)

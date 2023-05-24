@@ -78,6 +78,7 @@ export class LoanApplicationComponent {
       pancardNo: this.data.pancardNo,
       marrtialStatus: this.data.marrtialStatus,
       income: this.data.income,
+      tenure:this.data.tenure,
       loanAmmount: this.data.loanAmmount
      })
 
@@ -138,6 +139,7 @@ export class LoanApplicationComponent {
       this.reservice.saveLoanApplication(data).subscribe((data: any) =>{
             alert("Apllication Saved Sucessfully")
             this.loanapplicationform.reset();
+
       },(responce:any)=>{alert(responce.error.massage)});
 
      }
