@@ -10,7 +10,7 @@ export class ReserviceService {
 
   constructor(private http:HttpClient) { }
 
-  saveLoanApplication(data:any):Observable<any>{
+  saveLoanApplication(data:any){
 
     return this.http.post("http://localhost:8080/documents/adddocuments", data)
 

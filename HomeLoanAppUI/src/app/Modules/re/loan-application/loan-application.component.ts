@@ -57,12 +57,10 @@ export class LoanApplicationComponent {
         education:this.formBuilder.group({
           higherEducation:[]
      }),
-     cibilEnquiry:this.formBuilder.group({
-      cbillScore:['', Validators.required],
-    
-      remark:['', Validators.required],
-     
-     })
+             cibilEnquiry:this.formBuilder.group({
+             cbillScore:['', Validators.required],
+             remark:['', Validators.required],
+            })
     })
   })
 
@@ -88,11 +86,7 @@ export class LoanApplicationComponent {
      })
 
      this.loanapplicationform.controls['enq'].get('cibilEnquiry').patchValue({
-      higherEducation:this.data.education.higherEducation,
-
-      cbillScore:this.data.cibilEnquiry.cbillScore,
-    
-      remark:this.data.cibilEnquiry.remark,
+      cbillScore:this.data.cibilEnquiry.cbillScore
      })
 
 
@@ -123,9 +117,9 @@ export class LoanApplicationComponent {
     this.currentStep = this.currentStep-1;
     this.progressPercentage = this.progressPercentage-30;
   }
-  submitForm() {
-    if (this.loanapplicationform.valid) {
+  submitForm(){
 
+    console.log("in submit")
       const loanapplication=JSON.stringify(this.loanapplicationform.value);
       const data=new FormData();
       data.append('re',loanapplication);
@@ -146,15 +140,10 @@ export class LoanApplicationComponent {
             this.loanapplicationform.reset();
       },(responce:any)=>{alert(responce.error.massage)});
 
+     }
 
 
 
-
-    } else {
-      // Handle invalid form
-
-    }
-  }
 
 
   onAddressProof(event){

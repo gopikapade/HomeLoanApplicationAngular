@@ -28,7 +28,13 @@ POSTS: any;
 
 
     this.enquiryServices.getEnqiries().subscribe((data: any) => {
-      this.enquries = data.body;
+      const array = data.body;
+      array.forEach(element => {
+          if(element.oeForward!=true) {
+             this.enquries.push(element)
+          }
+      });
+
     })
   }
 

@@ -33,7 +33,6 @@ export class EnquiryFormComponent implements OnInit {
       loanAmmount: ['', Validators.required],
         education:this.formBuilder.group({
           higherEducation:[]
-
      })
     });
 
@@ -55,6 +54,9 @@ export class EnquiryFormComponent implements OnInit {
 
 
   submitForm() {
+
+   console.log(this.enquiryForm.value)
+
     if (this.enquiryForm.valid) {
       this.enquiryservice.saveenquiry(this.enquiryForm).subscribe((data:any)=>{console.log(data)})
       this.router.navigate([''])
