@@ -130,27 +130,27 @@
             <div class="form-group">
                 <label class="form-label" for="buildingPermission">Building Permission</label>
                 <input type="file" (change)="onBuildingPermission($event)" class="form-control form-control-sm"
-                    id="buildingPermission" accept="image/*" required>
+                    id="buildingPermission"  required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="layout">Layout</label>
                 <input type="file" (change)="onLayout($event)" class="form-control form-control-sm" id="layout"
-                    accept="image/*" required>
+                     required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="buildingPlan">Building Plan</label>
                 <input type="file" (change)="onBuildingPlan($event)" class="form-control form-control-sm"
-                    id="buildingPlan" accept="image/*" required>
+                    id="buildingPlan"  required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="estimate">Estimate</label>
                 <input type="file" (change)="onEsimate($event)" class="form-control form-control-sm" id="estimate"
-                    accept="image/*" required>
+                     required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="noc">NOC</label>
                 <input type="file" (change)="onNoc($event)" class="form-control form-control-sm" id="noc"
-                    accept="image/*" required>
+                     required>
             </div>
         </div>
         <button type="button" class="btn btn-outline-warning previous-button" *ngIf="currentStep != 1"
