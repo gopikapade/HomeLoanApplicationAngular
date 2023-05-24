@@ -31,7 +31,7 @@ export class StatusComponent {
     this.enquiryServices.getEnqiries().subscribe((data: any) => {
       const allEnquries = data.body;
       allEnquries.forEach(element => {
-        if (element.cibilEnquiry != null) {
+        if (element.cibilEnquiry != null && element.loanApplication!=true) {
           this.enquries.push(element);
         }
       });
@@ -78,7 +78,7 @@ export class StatusComponent {
       const allEnquries = data.body;
 
       allEnquries.forEach(element => {
-        if (element.cibilEnquiry != null) {
+        if (element.cibilEnquiry != null && element.loanapplication!=true) {
           this.enquries.push(element);
         }
       });
