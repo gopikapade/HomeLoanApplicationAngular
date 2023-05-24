@@ -43,12 +43,13 @@ export class SanctionLetterComponent {
          intrestrate: 7
       });
 
-      console.log(Emi.value);
+
 
 
       this.ces.getEMI(Emi.value).subscribe((data: any) => {
          this.emi = data.body;
       })
+      console.log(this.emi);
 
    }
 
