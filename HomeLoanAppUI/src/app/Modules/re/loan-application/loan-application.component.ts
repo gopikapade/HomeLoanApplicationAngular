@@ -54,6 +54,7 @@ export class LoanApplicationComponent {
       marrtialStatus: ['', Validators.required],
       income: ['', Validators.required],
       loanAmmount: ['', Validators.required],
+      tenure:['', Validators.required],
         education:this.formBuilder.group({
           higherEducation:[]
      }),
