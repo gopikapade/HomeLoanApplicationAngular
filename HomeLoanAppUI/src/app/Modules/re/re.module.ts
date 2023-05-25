@@ -7,13 +7,15 @@ import { LoanApplicationComponent } from './loan-application/loan-application.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { StatusComponent } from './status/status.component';
+import { ApplicationSanctionLetterComponent } from './application-sanction-letter/application-sanction-letter.component';
 
 
 @NgModule({
   declarations: [
     CheckEnquiryComponent,
     LoanApplicationComponent,
-    StatusComponent
+    StatusComponent,
+    ApplicationSanctionLetterComponent
   ],
   imports: [
     CommonModule,
