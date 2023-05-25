@@ -10,9 +10,15 @@ export class ReserviceService {
 
   constructor(private http:HttpClient) { }
 
+  // saveLoanApplication(data:any){
+
+  //   return this.http.post("http://localhost:8080/documents/adddocuments", data)
+
+  // }
+
   saveLoanApplication(data:any){
 
-    return this.http.post("http://localhost:8080/documents/adddocuments", data)
+    return this.http.put("http://localhost:8080/documents/updatedocuments", data)
 
   }
   emailsend(data:any){

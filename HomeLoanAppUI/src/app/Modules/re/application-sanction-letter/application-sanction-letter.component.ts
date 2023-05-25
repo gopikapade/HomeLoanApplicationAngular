@@ -12,7 +12,6 @@ export class ApplicationSanctionLetterComponent {
 
    constructor(private cmservice: CmService, private formbuilder: FormBuilder, private reService: ReserviceService) { }
 
-
    sanctionLetters: any[];
    emailform: FormGroup;
    email: string;
