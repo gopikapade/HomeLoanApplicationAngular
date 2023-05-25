@@ -45,6 +45,7 @@ export class LoanApplicationComponent {
       status1:[''],
       status2:[''],
     enq : this.formBuilder.group({
+      enquryId:['',Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       age: ['', Validators.required],
@@ -71,6 +72,7 @@ export class LoanApplicationComponent {
 
   if(this.data!=null){
     this.loanapplicationform.get('enq').patchValue({
+      enquryId:this.data.enquryId,
       firstName: this.data.firstName,
       lastName: this.data.lastName,
       age:  this.data.age,
