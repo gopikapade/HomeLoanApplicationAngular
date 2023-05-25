@@ -246,7 +246,7 @@ export class CreateCustomerAccountComponent {
 
   }
 
-  
+
   onPropertyProofChange(event) {
     this.mortgagePropertyProof = event.target.files[0];
 

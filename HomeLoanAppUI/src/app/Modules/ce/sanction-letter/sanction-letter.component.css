@@ -6,7 +6,7 @@ label{
     padding: 5px 10px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 14px;
     color: black;
 }
 
@@ -15,33 +15,32 @@ label{
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .card-header {
     background-color: #007bff;
     color: white;
     padding: 10px;
     border-radius: 10px 10px 0 0;
   }
-  
+
   .card-body {
     padding: 20px;
   }
-  
+
   .card-text {
     margin-bottom: 10px;
   }
-  
+
   .card-text span {
     font-weight: bold;
   }
-  
+
   .text-success {
     color: #004410;
   }
-  
+
   .card-title {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
   }
-  

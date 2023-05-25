@@ -7,6 +7,7 @@ import { CreateCustomerAccountComponent } from './create-customer-account/create
 import { LoanDisburstmentComponent } from './loan-disburstment/loan-disburstment.component';
 import { LeggerComponent } from './legger/legger.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApplicationFromReComponent } from './application-from-re/application-from-re.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CreateCustomerAccountComponent,
 
     LoanDisburstmentComponent,
-    LeggerComponent
+    LeggerComponent,
+    ApplicationFromReComponent
   ],
   imports: [
     CommonModule,

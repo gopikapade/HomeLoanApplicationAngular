@@ -4,12 +4,13 @@ import { CreateCustomerAccountComponent } from './create-customer-account/create
 
 import { LoanDisburstmentComponent } from './loan-disburstment/loan-disburstment.component';
 import { LeggerComponent } from './legger/legger.component';
+import { ApplicationFromReComponent } from './application-from-re/application-from-re.component';
 
 const routes: Routes = [
 {path:'createaccount',component:CreateCustomerAccountComponent},
-
 {path:'loandisbusrtment',component:LoanDisburstmentComponent},
-{path:'legger',component:LeggerComponent}
+{path:'legger',component:LeggerComponent},
+{path:'app' , component:ApplicationFromReComponent}
 
 
 
