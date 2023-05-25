@@ -12,6 +12,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 })
 export class SanctionLetterComponent {
 
+
    emi: any={};
 
    constructor(public ces: CeserviceService, private fb: FormBuilder) { }
@@ -52,41 +53,53 @@ export class SanctionLetterComponent {
       console.log(this.emi);
 
    }
+<<<<<<< HEAD
+
 
 
    getSanctionLettter(doc:any) {
       const sanctioLetter = this.fb.group({
-         applicantName: doc.enq.firstName+" "+doc.enq.lastName,
+         applicantName: doc.enq.firstname +" "+doc.enq.lastname,
          producthomeEquity: "new home",
          modeOfPayment: "online",
          remarks: "provide valuetion of 300000",
          termsCondition: "tearms and comdition",
          status: "Approved",
-         rateOfInterest: doc.enq.tenure,
+         rateOfInterest: 7,
          loanTenure: doc.enq.tenure,
-         contactno: doc.enq.mobileNo,
-         monthlyEmiAmount: this.emi.monthlyEmi,
-         loanammount: doc.enq.loanAmmount,
-         sanctionDate:doc.date
+         contactno: doc.enq.contactno,
+         monthlyEmiAmount: this.emi.monthlyEmiAmount,
+         loanammount: doc.enq.loanAmmount
       })
 
+
       console.log(sanctioLetter.value)
+
       this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data:any)=>{
           console.log(data);
-
       })
 
    }
-
    openPDFPreview(base64Data: string) {
+
       const byteCharacters = atob(base64Data);
+
       const byteNumbers = new Array(byteCharacters.length);
+
       for (let i = 0; i < byteCharacters.length; i++) {
+
         byteNumbers[i] = byteCharacters.charCodeAt(i);
+
       }
+
       const byteArray = new Uint8Array(byteNumbers);
+
       const file = new Blob([byteArray], { type: 'application/pdf' });
+
       const fileURL = URL.createObjectURL(file);
+
       window.open(fileURL);
-    }
+
+
+   }
 }
