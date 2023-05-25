@@ -16,10 +16,11 @@ export class ReserviceService {
 
   }
   emailsend(data:any){
-
-
     return this.http.post("http://localhost:8080/mail/send",data.value)
   }
 
 
+  sanctionLettersende(data){
+    return this.http.post("http://localhost:8080/mail/sendattachement",data)
+  }
 }

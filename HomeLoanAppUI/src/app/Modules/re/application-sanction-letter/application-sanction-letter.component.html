@@ -1,0 +1,67 @@
+<table class="table align-middle mb-0 bg-white mx-auto mt-5 text-dark">
+  <thead class="bg-light">
+    <tr>
+      <th>Index</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>sanctionLetters</th>
+      <th>Mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sanction of sanctionLetters, let i=index">
+      <td>{{i+1}}</td>
+      <td>{{sanction.enq.firstName}}</td>
+      <td>{{sanction.enq.lastName}}</td>
+      <td>{{sanction.enq.email}}</td>
+      <td>
+
+        <button class="btn btn-warning" (click)="openPDFPreview(sanction.creditManeger.sanctionLetter)">View
+          Pdf</button>
+
+      </td>
+      <td>
+        <button type="button" class="btn  btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          (click)="mailBody(sanction)">Mail</button>
+      </td>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Email To: </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="emailform">
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name" [value]="email" formControlName="to">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Subject:</label>
+                  <textarea class="form-control" id="message-text" formControlName="subject"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message-text" formControlName="textBodyMsg"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <input type="file" name="sanctionLetter" (change)="sanctionLetter($event)">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary"
+                    (click)=" mailSanctionLetter(sanction.creditManeger.sanctionLetter)">Send message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tr>
+    </tbody>
+</table>

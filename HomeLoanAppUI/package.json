@@ -25,6 +25,7 @@
     "jquery": "^3.7.0",
     "jquery-sticky": "^1.0.4",
     "jquery-ui": "^1.13.2",
+    "ng2-pdf-viewer": "^9.1.5",
     "ngx-pagination": "^6.0.3",
     "pdfjs-dist": "^3.6.172",
     "react-owl-carousel": "^2.3.3",
