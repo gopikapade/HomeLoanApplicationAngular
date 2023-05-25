@@ -1,31 +1,78 @@
 <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">Index</th>
-        <th scope="col">First name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col" >Email</th>
-        <th scope="col">Pancard</th>
-        <th scope="col">Loan Ammount</th>
-        <th scope="col">Tenure</th>
-        <th>CalculateEmi</th>
-        <th scope="cpl">sanction Letter</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let doc of documents, let i=index">
-        <td>{{i+1}}</td>
-        <td>{{doc.enq.firstName}}</td>
-        <td>{{doc.enq.lastName}}</td>
-        <td>{{doc.enq.email}}</td>
-        <td>{{doc.enq.pancardNo}}</td>
-        <td>{{doc.enq.loanAmmount}}</td>
-        <td>{{doc.enq.tenure}}</td>
-        <td><button class="btn btn-success" (click)="calculateEmi(doc)" >EMI</button></td>
-        <td *ngIf="doc.creditManeger==null else gerrated"><button class="btn btn-warning" (click)="getSanctionLettter(doc)">Genrate</button></td>
-        <ng-template #gerrated> <td>
-              <label>Genrated</label>
-        </td> </ng-template>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Pancard</th>
+      <th scope="col">Loan Ammount</th>
+      <th scope="col">Tenure</th>
+      <th>CalculateEmi</th>
+      <th scope="cpl">sanction Letter</th>
+      <th scope="cpl">View Sanction Letter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of documents, let i=index">
+      <td>{{i+1}}</td>
+      <td>{{doc.enq.firstName}}</td>
+      <td>{{doc.enq.lastName}}</td>
+      <td>{{doc.enq.email}}</td>
+      <td>{{doc.enq.pancardNo}}</td>
+      <td>{{doc.enq.loanAmmount}}</td>
+      <td>{{doc.enq.tenure}}</td>
+      <td>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          (click)="calculateEmi(doc)">EMI</button>
+
+      <!-- <td *ngIf="doc.creditManeger==null else gerrated"><button class="btn btn-warning"
+          (click)="getSanctionLettter(doc)">Genrate</button></td> -->
+
+
+          <td ><button class="btn btn-warning"
+            (click)="getSanctionLettter(doc)">Genrate</button></td>
+
+      <td >
+        <button class="btn btn-warning" (click)="openPDFPreview(doc.creditManeger.sanctionLetter)">View Sanction Letter</button>
+      </td>
+
+
+
+      <ng-template #gerrated>
+        <td>
+          <label>Genrated</label>
+        </td>
+      </ng-template>
+
+
+
+    </tr>
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EMI Details </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-header">
+            EMI Details
+          </div>
+          <div class="card-body">
+
+            <p class="card-text">Tenure: {{emi.tenure}} years</p>
+            <p class="card-text">Interest Rate: {{emi.intrestrate}}%</p>
+            <p class="card-text text-success">Monthly EMI: {{emi.monthlyEmi | currency:'INR'}}</p>
+            <p class="card-text">Date: {{emi.date | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+            <p class="card-text">Loan Amount: {{emi.loanAmmount | currency:'INR'}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

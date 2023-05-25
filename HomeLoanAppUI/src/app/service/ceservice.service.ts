@@ -1,5 +1,6 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,7 @@ export class CeserviceService {
     return this.http.put("http://localhost:8080/pdf/sanctionletterpdf/"+JSON.stringify(sanctionLetter), doc);
   }
 
-
+ 
+ 
 
 }
