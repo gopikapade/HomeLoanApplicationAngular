@@ -24,12 +24,19 @@
         <button type="button" class="btn  btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
           (click)="mailBody(sanction)">Mail</button>
       </td>
-      <td><button>Add Data</button></td>
+      <td *ngIf="sanction.status2==null; else forworded">
+        <button class="btn btn-outline-success" (click)="forwordToah(sanction)">Forword To AH</button></td>
+
+       <ng-template #forworded>
+          <td><label for="">Forwrded</label></td>
+       </ng-template>
+
+
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Email To: </h5>
+              <h5 class="modal-title" id="exampleModalLabel">Email To:</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

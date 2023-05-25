@@ -89,4 +89,12 @@ export class ApplicationSanctionLetterComponent {
       const fileURL = URL.createObjectURL(file);
       window.open(fileURL);
    }
+
+   forwordToah(sanction:any){
+      this.cmservice.forwordToAh(sanction.reId, sanction).subscribe((data:any)=>{
+          console.log(data);
+          window.location.reload();
+      })
+
+   }
 }

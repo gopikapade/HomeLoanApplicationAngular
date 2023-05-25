@@ -44,18 +44,12 @@ export class SanctionLetterComponent {
          intrestrate: 7
       });
 
-
-
-
       this.ces.getEMI(Emi.value).subscribe((data: any) => {
          this.emi = data.body;
       })
       console.log(this.emi);
 
    }
-
-
-
 
    getSanctionLettter(doc:any) {
       const sanctioLetter = this.fb.group({
@@ -65,7 +59,7 @@ export class SanctionLetterComponent {
          remarks: "provide valuetion of 300000",
          termsCondition: "tearms and comdition",
          status: "Approved",
-         rateOfInterest: 7,
+         rateOfInterest: doc.enq.tenure,
          loanTenure: doc.enq.tenure,
          contactno: doc.enq.contactno,
          monthlyEmiAmount: this.emi.monthlyEmiAmount,

@@ -28,10 +28,8 @@
 
       <td *ngIf="doc.creditManeger==null else gerrated"><button class="btn btn-warning"
           (click)="getSanctionLettter(doc)">Genrate</button></td>
-
-
-          <!-- <td><button class="btn btn-warning"
-            (click)="getSanctionLettter(doc)">Genrate</button></td> -->
+          <!--<td><button class="btn btn-warning"
+            (click)="getSanctionLettter(doc)">Genrate</button></td>-->
         <td>
         <button class="btn btn-warning" (click)="openPDFPreview(doc.creditManeger.sanctionLetter)">View Sanction Letter</button>
         </td>

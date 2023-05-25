@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { AhserviceService } from 'src/app/service/ahservice.service';
 
 @Component({
@@ -8,7 +9,17 @@ import { AhserviceService } from 'src/app/service/ahservice.service';
   styleUrls: ['./create-customer-account.component.css']
 })
 export class CreateCustomerAccountComponent {
-  constructor(private formBuilder: FormBuilder, private service: AhserviceService) { }
+
+ data:any;
+  constructor(private formBuilder: FormBuilder, private service: AhserviceService, private route:Router) {
+
+       this.loan =this.route.getCurrentNavigation()?.extras?.state?.['data']
+//        localStorage.setItem('data', JSON.stringify(this.loan));
+
+// // Retrieving the data from localStorage
+//  const storedData = localStorage.getItem('data');
+//  this.data = storedData ? JSON.parse(storedData) : null;
+   }
   professionsalaryslips: File;
   mortgagePropertyInsurance: File;
   mortgagePropertyProof: File;
@@ -22,6 +33,8 @@ export class CreateCustomerAccountComponent {
 
   customerForm: FormGroup
   step: number = 1
+
+  loan:any;
 
   previous() {
     this.step = this.step - 1;
@@ -39,6 +52,7 @@ export class CreateCustomerAccountComponent {
 
 
   ngOnInit() {
+    console.log(this.data)
     this.customerForm = this.formBuilder.group({
       customerName: [''],
       customerDateOfBirth: [''],
@@ -209,6 +223,24 @@ export class CreateCustomerAccountComponent {
 
 
     });
+
+    if(this.loan!=null){
+          this.customerForm.patchValue({
+            customerName:this.loan.enq.firstName+" "+this.loan.enq.lastName,
+            customerEmail:this.loan.enq.email,
+            //customerAge:this.loan.enq.age
+            customerMobileNumber:this.loan.enq.mobileNo,
+            customerTotalLoanRequired:this.loan.enq.loanAmmount,
+
+            educationalInfo: this.formBuilder.group({
+              higherEducation: this.loan.enq.education.higherEducation
+            }),
+          })
+
+
+
+    }
+
   }
   onSubmit() {
     alert("in ts")

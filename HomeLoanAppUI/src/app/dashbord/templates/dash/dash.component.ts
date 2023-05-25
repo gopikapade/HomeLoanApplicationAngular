@@ -23,13 +23,13 @@ export class DashComponent {
 
 
       this.router.paramMap.subscribe(param=>{
-          const data = param.get('data');
+          const data:any = param.get('data');
           this.roleType    = JSON.parse(data);
           console.log(this.roleType)
       })
      sessionStorage.setItem("menuesData", JSON.stringify(this.roleType.body));
 
-      console.log(this.roleType)
+      console.log(this.roleType.body)
 
      }
 

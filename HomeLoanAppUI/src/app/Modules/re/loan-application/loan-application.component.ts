@@ -111,8 +111,6 @@ export class LoanApplicationComponent {
   }
 
 
-
-
   next() {
     this.currentStep = this.currentStep+1;
     this.progressPercentage = this.progressPercentage+30;

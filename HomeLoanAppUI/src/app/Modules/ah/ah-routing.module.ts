@@ -9,9 +9,9 @@ import { ApplicationFromReComponent } from './application-from-re/application-fr
 const routes: Routes = [
 {path:'createaccount',component:CreateCustomerAccountComponent},
 {path:'loandisbusrtment',component:LoanDisburstmentComponent},
-{path:'legger',component:LeggerComponent},
-{path:'app' , component:ApplicationFromReComponent}
-
+{path:'ledger',component:LeggerComponent},
+{path:'app' , component:ApplicationFromReComponent},
+{path:'app/createaccount', component:CreateCustomerAccountComponent}
 
 
 ];

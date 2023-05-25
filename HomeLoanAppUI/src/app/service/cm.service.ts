@@ -11,4 +11,8 @@ export class CmService {
   getAllsanctionLetters(){
      return this.http.get("http://localhost:8080/documents/getSanctionLetters")
   }
+
+  forwordToAh(reId, sanction){
+      return this.http.put("http://localhost:8080/documents/forwardToAh/"+reId, sanction);
+  }
 }
