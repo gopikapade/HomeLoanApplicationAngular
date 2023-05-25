@@ -53,7 +53,7 @@ export class SanctionLetterComponent {
       console.log(this.emi);
 
    }
-<<<<<<< HEAD
+
 
 
 
