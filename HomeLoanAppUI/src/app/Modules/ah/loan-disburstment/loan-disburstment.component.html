@@ -8,6 +8,7 @@
                 <th>Email</th>
                 <th>Loan Amount</th>
                 <th>Tenure</th>
+                <th>Disbursment</th>
             </tr>
         </thead>
         <tbody>
@@ -17,8 +18,74 @@
                 <td>{{customer.customerEmail}}</td>
                 <td>{{customer.customerTotalLoanRequired}}</td>
                 <td>{{customer.ledger.tenure}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="passCustomer(customer)" data-bs-toggle="modal" data-bs-target="#loanDisbursementModal">
+                    Open Form
+                </button>
             </tr>
-            <!-- Add more rows here as needed -->
         </tbody>
     </table>
+</div>
+<div class="modal fade" id="loanDisbursementModal" tabindex="-1" role="dialog" aria-labelledby="loanDisbursementModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loanDisbursementModalLabel">Loan Disbursement Form</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  [formGroup]="loandisbursement">
+                    <div class="form-group"  >
+                        <label for="loanNo">Loan Number</label>
+                        <input type="text" class="form-control" id="loanNo" formControlName="loanNo" placeholder="Enter loan number">
+                    </div>
+                    <div class="form-group">
+                        <label for="agreementDate">Agreement Date</label>
+                        <input type="text" placeholder="yyyy/mm/dd" class="form-control" formControlName="agreementDate" id="agreementDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="totalAmount">Total Amount</label>
+                        <input type="text" class="form-control" id="totalAmount" formControlName="totalAmount" placeholder="Enter total amount">
+                    </div>
+                    <div class="form-group">
+                        <label for="transferAmount">Transfer Amount</label>
+                        <input type="text" class="form-control" id="transferAmount" formControlName="transferAmount" placeholder="Enter transfer amount">
+                    </div>
+                    <div class="form-group">
+                        <label for="amountPayType">Amount Pay Type</label>
+                        <input type="text" class="form-control" id="amountPayType" formControlName="amountPayType" placeholder="Enter amount pay type">
+                    </div>
+                    <div class="form-group">
+                        <label for="bankName">Bank Name</label>
+                        <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Enter bank name">
+                    </div>
+                    <div class="form-group">
+                        <label for="ifsc">IFSC Code</label>
+                        <input type="text" class="form-control" id="ifsc"  formControlName="ifsc" placeholder="Enter IFSC code">
+                    </div>
+                    <div class="form-group">
+                        <label for="accountNumber">Account Number</label>
+                        <input type="text" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Enter account number">
+                    </div>
+                    <div class="form-group">
+                        <label for="accountType">Account Type</label>
+                        <input type="text" class="form-control" id="accountType" formControlName="accountType"  placeholder="Enter account type">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentStatus">Payment Status</label>
+                        <input type="text" class="form-control" id="paymentStatus" formControlName="paymentStatus" placeholder="Enter payment status">
+                    </div>
+                    <div class="form-group">
+                        <label for="amountPaidDate">Amount Paid Date</label>
+                        <input type="text" class="form-control" id="amountPaidDate"formControlName="amountPaidDate" placeholder="yyyy/mm/dd">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="disburstment()">Procide</button>
+            </div>
+        </div>
+    </div>
 </div>

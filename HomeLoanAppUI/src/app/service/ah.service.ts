@@ -17,4 +17,10 @@ export class AhService {
 
   }
 
+  proceedeDisbustment(id:number, disburstment:any)
+  {
+     return this.http.put("http://localhost:8080/loandis/disbust/"+id, disburstment);
+  }
+
+
 }
