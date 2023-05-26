@@ -10,7 +10,7 @@ import { AhserviceService } from 'src/app/service/ahservice.service';
   styleUrls: ['./create-customer-account.component.css']
 })
 export class CreateCustomerAccountComponent {
-  
+
  data:any;
   constructor(private formBuilder: FormBuilder, private service: AhserviceService, private route:Router) {
 
@@ -151,7 +151,7 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
         accountStatus: [''],
         accountBalance: [''],
         accountNumber: [''],
-       
+
         ifsc:[''],
         bankname:['']
       }),
@@ -313,13 +313,13 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 
 
       alert("account Created Sucessfully")
-      
+
       window.location.reload();
 
     });
 
 
-    
+
 
 
 

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
+
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AhService } from 'src/app/service/ah.service';
-=======
->>>>>>> parent of 27c2a7b (Merge branch 'main' of https://github.com/lurnfx/HomeLoanApplicationAngular)
 
 @Component({
   selector: 'app-loan-disburstment',
@@ -12,7 +10,6 @@ import { AhService } from 'src/app/service/ah.service';
 })
 export class LoanDisburstmentComponent {
 
-<<<<<<< HEAD
     constructor(private ahservice:AhService, private fb:FormBuilder){}
 
     customers:Array<any>=[]
@@ -20,7 +17,7 @@ export class LoanDisburstmentComponent {
     loandisbursement:FormGroup;
     ngOnInit()
     {
-      this.ahservice.  getAllLoanAcounts().subscribe((data:any)=>{
+      this.ahservice.getAllSanctionsLoan().subscribe((data:any)=>{
         this.customers =data.body
         console.log(data)
       })
@@ -73,6 +70,5 @@ export class LoanDisburstmentComponent {
       this.cust = customer;
     }
 
-=======
->>>>>>> parent of 27c2a7b (Merge branch 'main' of https://github.com/lurnfx/HomeLoanApplicationAngular)
+
 }
