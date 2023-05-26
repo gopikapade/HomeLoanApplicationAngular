@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AhserviceService } from 'src/app/service/ahservice.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AhserviceService } from 'src/app/service/ahservice.service';
   styleUrls: ['./create-customer-account.component.css']
 })
 export class CreateCustomerAccountComponent {
-
+  
  data:any;
   constructor(private formBuilder: FormBuilder, private service: AhserviceService, private route:Router) {
 
@@ -46,11 +47,23 @@ export class CreateCustomerAccountComponent {
   }
 
 
-  totalSteps: number = 14;
+  totalSteps: number = 9;
   progressPercentage: number;
 
 
 
+
+  patchvalue(){
+this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue({
+  areaname: [this.customerForm.controls['customerAddress'].value.areaname],
+  cityname: [this.customerForm.controls['customerAddress'].value.cityname],
+  district: [this.customerForm.controls['customerAddress'].value.district],
+  state: [this.customerForm.controls['customerAddress'].value.state],
+  pincode: [this.customerForm.controls['customerAddress'].value.pincode],
+
+
+})
+  }
   ngOnInit() {
     console.log(this.data)
     this.customerForm = this.formBuilder.group({
@@ -76,7 +89,7 @@ export class CreateCustomerAccountComponent {
         noOfFamilyMember: [''],
         noOfChild: ['']
       }),
-      customerAddress: this.formBuilder.group({
+   customerAddress: this.formBuilder.group({
         areaname: [''],
         cityname: [''],
         district: [''],
@@ -137,7 +150,10 @@ export class CreateCustomerAccountComponent {
         accountHolderName: [''],
         accountStatus: [''],
         accountBalance: [''],
-        accountNumber: ['']
+        accountNumber: [''],
+       
+        ifsc:[''],
+        bankname:['']
       }),
       propertyinfo: this.formBuilder.group({
         propertyType: [''],
@@ -242,6 +258,11 @@ export class CreateCustomerAccountComponent {
     }
 
   }
+
+  pdatePermanentAddress(){
+
+
+  }
   onSubmit() {
     alert("in ts")
 
@@ -249,25 +270,56 @@ export class CreateCustomerAccountComponent {
     const customeraccount = JSON.stringify(this.customerForm.value);
     const data = new FormData();
     data.append('customeraccount', customeraccount);
-    data.append('professionsalaryslips', this.professionsalaryslips);
-    data.append('mortgagePropertyProof', this.mortgagePropertyProof);
-    data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
-    data.append('buildingpermission', this.buildingpermission);
-    data.append('layout', this.layout);
-    data.append('buildingPlan', this.buildingPlan);
-    data.append('estimate', this.estimate);
-    data.append('noc', this.noc);
+    // data.append('professionsalaryslips', this.professionsalaryslips);
+    // data.append('mortgagePropertyProof', this.mortgagePropertyProof);
+    // data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
+    // data.append('buildingpermission', this.buildingpermission);
+    // data.append('layout', this.layout);
+    // data.append('buildingPlan', this.buildingPlan);
+    // data.append('estimate', this.estimate);
+    // data.append('noc', this.noc);
+
+
+    if (this.professionsalaryslips) {
+      data.append('professionsalaryslips', this.professionsalaryslips);
+      }
+      if (this.mortgagePropertyProof) {
+      data.append('mortgagePropertyProof', this.mortgagePropertyProof);
+      }
+      if (this.mortgagePropertyInsurance) {
+      data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
+      }
+      if (this.buildingpermission) {
+      data.append('buildingpermission', this.buildingpermission);
+      }
+      if (this.layout) {
+      data.append('layout', this.layout);
+      }
+      if (this.buildingPlan) {
+      data.append('buildingPlan', this.buildingPlan);
+      }
+      if (this.estimate) {
+      data.append('estimate', this.estimate);
+      }
+      if (this.noc) {
+      data.append('noc', this.noc);
+      }
 
    this. customeraccount=customeraccount
     console.log(customeraccount)
 
 
-    this.service.createCustomerAccount(data).subscribe()
+    this.service.createCustomerAccount(data).subscribe(()=>{
 
 
+      alert("account Created Sucessfully")
+      
+      window.location.reload();
+
+    });
 
 
-
+    
 
 
 

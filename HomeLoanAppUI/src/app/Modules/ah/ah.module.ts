@@ -6,7 +6,7 @@ import { CreateCustomerAccountComponent } from './create-customer-account/create
 
 import { LoanDisburstmentComponent } from './loan-disburstment/loan-disburstment.component';
 import { LeggerComponent } from './legger/legger.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicationFromReComponent } from './application-from-re/application-from-re.component';
 
 
@@ -20,7 +20,7 @@ import { ApplicationFromReComponent } from './application-from-re/application-fr
   ],
   imports: [
     CommonModule,
-    AhRoutingModule,ReactiveFormsModule
+    AhRoutingModule,ReactiveFormsModule,FormsModule
   ]
 })
 export class AhModule { }
