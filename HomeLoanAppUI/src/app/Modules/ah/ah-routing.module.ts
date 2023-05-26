@@ -10,8 +10,13 @@ const routes: Routes = [
 {path:'createaccount',component:CreateCustomerAccountComponent},
 {path:'loandisbusrtment',component:LoanDisburstmentComponent},
 {path:'ledger',component:LeggerComponent},
+<<<<<<< Updated upstream
 {path:'app' , component:ApplicationFromReComponent},
 {path:'app/createaccount', component:CreateCustomerAccountComponent}
+=======
+{path:'app' , component:ApplicationFromReComponent}
+
+>>>>>>> Stashed changes
 
 
 ];

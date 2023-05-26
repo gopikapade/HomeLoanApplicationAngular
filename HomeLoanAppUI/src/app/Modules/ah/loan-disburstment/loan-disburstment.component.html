@@ -1,1 +1,24 @@
-<p>loan-disburstment works!</p>
+<div class="container">
+    <h2>Customer Loan Information</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Loan Amount</th>
+                <th>Tenure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers, let i=index">
+                <td>{{customer.accountdetails.accountNumber}}</td>
+                <td>{{customer.customerName}}</td>
+                <td>{{customer.customerEmail}}</td>
+                <td>{{customer.customerTotalLoanRequired}}</td>
+                <td>{{customer.ledger.tenure}}</td>
+            </tr>
+            <!-- Add more rows here as needed -->
+        </tbody>
+    </table>
+</div>

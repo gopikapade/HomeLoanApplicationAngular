@@ -1,4 +1,4 @@
-
+<p>customer-account works!</p>
 
 
 <div class="container">
@@ -6,78 +6,64 @@
 
     <div class="progress">
         <div class="progress-bar progress-bar-striped" [style.width.%]="progressPercentage" role="progressbar"
-            [attr.aria-valuenow]="progressPercentage" aria-valuemin="0" aria-valuemax="100">{{ step }} of 9
+            [attr.aria-valuenow]="progressPercentage" aria-valuemin="0" aria-valuemax="100">{{ step }} of 14
         </div>
     </div>
     <form [formGroup]="customerForm">
         <div *ngIf="step==1">
             <h3>Customer Details</h3>
-            
-            
             <div class="form-group">
-                
-                <div class="form-group">
-                    <label for="customerName">Customer Name:</label>
-                    <input type="text" class="form-control" id="customerName" formControlName="customerName"
-                        placeholder="Enter customer name">
-                </div>
-
-                <div class="form-group">
-                    <label for="customerDateOfBirth">Date of Birth:</label>
-                    <input type="date" class="form-control" id="customerDateOfBirth"
-                        formControlName="customerDateOfBirth" placeholder="Enter date of birth">
-                </div>
-                <div class="form-group">
-                    <label for="gender">Gender:</label>
-                    <select class="form-control" id="gender" formControlName="customerGender" required>
-                        <option value="">Select gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <div class="invalid-feedback">Please select a gender.</div>
-                </div>
-                <div class="form-group">
-                    <label for="customerAge">Age:</label>
-                    <input type="number" class="form-control" id="customerAge" formControlName="customerAge"
-                        placeholder="Enter age">
-                </div>
+                <label for="customerName">Customer Name:</label>
+                <input type="text" class="form-control" id="customerName" formControlName="customerName"
+                    placeholder="Enter customer name">
             </div>
-            
             <div class="form-group">
-                <div class="form-group">
-                    <label for="customerEmail">Email:</label>
-                    <input type="email" class="form-control" id="customerEmail" formControlName="customerEmail"
-                        placeholder="Enter email">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="customerMobileNumber">Mobile Number:</label>
-                    <input type="number" class="form-control" id="customerMobileNumber"
-                        formControlName="customerMobileNumber" placeholder="Enter mobile number">
-                </div>
-                <div class="form-group">
-                    <label for="customerAdditionalMobileNumber">Additional Mobile Number:</label>
-                    <input type="number" class="form-control" id="customerAdditionalMobileNumber"
-                        formControlName="customerAdditionalMobileNumber" placeholder="Enter additional mobile number">
-                </div>
+                <label for="customerDateOfBirth">Date of Birth:</label>
+                <input type="date" class="form-control" id="customerDateOfBirth" formControlName="customerDateOfBirth"
+                    placeholder="Enter date of birth">
             </div>
-
             <div class="form-group">
-
-
-                <div class="form-group">
-                    <label for="customerAmountPaidForHome">Amount Paid for Home:</label>
-                    <input type="number" class="form-control" id="customerAmountPaidForHome"
-                        formControlName="customerAmountPaidForHome" placeholder="Enter amount paid for home">
-                </div>
-                <div class="form-group">
-                    <label for="customerTotalLoanRequired">Total Loan Required:</label>
-                    <input type="number" class="form-control" id="customerTotalLoanRequired"
-                        formControlName="customerTotalLoanRequired" placeholder="Enter total loan required">
-                </div>
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" formControlName="customerGender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select a gender.</div>
             </div>
+            <div class="form-group">
+                <label for="customerEmail">Email:</label>
+                <input type="email" class="form-control" id="customerEmail" formControlName="customerEmail"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="customerAge">Age:</label>
+                <input type="number" class="form-control" id="customerAge" formControlName="customerAge"
+                    placeholder="Enter age">
+            </div>
+            <div class="form-group">
+                <label for="customerMobileNumber">Mobile Number:</label>
+                <input type="number" class="form-control" id="customerMobileNumber"
+                    formControlName="customerMobileNumber" placeholder="Enter mobile number">
+            </div>
+            <div class="form-group">
+                <label for="customerAdditionalMobileNumber">Additional Mobile Number:</label>
+                <input type="number" class="form-control" id="customerAdditionalMobileNumber"
+                    formControlName="customerAdditionalMobileNumber" placeholder="Enter additional mobile number">
+            </div>
+            <div class="form-group">
+                <label for="customerAmountPaidForHome">Amount Paid for Home:</label>
+                <input type="number" class="form-control" id="customerAmountPaidForHome"
+                    formControlName="customerAmountPaidForHome" placeholder="Enter amount paid for home">
+            </div>
+            <div class="form-group">
+                <label for="customerTotalLoanRequired">Total Loan Required:</label>
+                <input type="number" class="form-control" id="customerTotalLoanRequired"
+                    formControlName="customerTotalLoanRequired" placeholder="Enter total loan required">
+            </div>
+        </div>
+        <div *ngIf="step==2">
             <div formGroupName="educationalInfo">
                 <h3>Educational Information</h3>
                 <div class="form-group">
@@ -87,39 +73,33 @@
                 </div>
             </div>
         </div>
-
-
-        <div *ngIf="step==2">
+        <div *ngIf="step==3">
             <div formGroupName="familydependentInfo">
                 <h3>Family Dependent Information</h3>
                 <div class="form-group">
-                    <div class="form-group">
-                        <label for="fatherName">Father's Name:</label>
-                        <input type="text" class="form-control" id="fatherName" formControlName="fatherName"
-                            placeholder="Enter father's name">
-                    </div>
-                    <div class="form-group">
-                        <label for="motherName">Mother's Name:</label>
-                        <input type="text" class="form-control" id="motherName" formControlName="motherName"
-                            placeholder="Enter mother's name">
-                    </div>
+                    <label for="fatherName">Father's Name:</label>
+                    <input type="text" class="form-control" id="fatherName" formControlName="fatherName"
+                        placeholder="Enter father's name">
                 </div>
                 <div class="form-group">
-                    <div class="form-group">
-                        <label for="spouseName">Spouse's Name:</label>
-                        <input type="text" class="form-control" id="spouseName" formControlName="spouseName"
-                            placeholder="Enter spouse's name">
-                    </div>
-                    <div class="form-group">
-                        <label for="maritalStatus">Marital Status:</label>
-                        <select class="form-control" id="maritalStatus" formControlName="maritalStatus">
-                            <option value="">Select marital status</option>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                            <option value="divorced">Divorced</option>
-                            <option value="widowed">Widowed</option>
-                        </select>
-                    </div>
+                    <label for="motherName">Mother's Name:</label>
+                    <input type="text" class="form-control" id="motherName" formControlName="motherName"
+                        placeholder="Enter mother's name">
+                </div>
+                <div class="form-group">
+                    <label for="spouseName">Spouse's Name:</label>
+                    <input type="text" class="form-control" id="spouseName" formControlName="spouseName"
+                        placeholder="Enter spouse's name">
+                </div>
+                <div class="form-group">
+                    <label for="maritalStatus">Marital Status:</label>
+                    <select class="form-control" id="maritalStatus" formControlName="maritalStatus">
+                        <option value="">Select marital status</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -133,122 +113,107 @@
                         placeholder="Enter family income">
                 </div>
                 <div class="form-group">
-
-                    <div class="form-group">
-                        <label for="noOfFamilyMember">Number of Family Members:</label>
-                        <input type="number" class="form-control" id="noOfFamilyMember" formControlName="noOfFamilyMember"
-                            placeholder="Enter number of family members">
-                    </div>
-                    <div class="form-group">
-                        <label for="noOfChild">Number of Children:</label>
-                        <input type="number" class="form-control" id="noOfChild" formControlName="noOfChild"
-                            placeholder="Enter number of children">
-                    </div>
+                    <label for="noOfFamilyMember">Number of Family Members:</label>
+                    <input type="number" class="form-control" id="noOfFamilyMember" formControlName="noOfFamilyMember"
+                        placeholder="Enter number of family members">
+                </div>
+                <div class="form-group">
+                    <label for="noOfChild">Number of Children:</label>
+                    <input type="number" class="form-control" id="noOfChild" formControlName="noOfChild"
+                        placeholder="Enter number of children">
                 </div>
             </div>
         </div>
-        <div *ngIf="step==3">
-            <div formGroupName="customerAddress">
-                <h3>Customer Address Form</h3>
-                <div class="form-group">
-                    <label for="areaname">Area Name:</label>
-                    <input type="text" class="form-control" id="areaname" formControlName="areaname"
-                        placeholder="Enter area name">
-                </div>
-                <div class="form-group">
-                    <label for="cityname">City Name:</label>
-                    <input type="text" class="form-control" id="cityname" formControlName="cityname"
-                        placeholder="Enter city name">
-                </div>
-                <div class="form-group">
-                    <label for="district">District:</label>
-                    <input type="text" class="form-control" id="district" formControlName="district"
-                        placeholder="Enter district">
-                </div>
-                <div class="form-group">
-                    <label for="state">State:</label>
-                    <input type="text" class="form-control" id="state" formControlName="state"
-                        placeholder="Enter state">
-                </div>
-                <div class="form-group">
-                    <label for="pincode">Pincode:</label>
-                    <input type="number" class="form-control" id="pincode" formControlName="pincode"
-                        placeholder="Enter pincode">
-                </div>
-                <div formGroupName="permanantAddress">
-                    <h3>Permanent Address Form</h3>
-                    <div class="form-group">
-
-                                    <label for="pincode">Same As Current Address :</label>
-                                    <input type="checkbox" (click)="patchvalue()">
-                    </div>
-                    <div class="form-group">
-                        <label for="permanentAreaName">Area Name:</label>
-                        <input type="text" class="form-control" id="permanentAreaName" formControlName="areaname"
-                            placeholder="Enter area name">
-                    </div>
-                    <div class="form-group">
-                        <label for="permanentCityName">City Name:</label>
-                        <input type="text" class="form-control" id="permanentCityName" formControlName="cityname"
-                            placeholder="Enter city name">
-                    </div>
-                    <div class="form-group">
-                        <label for="permanentDistrict">District:</label>
-                        <input type="text" class="form-control" id="permanentDistrict" formControlName="district"
-                            placeholder="Enter district">
-                    </div>
-                    <div class="form-group">
-                        <label for="permanentState">State:</label>
-                        <input type="text" class="form-control" id="permanentState" formControlName="state"
-                            placeholder="Enter state">
-                    </div>
-                    <div class="form-group">
-                        <label for="permanentPincode">Pincode:</label>
-                        <input type="number" class="form-control" id="permanentPincode" formControlName="pincode"
-                            placeholder="Enter pincode">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div *ngIf="step==4">
-            <div formGroupName="profession">
-                <h3>Profession Form</h3>
+            <div formGroupName="customerAddress">
+              <h3>Customer Address Form</h3>
+              <div class="form-group">
+                <label for="areaname">Area Name:</label>
+                <input type="text" class="form-control" id="areaname" formControlName="areaname" placeholder="Enter area name">
+              </div>
+              <div class="form-group">
+                <label for="cityname">City Name:</label>
+                <input type="text" class="form-control" id="cityname" formControlName="cityname" placeholder="Enter city name">
+              </div>
+              <div class="form-group">
+                <label for="district">District:</label>
+                <input type="text" class="form-control" id="district" formControlName="district" placeholder="Enter district">
+              </div>
+              <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" class="form-control" id="state" formControlName="state" placeholder="Enter state">
+              </div>
+              <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="number" class="form-control" id="pincode" formControlName="pincode" placeholder="Enter pincode">
+              </div>
+              <div formGroupName="permanantAddress">
+                <h3>Permanent Address Form</h3>
                 <div class="form-group">
-                    <label for="professiontype">Profession Type:</label>
-                    <input type="text" class="form-control" id="professiontype" formControlName="professiontype"
-                        placeholder="Enter profession type">
+                  <label for="permanentAreaName">Area Name:</label>
+                  <input type="text" class="form-control" id="permanentAreaName" formControlName="areaname"
+                    placeholder="Enter area name">
                 </div>
                 <div class="form-group">
-                    <label for="professionsalaryType">Salary Type:</label>
-                    <input type="text" class="form-control" id="professionsalaryType"
-                        formControlName="professionsalaryType" placeholder="Enter salary type">
+                  <label for="permanentCityName">City Name:</label>
+                  <input type="text" class="form-control" id="permanentCityName" formControlName="cityname"
+                    placeholder="Enter city name">
                 </div>
                 <div class="form-group">
-                    <label for="professionworkingperiod">Working Period:</label>
-                    <input type="text" class="form-control" id="professionworkingperiod"
-                        formControlName="professionworkingperiod" placeholder="Enter working period">
+                  <label for="permanentDistrict">District:</label>
+                  <input type="text" class="form-control" id="permanentDistrict" formControlName="district"
+                    placeholder="Enter district">
                 </div>
                 <div class="form-group">
-                    <label for="professionDesignation">Designation:</label>
-                    <input type="text" class="form-control" id="professionDesignation"
-                        formControlName="professionDesignation" placeholder="Enter designation">
+                  <label for="permanentState">State:</label>
+                  <input type="text" class="form-control" id="permanentState" formControlName="state" placeholder="Enter state">
                 </div>
                 <div class="form-group">
-                    <label for="professionsalary">Salary:</label>
-                    <input type="number" class="form-control" id="professionsalary" formControlName="professionsalary"
-                        placeholder="Enter salary">
+                  <label for="permanentPincode">Pincode:</label>
+                  <input type="number" class="form-control" id="permanentPincode" formControlName="pincode"
+                    placeholder="Enter pincode">
                 </div>
-                <div class="form-group">
-                    <label for="professionsalaryslips">Salary Slips:</label>
-                    <input type="file" class="form-control-file" (change)="onProfessionSalarySlips($event)"
-                        id="professionsalaryslips">
-                </div>
+              </div>
             </div>
-        </div>
+          </div>
+
+          <div *ngIf="step==5">
+            <div formGroupName="profession">
+              <h3>Profession Form</h3>
+              <div class="form-group">
+                <label for="professiontype">Profession Type:</label>
+                <input type="text" class="form-control" id="professiontype" formControlName="professiontype"
+                  placeholder="Enter profession type">
+              </div>
+              <div class="form-group">
+                <label for="professionsalaryType">Salary Type:</label>
+                <input type="text" class="form-control" id="professionsalaryType" formControlName="professionsalaryType"
+                  placeholder="Enter salary type">
+              </div>
+              <div class="form-group">
+                <label for="professionworkingperiod">Working Period:</label>
+                <input type="text" class="form-control" id="professionworkingperiod" formControlName="professionworkingperiod"
+                  placeholder="Enter working period">
+              </div>
+              <div class="form-group">
+                <label for="professionDesignation">Designation:</label>
+                <input type="text" class="form-control" id="professionDesignation" formControlName="professionDesignation"
+                  placeholder="Enter designation">
+              </div>
+              <div class="form-group">
+                <label for="professionsalary">Salary:</label>
+                <input type="number" class="form-control" id="professionsalary" formControlName="professionsalary"
+                  placeholder="Enter salary">
+              </div>
+              <div class="form-group">
+                <label for="professionsalaryslips">Salary Slips:</label>
+                <input type="file" class="form-control-file" (change)="onProfessionSalarySlips($event)" id="professionsalaryslips">
+              </div>
+            </div>
+          </div>
 
 
-        <div *ngIf="step==5">
+        <div *ngIf="step==6">
             <div formGroupName="mortgageDetails">
                 <h3>Mortgage Details Form</h3>
                 <div class="form-group">
@@ -279,154 +244,225 @@
             </div>
         </div>
 
-        <div *ngIf="step==6">
-            <div formGroupName="currentloandetails">
-                <h3>Current Loan Details Form</h3>
-                <div class="form-group">
-                    <label for="currentloanNo">Loan Number:</label>
-                    <input type="number" class="form-control" id="currentloanNo" formControlName="currentloanNo"
-                        placeholder="Enter loan number">
-                </div>
-                <div class="form-group">
-                    <label for="tenure">Tenure:</label>
-                    <input type="number" class="form-control" id="tenure" formControlName="tenure"
-                        placeholder="Enter tenure">
-                </div>
-                <div class="form-group">
-                    <label for="totalAmounttobepaid">Total Amount to be Paid:</label>
-                    <input type="number" class="form-control" id="totalAmounttobepaid"
-                        formControlName="totalAmounttobepaid" placeholder="Enter total amount to be paid">
-                </div>
-                <div class="form-group">
-                    <label for="rateOfInterest">Rate of Interest:</label>
-                    <input type="number" class="form-control" id="rateOfInterest" formControlName="rateOfInterest"
-                        placeholder="Enter rate of interest">
-                </div>
-                <div class="form-group">
-                    <label for="totalInterest">Total Interest:</label>
-                    <input type="number" class="form-control" id="totalInterest" formControlName="totalInterest"
-                        placeholder="Enter total interest">
-                </div>
-                <div class="form-group">
-                    <label for="sanctionDate">Sanction Date:</label>
-                    <input type="text" class="form-control" id="sanctionDate" formControlName="sanctionDate"
-                        placeholder="Enter sanction date">
-                </div>
-                <div class="form-group">
-                    <label for="remark">Remark:</label>
-                    <input type="text" class="form-control" id="remark" formControlName="remark"
-                        placeholder="Enter remark">
-                </div>
-                <div class="form-group">
-                    <label for="status">Status:</label>
-                    <input type="text" class="form-control" id="status" formControlName="status"
-                        placeholder="Enter status">
-                </div>
-                <div formGroupName="emidetails">
-                    <h3>EMI Details Form</h3>
-                    <div class="form-group">
-                        <label for="nextEmiDueDate">Next EMI Due Date:</label>
-                        <input type="text" class="form-control" id="nextEmiDueDate" formControlName="nextEmiDueDate"
-                            placeholder="Enter next EMI due date">
-                    </div>
-                    <div class="form-group">
-                        <label for="previousEmiStatus">Previous EMI Status:</label>
-                        <input type="text" class="form-control" id="previousEmiStatus"
-                            formControlName="previousEmiStatus" placeholder="Enter previous EMI status">
-                    </div>
-                    <div class="form-group">
-                        <label for="emiAmountMonthly">EMI Amount Monthly:</label>
-                        <input type="number" class="form-control" id="emiAmountMonthly"
-                            formControlName="emiAmountMonthly" placeholder="Enter EMI amount monthly">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div *ngIf="step==7">
+            <div formGroupName="currentloandetails">
+              <h3>Current Loan Details Form</h3>
+              <div class="form-group">
+                <label for="currentloanNo">Loan Number:</label>
+                <input type="number" class="form-control" id="currentloanNo" formControlName="currentloanNo"
+                  placeholder="Enter loan number">
+              </div>
+              <div class="form-group">
+                <label for="tenure">Tenure:</label>
+                <input type="number" class="form-control" id="tenure" formControlName="tenure" placeholder="Enter tenure">
+              </div>
+              <div class="form-group">
+                <label for="totalAmounttobepaid">Total Amount to be Paid:</label>
+                <input type="number" class="form-control" id="totalAmounttobepaid" formControlName="totalAmounttobepaid"
+                  placeholder="Enter total amount to be paid">
+              </div>
+              <div class="form-group">
+                <label for="rateOfInterest">Rate of Interest:</label>
+                <input type="number" class="form-control" id="rateOfInterest" formControlName="rateOfInterest"
+                  placeholder="Enter rate of interest">
+              </div>
+              <div class="form-group">
+                <label for="totalInterest">Total Interest:</label>
+                <input type="number" class="form-control" id="totalInterest" formControlName="totalInterest"
+                  placeholder="Enter total interest">
+              </div>
+              <div class="form-group">
+                <label for="sanctionDate">Sanction Date:</label>
+                <input type="text" class="form-control" id="sanctionDate" formControlName="sanctionDate"
+                  placeholder="Enter sanction date">
+              </div>
+              <div class="form-group">
+                <label for="remark">Remark:</label>
+                <input type="text" class="form-control" id="remark" formControlName="remark" placeholder="Enter remark">
+              </div>
+              <div class="form-group">
+                <label for="status">Status:</label>
+                <input type="text" class="form-control" id="status" formControlName="status" placeholder="Enter status">
+              </div>
+              <div formGroupName="emidetails">
+                <h3>EMI Details Form</h3>
+                <div class="form-group">
+                  <label for="nextEmiDueDate">Next EMI Due Date:</label>
+                  <input type="text" class="form-control" id="nextEmiDueDate" formControlName="nextEmiDueDate"
+                    placeholder="Enter next EMI due date">
+                </div>
+                <div class="form-group">
+                  <label for="previousEmiStatus">Previous EMI Status:</label>
+                  <input type="text" class="form-control" id="previousEmiStatus" formControlName="previousEmiStatus"
+                    placeholder="Enter previous EMI status">
+                </div>
+                <div class="form-group">
+                  <label for="emiAmountMonthly">EMI Amount Monthly:</label>
+                  <input type="number" class="form-control" id="emiAmountMonthly" formControlName="emiAmountMonthly"
+                    placeholder="Enter EMI amount monthly">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="step==8">
             <div formGroupName="previousloan">
-                <h3>Previous Loan Form</h3>
-                <div class="form-group">
-                    <label for="previousLoanAmount">Loan Amount:</label>
-                    <input type="number" class="form-control" id="previousLoanAmount"
-                        formControlName="previousLoanAmount" placeholder="Enter loan amount">
-                </div>
-                <div class="form-group">
-                    <label for="previousLoanpaidAmount">Paid Amount:</label>
-                    <input type="number" class="form-control" id="previousLoanpaidAmount"
-                        formControlName="previousLoanpaidAmount" placeholder="Enter paid amount">
-                </div>
-                <div class="form-group">
-                    <label for="previousLoanremainingAmount">Remaining Amount:</label>
-                    <input type="number" class="form-control" id="previousLoanremainingAmount"
-                        formControlName="previousLoanremainingAmount" placeholder="Enter remaining amount">
-                </div>
-                <div class="form-group">
-                    <label for="previousLoanTenure">Tenure:</label>
-                    <input type="number" class="form-control" id="previousLoanTenure"
-                        formControlName="previousLoanTenure" placeholder="Enter tenure">
-                </div>
-                <div class="form-group">
-                    <label for="previousLoandeafulterCount">Defaulter Count:</label>
-                    <input type="number" class="form-control" id="previousLoandeafulterCount"
-                        formControlName="previousLoandeafulterCount" placeholder="Enter default count">
-                </div>
-                <div class="form-group">
-                    <label for="previousLoanStatus">Status:</label>
-                    <input type="text" class="form-control" id="previousLoanStatus" formControlName="previousLoanStatus"
-                        placeholder="Enter status">
-                </div>
-                <div class="form-group">
-                    <label for="previousLoanRemark">Remark:</label>
-                    <input type="text" class="form-control" id="previousLoanRemark" formControlName="previousLoanRemark"
-                        placeholder="Enter remark">
-                </div>
+              <h3>Previous Loan Form</h3>
+              <div class="form-group">
+                <label for="previousLoanAmount">Loan Amount:</label>
+                <input type="number" class="form-control" id="previousLoanAmount" formControlName="previousLoanAmount"
+                  placeholder="Enter loan amount">
+              </div>
+              <div class="form-group">
+                <label for="previousLoanpaidAmount">Paid Amount:</label>
+                <input type="number" class="form-control" id="previousLoanpaidAmount" formControlName="previousLoanpaidAmount"
+                  placeholder="Enter paid amount">
+              </div>
+              <div class="form-group">
+                <label for="previousLoanremainingAmount">Remaining Amount:</label>
+                <input type="number" class="form-control" id="previousLoanremainingAmount"
+                  formControlName="previousLoanremainingAmount" placeholder="Enter remaining amount">
+              </div>
+              <div class="form-group">
+                <label for="previousLoanTenure">Tenure:</label>
+                <input type="number" class="form-control" id="previousLoanTenure" formControlName="previousLoanTenure"
+                  placeholder="Enter tenure">
+              </div>
+              <div class="form-group">
+                <label for="previousLoandeafulterCount">Defaulter Count:</label>
+                <input type="number" class="form-control" id="previousLoandeafulterCount"
+                  formControlName="previousLoandeafulterCount" placeholder="Enter default count">
+              </div>
+              <div class="form-group">
+                <label for="previousLoanStatus">Status:</label>
+                <input type="text" class="form-control" id="previousLoanStatus" formControlName="previousLoanStatus"
+                  placeholder="Enter status">
+              </div>
+              <div class="form-group">
+                <label for="previousLoanRemark">Remark:</label>
+                <input type="text" class="form-control" id="previousLoanRemark" formControlName="previousLoanRemark"
+                  placeholder="Enter remark">
+              </div>
             </div>
-        </div>
+          </div>
 
 
-        <div *ngIf="step==8">
+          <div *ngIf="step==9">
             <div formGroupName="accountdetails">
-                <h3>Account Details</h3>
+              <h3>Account Details</h3>
+              <div class="form-group">
+                <label for="accountType">Account Type:</label>
+                <input type="text" id="accountType" class="form-control" formControlName="accountType">
+              </div>
+              <div class="form-group">
+                <label for="accountHolderName">Account Holder Name:</label>
+                <input type="text" id="accountHolderName" class="form-control" formControlName="accountHolderName">
+              </div>
+              <div class="form-group">
+                <label for="accountStatus">Account Status:</label>
+                <input type="text" id="accountStatus" class="form-control" formControlName="accountStatus">
+              </div>
+              <div class="form-group">
+                <label for="accountBalance">Account Balance:</label>
+                <input type="number" id="accountBalance" class="form-control" formControlName="accountBalance">
+              </div>
+              <div class="form-group">
+                <label for="accountNumber">Account Number:</label>
+                <input type="number" id="accountNumber" class="form-control" formControlName="accountNumber">
+              </div>
+            </div>
+          </div>
 
+
+
+
+        <div *ngIf="step==10">
+            <div formGroupName="propertyinfo">
+                <h3>Property Information</h3>
                 <div class="form-group">
-                    <label for="bankname">Bank Name:</label>
-                    <input type="text" id="bankname" class="form-control" formControlName="bankname">
+                    <label for="propertyType">Property Type:</label>
+                    <input type="text" id="propertyType" class="form-control" formControlName="propertyType">
                 </div>
                 <div class="form-group">
-                    <label for="ifsc">IFSC Code:</label>
-                    <input type="text" id="bankname" class="form-control" formControlName="ifsc">
+                    <label for="propertyArea">Property Area:</label>
+                    <input type="text" id="propertyArea" class="form-control" formControlName="propertyArea">
                 </div>
                 <div class="form-group">
-                    <label for="accountHolderName">Account Holder Name:</label>
-                    <input type="text" id="accountHolderName" class="form-control" formControlName="accountHolderName">
+                    <label for="constructionArea">Construction Area:</label>
+                    <input type="text" id="constructionArea" class="form-control" formControlName="constructionArea">
                 </div>
                 <div class="form-group">
-                    <label for="accountType">Account Type:</label>
-                    <input type="text" id="accountType" class="form-control" formControlName="accountType">
+                    <label for="propertyPrice">Property Price:</label>
+                    <input type="number" id="propertyPrice" class="form-control" formControlName="propertyPrice">
                 </div>
                 <div class="form-group">
-                    <label for="accountStatus">Account Status:</label>
-                    <input type="text" id="accountStatus" class="form-control" formControlName="accountStatus">
+                    <label for="constructionPrice">Construction Price:</label>
+                    <input type="number" id="constructionPrice" class="form-control" formControlName="constructionPrice">
                 </div>
 
-                <div class="form-group">
-                    <label for="accountBalance">Account Balance:</label>
-                    <input type="number" id="accountBalance" class="form-control" formControlName="accountBalance">
+                <h3>Property Documents</h3>
+                <div formGroupName="propertydocuments">
+                    <div class="form-group">
+                        <label for="buildingpermission">Building Permission:</label>
+                        <input type="file" id="buildingpermission" class="form-control-file"
+                            (change)="handleFileChangeBuildingPermission($event)">
+                    </div>
+                    <div class="form-group">
+                        <label for="layout">Layout:</label>
+                        <input type="file" id="layout" class="form-control-file"
+                            (change)="handleFileChangeLayout($event)">
+                    </div>
+                    <div class="form-group">
+                        <label for="buildingPlan">Building Plan:</label>
+                        <input type="file" id="buildingPlan" class="form-control-file"
+                            (change)="handleFileChangeBuildingPlan($event)">
+                    </div>
+                    <div class="form-group">
+                        <label for="estimate">Estimate:</label>
+                        <input type="file" id="estimate" class="form-control-file"
+                            (change)="handleFileChangeEstimate($event)">
+                    </div>
+                    <div class="form-group">
+                        <label for="noc">NOC:</label>
+                        <input type="file" id="noc" class="form-control-file" (change)="handleFileChangeNOC($event)">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="accountNumber">Account Number:</label>
-                    <input type="number" id="accountNumber" class="form-control" formControlName="accountNumber">
+                <h3>Property Address</h3>
+
+                <div formGroupName="propertyAddress">
+
+                    <div class="form-group">
+                        <label for="areaname">Area Name:</label>
+                        <input type="text" id="areaname" class="form-control" formControlName="areaname">
+                    </div>
+                    <div class="form-group">
+                        <label for="cityname">City Name:</label>
+                        <input type="text" id="cityname" class="form-control" formControlName="cityname">
+                    </div>
+                    <div class="form-group">
+                        <label for="district">District:</label>
+                        <input type="text" id="district" class="form-control" formControlName="district">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" id="state" class="form-control" formControlName="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="number" id="pincode" class="form-control" formControlName="pincode">
+                    </div>
+
+
                 </div>
+
+
+
+
+
             </div>
         </div>
 
-
-
-
-     
-
-        <div *ngIf="step==9">
+        <div *ngIf="step==11">
             <div formGroupName="gurantordetails">
                 <h3>Gurentor Information</h3>
                 <div class="form-group">
@@ -458,11 +494,199 @@
             </div>
         </div>
 
+        <div *ngIf="step==12">
+            <div formGroupName="loandisbursement">
+                <h3>Loan Disbursement </h3>
+                <div class="form-group">
+                    <label for="loanNo">Loan Number:</label>
+                    <input type="number" id="loanNo" class="form-control" formControlName="loanNo">
+                </div>
+                <div class="form-group">
+                    <label for="agreementDate">Agreement Date:</label>
+                    <input type="date" id="agreementDate" class="form-control" formControlName="agreementDate">
+                </div>
+                <div class="form-group">
+                    <label for="amountPayType">Amount Payment Type:</label>
+                    <input type="text" id="amountPayType" class="form-control" formControlName="amountPayType">
+                </div>
+                <div class="form-group">
+                    <label for="bankName">Bank Name:</label>
+                    <input type="text" id="bankName" class="form-control" formControlName="bankName">
+                </div>
+                <div class="form-group">
+                    <label for="IFSCCode">IFSC Code:</label>
+                    <input type="text" id="IFSCCode" class="form-control" formControlName="ifsc">
+                </div>
+                <div class="form-group">
+                    <label for="accountType">Account Type:</label>
+                    <input type="text" id="accountType" class="form-control" formControlName="accountType">
+                </div>
+                <div class="form-group">
+                    <label for="paymentStatus">Payment Status:</label>
+                    <input type="text" id="paymentStatus" class="form-control" formControlName="paymentStatus">
+                </div>
+                <div class="form-group">
+                    <label for="amountPaidDate">Amount Paid Date:</label>
+                    <input type="text" id="amountPaidDate" class="form-control" formControlName="amountPaidDate">
+                </div>
+                <div class="form-group">
+                    <label for="totalAmount">Total Amount:</label>
+                    <input type="number" id="totalAmount" class="form-control" formControlName="totalAmount">
+                </div>
+                <div class="form-group">
+                    <label for="transferAmount">Transfer Amount:</label>
+                    <input type="amount" id="transferAmount" class="form-control" formControlName="transferAmount">
+                </div>
+                <div class="form-group">
+                    <label for="accountNumber">Account Number:</label>
+                    <input type="number" id="accountNumber" class="form-control" formControlName="accountNumber">
+                </div>
+
+            </div>
+        </div>
+        <div *ngIf="step==13">
+            <div formGroupName="ledger">
+                <h3>Ledger Information</h3>
+                <div class="form-group">
+                    <label for="ledgerCreatedDate">Ledger Created Date:</label>
+                    <input type="text" id="ledgerCreatedDate" class="form-control" formControlName="ledgerCreatedDate">
+                </div>
+                <div class="form-group">
+                    <label for="amountPaidtillDate">Amount Paid till Date:</label>
+                    <input type="text" id="amountPaidtillDate" class="form-control"
+                        formControlName="amountPaidtillDate">
+                </div>
+                <div class="form-group">
+                    <label for="nextEmiDatestart">Next EMI Date Start:</label>
+                    <input type="text" id="nextEmiDatestart" class="form-control" formControlName="nextEmiDatestart">
+                </div>
+                <div class="form-group">
+                    <label for="nextEmiDateEnd">Next EMI Date End:</label>
+                    <input type="text" id="nextEmiDateEnd" class="form-control" formControlName="nextEmiDateEnd">
+                </div>
+                <div class="form-group">
+                    <label for="previousEmitStatus">Previous EMI Status:</label>
+                    <input type="text" id="previousEmitStatus" class="form-control"
+                        formControlName="previousEmitStatus">
+                </div>
+                <div class="form-group">
+                    <label for="currentMonthEmiStatus">Current Month EMI Status:</label>
+                    <input type="text" id="currentMonthEmiStatus" class="form-control"
+                        formControlName="currentMonthEmiStatus">
+                </div>
+                <div class="form-group">
+                    <label for="loanEndDate">Loan End Date:</label>
+                    <input type="text" id="loanEndDate" class="form-control" formControlName="loanEndDate">
+                </div>
+                <div class="form-group">
+                    <label for="loanStatus">Loan Status:</label>
+                    <input type="text" id="loanStatus" class="form-control" formControlName="loanStatus">
+                </div>
+                <div class="form-group">
+                    <label for="totalLoanAmount">Total Loan Amount:</label>
+                    <input type="number" id="totalLoanAmount" class="form-control" formControlName="totalLoanAmount">
+                </div>
+                <div class="form-group">
+                    <label for="payableAmountwithInterest">Payable Amount with Interest:</label>
+                    <input type="number" id="payableAmountwithInterest" class="form-control"
+                        formControlName="payableAmountwithInterest">
+                </div>
+                <div class="form-group">
+                    <label for="monthlyEMI">Monthly EMI:</label>
+                    <input type="number" id="monthlyEMI" class="form-control" formControlName="monthlyEMI">
+                </div>
+                <div class="form-group">
+                    <label for="remainingAmount">Remaining Amount:</label>
+                    <input type="number" id="remainingAmount" class="form-control" formControlName="remainingAmount">
+                </div>
+                <div class="form-group">
+                    <label for="tenure">Tenure:</label>
+                    <input type="number" id="tenure" class="form-control" formControlName="tenure">
+                </div>
+                <div class="form-group">
+                    <label for="defaulterCount">Defaulter Count:</label>
+                    <input type="number" id="defaulterCount" class="form-control" formControlName="defaulterCount">
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="step==14">
+            <div formGroupName="sanctionletter">
+
+                <div class="form-group">
+                    <label for="sanctionDate">Sanction Date:</label>
+                    <input type="date" class="form-control" id="sanctionDate" formControlName="sanctionDate"
+                        placeholder="Enter Sanction Date">
+                </div>
+                <div class="form-group">
+                    <label for="applicantName">Applicant Name:</label>
+                    <input type="text" class="form-control" id="applicantName" formControlName="applicantName"
+                        placeholder="Enter Applicant Name">
+                </div>
+                <div class="form-group">
+                    <label for="producthomeEquity">Product/Home Equity:</label>
+                    <input type="text" class="form-control" id="producthomeEquity" formControlName="producthomeEquity"
+                        placeholder="Enter Product/Home Equity">
+                </div>
+                <div class="form-group">
+                    <label for="modeOfPayment">Mode of Payment:</label>
+                    <input type="text" class="form-control" id="modeOfPayment" formControlName="modeOfPayment"
+                        placeholder="Enter Mode of Payment">
+                </div>
+                <div class="form-group">
+                    <label for="remarks">Remarks:</label>
+                    <input type="text" class="form-control" id="remarks" formControlName="remarks"
+                        placeholder="Enter Remarks">
+                </div>
+                <div class="form-group">
+                    <label for="termsCondition">Terms &amp; Conditions:</label>
+                    <textarea class="form-control" id="termsCondition" formControlName="termsCondition"
+                        placeholder="Enter Terms &amp; Conditions"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <input type="text" class="form-control" id="status" formControlName="status"
+                        placeholder="Enter Status">
+                </div>
+                <div class="form-group">
+                    <label for="rateOfInterest">Rate of Interest:</label>
+                    <input type="number" class="form-control" id="rateOfInterest" formControlName="rateOfInterest"
+                        placeholder="Enter Rate of Interest">
+                </div>
+                <div class="form-group">
+                    <label for="loanTenure">Loan Tenure:</label>
+                    <input type="number" class="form-control" id="loanTenure" formControlName="loanTenure"
+                        placeholder="Enter Loan Tenure">
+                </div>
+                <div class="form-group">
+                    <label for="contactno">Contact Number:</label>
+                    <input type="tel" class="form-control" id="contactno" formControlName="contactno"
+                        placeholder="Enter Contact Number">
+                </div>
+                <div class="form-group">
+                    <label for="monthlyEmiAmount">Monthly EMI Amount:</label>
+                    <input type="number" class="form-control" id="monthlyEmiAmount" formControlName="monthlyEmiAmount"
+                        placeholder="Enter Monthly EMI Amount">
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
 
 
         <!-- Add other form fields for related entities here -->
         <button class="button" *ngIf="step !=1" (click)="previous()">Previous</button>
-        <button class="button ms-3" *ngIf="step !=10" (click)="next()">Next</button>
-        <button type="submit" (click)="onSubmit()" *ngIf="step==10" class="button ms-3">Submit</button>
+        <button class="button" *ngIf="step !=14" (click)="next()">Next</button>
+        <button type="submit" (click)="onSubmit()" *ngIf="step==14" class="button">Submit</button>
     </form>
 </div>
+
+
+

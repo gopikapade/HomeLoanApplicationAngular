@@ -13,7 +13,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 export class SanctionLetterComponent {
 
 
-   emi: any={};
+   emi: any = {};
 
    constructor(public ces: CeserviceService, private fb: FormBuilder) { }
 
@@ -46,31 +46,43 @@ export class SanctionLetterComponent {
 
       this.ces.getEMI(Emi.value).subscribe((data: any) => {
          this.emi = data.body;
+         console.log(this.emi);
       })
-      console.log(this.emi);
+
 
    }
+<<<<<<< Updated upstream
 
    getSanctionLettter(doc:any) {
+      console.log(doc)
       const sanctioLetter = this.fb.group({
-         applicantName: doc.enq.firstname +" "+doc.enq.lastname,
+         applicantName: doc.enq.firstName + " "+ doc.enq.lastName,
+=======
+
+
+
+
+   getSanctionLettter(doc: any) {
+      const sanctioLetter = this.fb.group({
+         applicantName: doc.enq.firstname + " " + doc.enq.lastname,
+>>>>>>> Stashed changes
          producthomeEquity: "new home",
          modeOfPayment: "online",
          remarks: "provide valuetion of 300000",
          termsCondition: "tearms and comdition",
          status: "Approved",
-         rateOfInterest: doc.enq.tenure,
-         loanTenure: doc.enq.tenure,
-         contactno: doc.enq.contactno,
-         monthlyEmiAmount: this.emi.monthlyEmiAmount,
+         rateOfInterest: this.emi.intrestrate,
+         loanTenure: this.emi.tenure,
+         contactno: doc.enq.mobileNo,
+         monthlyEmiAmount: this.emi.monthlyEmi,
          loanammount: doc.enq.loanAmmount
       })
 
 
       console.log(sanctioLetter.value)
 
-      this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data:any)=>{
-          console.log(data);
+      this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data: any) => {
+         console.log(data);
       })
 
    }
@@ -82,7 +94,7 @@ export class SanctionLetterComponent {
 
       for (let i = 0; i < byteCharacters.length; i++) {
 
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
+         byteNumbers[i] = byteCharacters.charCodeAt(i);
 
       }
 
