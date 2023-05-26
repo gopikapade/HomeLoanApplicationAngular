@@ -13,7 +13,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 export class SanctionLetterComponent {
 
 
-   emi: any = {};
+   emi: any={};
 
    constructor(public ces: CeserviceService, private fb: FormBuilder) { }
 
@@ -51,21 +51,11 @@ export class SanctionLetterComponent {
 
 
    }
-<<<<<<< Updated upstream
 
    getSanctionLettter(doc:any) {
       console.log(doc)
       const sanctioLetter = this.fb.group({
          applicantName: doc.enq.firstName + " "+ doc.enq.lastName,
-=======
-
-
-
-
-   getSanctionLettter(doc: any) {
-      const sanctioLetter = this.fb.group({
-         applicantName: doc.enq.firstname + " " + doc.enq.lastname,
->>>>>>> Stashed changes
          producthomeEquity: "new home",
          modeOfPayment: "online",
          remarks: "provide valuetion of 300000",
@@ -81,8 +71,8 @@ export class SanctionLetterComponent {
 
       console.log(sanctioLetter.value)
 
-      this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data: any) => {
-         console.log(data);
+      this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data:any)=>{
+          console.log(data);
       })
 
    }
@@ -94,7 +84,7 @@ export class SanctionLetterComponent {
 
       for (let i = 0; i < byteCharacters.length; i++) {
 
-         byteNumbers[i] = byteCharacters.charCodeAt(i);
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
 
       }
 
