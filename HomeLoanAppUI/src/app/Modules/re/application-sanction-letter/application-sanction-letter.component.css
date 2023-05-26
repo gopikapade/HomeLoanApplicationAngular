@@ -1,4 +1,4 @@
-label {
+.forword {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -8,7 +8,7 @@ label {
     border-radius: 20px;
   }
 
- label::before {
+ .forword::before {
     content: "";
     position: absolute;
     top: -10px;

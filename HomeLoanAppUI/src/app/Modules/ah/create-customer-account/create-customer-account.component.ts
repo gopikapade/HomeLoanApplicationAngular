@@ -230,15 +230,30 @@ export class CreateCustomerAccountComponent {
             customerEmail:this.loan.enq.email,
             //customerAge:this.loan.enq.age
             customerMobileNumber:this.loan.enq.mobileNo,
-            customerTotalLoanRequired:this.loan.enq.loanAmmount,
-
-            educationalInfo: this.formBuilder.group({
-              higherEducation: this.loan.enq.education.higherEducation
-            }),
+            customerTotalLoanRequired:this.loan.enq.loanAmmount
+          })
+          this.customerForm.get('educationalInfo').patchValue({
+            higherEducation: this.loan.enq.education.higherEducation
           })
 
 
 
+          // const buildingPermissionBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingpermission]);
+          //  this.layout= new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.layout]);
+          // const buildingPlanBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingPlan]);
+          // const estimateBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.estimate]);
+          // const nocBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.noc]);
+
+          this.professionsalaryslips= this.convertBytesToFile( this.loan.personalDocuments.salarySlip, 'salarySlip')
+          this.mortgagePropertyInsurance= this.convertBytesToFile( this.loan.personalDocuments.pancard, 'insaurance')
+          this.mortgagePropertyProof=this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission, 'propertyProfe');
+          this.buildingpermission=  this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingpermission, 'permisson')
+          this.layout =this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.layout, 'layout')
+          this.buildingPlan=  this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingPlan, 'buidingplan')
+          this.estimate=  this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.estimate, 'estimate')
+          this.noc= this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.noc, 'noc')
+
+   console.log(this.noc)
     }
 
   }
@@ -262,14 +277,9 @@ export class CreateCustomerAccountComponent {
     console.log(customeraccount)
 
 
-    this.service.createCustomerAccount(data).subscribe()
-
-
-
-
-
-
-
+    this.service.createCustomerAccount(data).subscribe((data:any)=>{
+       console.log(data);
+    })
 
   }
 
@@ -311,6 +321,14 @@ export class CreateCustomerAccountComponent {
   handleFileChangeNOC(event: any) {
     this.noc = event.target.files[0];
 
+  }
+
+  convertBytesToFile(byteArray: Uint8Array, fileName: string): File {
+    // Create a Blob from the byte array
+    const blob = new Blob([byteArray]);
+    // Create a File object from the Blob
+    const file = new File([blob], fileName);
+    return file;
   }
 
 }
