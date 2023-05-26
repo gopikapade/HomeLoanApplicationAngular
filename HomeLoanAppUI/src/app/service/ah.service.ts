@@ -11,11 +11,6 @@ export class AhService {
     return this.http.get("http://localhost:8080/documents/allSanctionLoan")
    }
 
-  getAllLoanAcounts(){
-
-     return this.http.get("http://localhost:8080/customeraccount/getalldata")
-
-  }
 
   proceedeDisbustment(id:number, disburstment:any)
   {

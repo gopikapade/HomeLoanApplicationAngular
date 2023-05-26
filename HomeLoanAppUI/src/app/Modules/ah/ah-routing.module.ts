@@ -10,9 +10,15 @@ const routes: Routes = [
 {path:'createaccount',component:CreateCustomerAccountComponent},
 {path:'loandisbusrtment',component:LoanDisburstmentComponent},
 {path:'ledger',component:LeggerComponent},
+<<<<<<< HEAD
 
 {path:'app' , component:ApplicationFromReComponent},
 {path:'app/createaccount', component:CreateCustomerAccountComponent}
+=======
+{path:'app' , component:ApplicationFromReComponent},
+{path:'app/createaccount', component:CreateCustomerAccountComponent}
+
+>>>>>>> parent of 27c2a7b (Merge branch 'main' of https://github.com/lurnfx/HomeLoanApplicationAngular)
 
 ];
 

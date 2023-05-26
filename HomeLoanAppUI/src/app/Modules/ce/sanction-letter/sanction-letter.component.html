@@ -25,10 +25,11 @@
       <td>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
           (click)="calculateEmi(doc)">EMI</button>
+
       <td *ngIf="doc.creditManeger==null else gerrated"><button class="btn btn-warning"
           (click)="getSanctionLettter(doc)">Genrate</button></td>
-          <!-- <td><button class="btn btn-warning"
-            (click)="getSanctionLettter(doc)">Genrate</button></td> -->
+          <!--<td><button class="btn btn-warning"
+            (click)="getSanctionLettter(doc)">Genrate</button></td>-->
         <td>
         <button class="btn btn-warning" (click)="openPDFPreview(doc.creditManeger.sanctionLetter)">View Sanction Letter</button>
         </td>
@@ -40,6 +41,8 @@
     </tr>
   </tbody>
 </table>
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -53,6 +56,7 @@
             EMI Details
           </div>
           <div class="card-body">
+
             <p class="card-text">Tenure: {{emi.tenure}} years</p>
             <p class="card-text">Interest Rate: {{emi.intrestrate}}%</p>
             <p class="card-text text-success">Monthly EMI: {{emi.monthlyEmi | currency:'INR'}}</p>
@@ -60,6 +64,7 @@
             <p class="card-text">Loan Amount: {{emi.loanAmmount | currency:'INR'}}</p>
           </div>
         </div>
+
       </div>
     </div>
   </div>

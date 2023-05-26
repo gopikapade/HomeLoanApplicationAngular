@@ -1,217 +1,92 @@
 .container {
-   padding-top: 180px;
-      display: flex;
-      flex-direction: column;
 
+  margin-top: 100px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 30px;
+  width: 900px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
-      width: 40%;
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
+.progress {
+  height: 20px;
+  margin-bottom: 20px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-size: large;
+.progress-bar {
+  background-color: #007bff;
+}
 
-        background-color: #ececec;
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
 
-    }
+.form-group label {
+  font-weight: bold;
+}
 
-    .form-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
 
+.form-control:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
 
-    }
+.invalid-feedback {
+  color: red;
+  display: none;
+  margin-top: 5px;
+  font-size: 14px;
+}
 
-    .form-group .form-control {
-      width: 68%;
-    }
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    @media (max-width: 576px) {
-      .form-group .form-control {
-        width: 100%;
-      }
-    }
-    .form-group {
-      margin-bottom: 20px;
-  }
+button:hover {
+  background-color: #0056b3;
+}
 
-  label {
-      display: block;
-      font-weight: bold;
-      color: #ffffff;
-      margin-bottom: 5px;
-  }
-
-  input[type="text"],
-  input[type="date"],
-  input[type="email"],
-  select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 14px;
-      color: #555;
-  }
-
-  .input-wrapper {
-      position: relative;
-  }
-
-  .input-wrapper input,
-  .input-wrapper select {
-      padding-right: 30px;
-  }
-
-  .input-wrapper::after {
-      content: "\f107";
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      font-family: "FontAwesome";
-      font-size: 14px;
-      color: #ffffff;
-  }
-
-  .invalid-feedback {
-      color: #dc3545;
-      font-size: 14px;
-      margin-top: 5px;
-  }
-
+@media (max-width: 576px) {
   .container {
-      margin-bottom: 50px;
-  }
-  .file-input {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-  }
-
-  .file-input input[type="file"] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
-
-  .file-input-label {
-    display: inline-block;
-    padding: 10px 15px;
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    background-color: #020202;
-    cursor: pointer;
-  }
-
-  .file-input-label:hover {
-    background-color: #f8f8f8;
-  }
-
-  .file-input-text {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-
-  .file-input-button {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .file-input-button:hover {
-    background-color: #45a049;
-  }
-  label {
-    display: block;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 5px;
+    padding: 15px;
   }
 
   h2 {
-    color: #ffffff;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif, 'Arial Narrow', Arial, sans-serif;
-    background-color: #5f2929;
+    font-size: 20px;
   }
 
-  h3 {
-    color: #b40808;
-    margin-bottom: 15px;
-  }
-  .progress {
-    height: 30px;
-    background-color: #f2f2f2;
-    border-radius: 4px;
-    overflow: hidden;
+  .form-control {
+    font-size: 14px;
   }
 
-  .progress-bar {
-    height: 100%;
-    line-height: 30px;
-    text-align: center;
-    color: #ffffff;
-    font-weight: bold;
-    background-color: #ffffff;
-    transition: width 0.3s ease-in-out;
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-left: 25px;
   }
-
-  .progress-bar.progress-bar-striped {
-    background-color: #440606;
-    background-image: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.15) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.15) 50%,
-      rgba(255, 255, 255, 0.15) 75%,
-      transparent 75%,
-      transparent
-    );
-    background-size: 40px 40px;
-    animation: progress-bar-stripes 1s linear infinite;
-  }
-
-  @keyframes progress-bar-stripes {
-    from {
-      background-position: 40px 0;
-    }
-    to {
-      background-position: 0 0;
-    }
-  }
-
-  .button {
-    margin: 10px;
-    height: 50px;
-    width:fit-content;
-
-    text-align: center;
-    color: #ffffff;
-    font-weight: bold;
-    background-color: #440606;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  .button:hover {
-    background-color: #761c1c;
-  }
-
-  .button:active {
-    background-color: #2b0c0c;
-  }
+}

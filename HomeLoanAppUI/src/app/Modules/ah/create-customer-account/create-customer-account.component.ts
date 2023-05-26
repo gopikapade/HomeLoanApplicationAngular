@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AhserviceService } from 'src/app/service/ahservice.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AhserviceService } from 'src/app/service/ahservice.service';
   styleUrls: ['./create-customer-account.component.css']
 })
 export class CreateCustomerAccountComponent {
-
+  
  data:any;
   constructor(private formBuilder: FormBuilder, private service: AhserviceService, private route:Router) {
 
@@ -46,11 +47,23 @@ export class CreateCustomerAccountComponent {
   }
 
 
-  totalSteps: number = 14;
+  totalSteps: number = 9;
   progressPercentage: number;
 
 
 
+
+  patchvalue(){
+this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue({
+  areaname: [this.customerForm.controls['customerAddress'].value.areaname],
+  cityname: [this.customerForm.controls['customerAddress'].value.cityname],
+  district: [this.customerForm.controls['customerAddress'].value.district],
+  state: [this.customerForm.controls['customerAddress'].value.state],
+  pincode: [this.customerForm.controls['customerAddress'].value.pincode],
+
+
+})
+  }
   ngOnInit() {
     console.log(this.data)
     this.customerForm = this.formBuilder.group({
@@ -76,7 +89,7 @@ export class CreateCustomerAccountComponent {
         noOfFamilyMember: [''],
         noOfChild: ['']
       }),
-      customerAddress: this.formBuilder.group({
+   customerAddress: this.formBuilder.group({
         areaname: [''],
         cityname: [''],
         district: [''],
@@ -137,7 +150,10 @@ export class CreateCustomerAccountComponent {
         accountHolderName: [''],
         accountStatus: [''],
         accountBalance: [''],
-        accountNumber: ['']
+        accountNumber: [''],
+       
+        ifsc:[''],
+        bankname:['']
       }),
       propertyinfo: this.formBuilder.group({
         propertyType: [''],
@@ -230,31 +246,21 @@ export class CreateCustomerAccountComponent {
             customerEmail:this.loan.enq.email,
             //customerAge:this.loan.enq.age
             customerMobileNumber:this.loan.enq.mobileNo,
-            customerTotalLoanRequired:this.loan.enq.loanAmmount
+            customerTotalLoanRequired:this.loan.enq.loanAmmount,
+
+            educationalInfo: this.formBuilder.group({
+              higherEducation: this.loan.enq.education.higherEducation
+            }),
           })
-          this.customerForm.get('educationalInfo').patchValue({
-            higherEducation: this.loan.enq.education.higherEducation
-          })
 
 
 
-          // const buildingPermissionBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingpermission]);
-          //  this.layout= new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.layout]);
-          // const buildingPlanBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingPlan]);
-          // const estimateBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.estimate]);
-          // const nocBlob = new Blob([this.loan.personalDocuments.propertyDocuments.buildingpermission.noc]);
-
-          this.professionsalaryslips= this.convertBytesToFile( this.loan.personalDocuments.salarySlip, 'salarySlip')
-          this.mortgagePropertyInsurance= this.convertBytesToFile( this.loan.personalDocuments.pancard, 'insaurance')
-          this.mortgagePropertyProof=this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission, 'propertyProfe');
-          this.buildingpermission=  this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingpermission, 'permisson')
-          this.layout =this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.layout, 'layout')
-          this.buildingPlan=  this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.buildingPlan, 'buidingplan')
-          this.estimate=  this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.estimate, 'estimate')
-          this.noc= this.convertBytesToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission.noc, 'noc')
-
-   console.log(this.noc)
     }
+
+  }
+
+  pdatePermanentAddress(){
+
 
   }
   onSubmit() {
@@ -264,22 +270,58 @@ export class CreateCustomerAccountComponent {
     const customeraccount = JSON.stringify(this.customerForm.value);
     const data = new FormData();
     data.append('customeraccount', customeraccount);
-    data.append('professionsalaryslips', this.professionsalaryslips);
-    data.append('mortgagePropertyProof', this.mortgagePropertyProof);
-    data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
-    data.append('buildingpermission', this.buildingpermission);
-    data.append('layout', this.layout);
-    data.append('buildingPlan', this.buildingPlan);
-    data.append('estimate', this.estimate);
-    data.append('noc', this.noc);
+    // data.append('professionsalaryslips', this.professionsalaryslips);
+    // data.append('mortgagePropertyProof', this.mortgagePropertyProof);
+    // data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
+    // data.append('buildingpermission', this.buildingpermission);
+    // data.append('layout', this.layout);
+    // data.append('buildingPlan', this.buildingPlan);
+    // data.append('estimate', this.estimate);
+    // data.append('noc', this.noc);
+
+
+    if (this.professionsalaryslips) {
+      data.append('professionsalaryslips', this.professionsalaryslips);
+      }
+      if (this.mortgagePropertyProof) {
+      data.append('mortgagePropertyProof', this.mortgagePropertyProof);
+      }
+      if (this.mortgagePropertyInsurance) {
+      data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
+      }
+      if (this.buildingpermission) {
+      data.append('buildingpermission', this.buildingpermission);
+      }
+      if (this.layout) {
+      data.append('layout', this.layout);
+      }
+      if (this.buildingPlan) {
+      data.append('buildingPlan', this.buildingPlan);
+      }
+      if (this.estimate) {
+      data.append('estimate', this.estimate);
+      }
+      if (this.noc) {
+      data.append('noc', this.noc);
+      }
 
    this. customeraccount=customeraccount
     console.log(customeraccount)
 
 
-    this.service.createCustomerAccount(data).subscribe((data:any)=>{
-       console.log(data);
-    })
+    this.service.createCustomerAccount(data).subscribe(()=>{
+
+
+      alert("account Created Sucessfully")
+      
+      window.location.reload();
+
+    });
+
+
+    
+
+
 
   }
 
@@ -321,14 +363,6 @@ export class CreateCustomerAccountComponent {
   handleFileChangeNOC(event: any) {
     this.noc = event.target.files[0];
 
-  }
-
-  convertBytesToFile(byteArray: Uint8Array, fileName: string): File {
-    // Create a Blob from the byte array
-    const blob = new Blob([byteArray]);
-    // Create a File object from the Blob
-    const file = new File([blob], fileName);
-    return file;
   }
 
 }

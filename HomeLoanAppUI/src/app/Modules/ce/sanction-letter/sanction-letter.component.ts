@@ -46,25 +46,27 @@ export class SanctionLetterComponent {
 
       this.ces.getEMI(Emi.value).subscribe((data: any) => {
          this.emi = data.body;
-         console.log(this.emi);
       })
-
+      console.log(this.emi);
 
    }
 
    getSanctionLettter(doc:any) {
-      console.log(doc)
       const sanctioLetter = this.fb.group({
+<<<<<<< HEAD
          applicantName: doc.enq.firstName + " "+ doc.enq.lastName,
+=======
+         applicantName: doc.enq.firstname +" "+doc.enq.lastname,
+>>>>>>> parent of 27c2a7b (Merge branch 'main' of https://github.com/lurnfx/HomeLoanApplicationAngular)
          producthomeEquity: "new home",
          modeOfPayment: "online",
          remarks: "provide valuetion of 300000",
          termsCondition: "tearms and comdition",
          status: "Approved",
-         rateOfInterest: this.emi.intrestrate,
-         loanTenure: this.emi.tenure,
-         contactno: doc.enq.mobileNo,
-         monthlyEmiAmount: this.emi.monthlyEmi,
+         rateOfInterest: doc.enq.tenure,
+         loanTenure: doc.enq.tenure,
+         contactno: doc.enq.contactno,
+         monthlyEmiAmount: this.emi.monthlyEmiAmount,
          loanammount: doc.enq.loanAmmount
       })
 
