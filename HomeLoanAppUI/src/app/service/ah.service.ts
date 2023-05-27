@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AhService {
+  getAllLoanAcounts() {
+    return this.http.get("http://localhost:8080/customeraccount/getalldata")
+  }
   constructor(private http:HttpClient) { }
 
    getAllSanctionsLoan(){

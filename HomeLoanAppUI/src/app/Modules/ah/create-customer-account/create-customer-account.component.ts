@@ -55,13 +55,11 @@ export class CreateCustomerAccountComponent {
 
   patchvalue(){
 this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue({
-  areaname: [this.customerForm.controls['customerAddress'].value.areaname],
-  cityname: [this.customerForm.controls['customerAddress'].value.cityname],
-  district: [this.customerForm.controls['customerAddress'].value.district],
-  state: [this.customerForm.controls['customerAddress'].value.state],
-  pincode: [this.customerForm.controls['customerAddress'].value.pincode],
-
-
+  areaname: this.customerForm.get('customerAddress').value.areaname,
+  cityname: this.customerForm.get('customerAddress').value.cityname,
+  district: this.customerForm.get('customerAddress').value.district,
+  state: this.customerForm.get('customerAddress').value.state,
+  pincode: this.customerForm.get('customerAddress').value.pincode,
 })
   }
   ngOnInit() {
@@ -255,31 +253,36 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 
 
 
-    }
+
+          this.professionsalaryslips= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
+          this.mortgagePropertyProof =this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
+
+          this.buildingpermission = this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
+          this.layout = this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip');
+          this.buildingPlan  = this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip');
+          this.estimate= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip');
+          this.noc= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
+
+        }
 
   }
 
-  pdatePermanentAddress(){
 
-
-  }
   onSubmit() {
     alert("in ts")
-
-
     const customeraccount = JSON.stringify(this.customerForm.value);
     const data = new FormData();
     data.append('customeraccount', customeraccount);
-    // data.append('professionsalaryslips', this.professionsalaryslips);
-    // data.append('mortgagePropertyProof', this.mortgagePropertyProof);
-    // data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
-    // data.append('buildingpermission', this.buildingpermission);
-    // data.append('layout', this.layout);
-    // data.append('buildingPlan', this.buildingPlan);
-    // data.append('estimate', this.estimate);
-    // data.append('noc', this.noc);
+    data.append('professionsalaryslips', this.professionsalaryslips);
+    data.append('mortgagePropertyProof', this.mortgagePropertyProof);
+    data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
+    data.append('buildingpermission', this.buildingpermission);
+    data.append('layout', this.layout);
+    data.append('buildingPlan', this.buildingPlan);
+    data.append('estimate', this.estimate);
+    data.append('noc', this.noc);
 
-
+    console.log(this.customerForm)
     if (this.professionsalaryslips) {
       data.append('professionsalaryslips', this.professionsalaryslips);
       }
@@ -310,19 +313,12 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 
 
     this.service.createCustomerAccount(data).subscribe(()=>{
-
-
       alert("account Created Sucessfully")
+      console.log((data))
 
-      window.location.reload();
+      // window.location.reload();
 
     });
-
-
-
-
-
-
   }
 
   onProfessionSalarySlips(event){
@@ -363,6 +359,18 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
   handleFileChangeNOC(event: any) {
     this.noc = event.target.files[0];
 
+  }
+
+
+  base64ToFile(base64Code: string, fileName: string): File {
+    const byteCharacters = atob(base64Code);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const file = new File([byteArray], fileName);
+    return file;
   }
 
 }
