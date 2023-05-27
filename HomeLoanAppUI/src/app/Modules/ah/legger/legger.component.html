@@ -2,42 +2,32 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Ledger ID</th>
-          <th>Ledger Created Date</th>
-          <th>Total Loan Amount</th>
-          <th>Amount Paid Till Date</th>
+          <th>Customer Name</th>
+          <th>Loan No</th>
+          <th>Ledger Id</th>
+          <th>EMI</th>
+          <th>Loan Amount</th>
           <th>Payable Amount with Interest</th>
-          <th>Monthly EMI</th>
-          <th>Tenure</th>
-          <th>Next EMI Date (Start)</th>
-          <th>Next EMI Date (End)</th>
-          <th>Previous EMI Status</th>
+          <th>Amount Paid Till Date</th>
           <th>Current Month EMI Status</th>
-          <th>Remaining Amount</th>
-          <th>Loan End Date</th>
-          <th>Loan Status</th>
-          <th>Defaulter Count</th>
+         
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>date</td>
-          <td>{{ledger.totalLoanAmount}}</td>
-          <td>{{ledger.amountPaidtillDate}}</td>
-          <td>{{ledger.payableAmountwithInterest}}</td>
-          <td>{{ledger.monthlyEMI}}</td>
-          <td>{{ledger.tenure}}</td>
-          <td>{{ledger.nextEmiDatestart}}</td>
-          <td>{{ledger.nextEmiDateEnd}}</td>
-          <td>{{ledger.previousEmitStatus}}</td>
-          <td>{{ledger.currentMonthEmiStatus}}</td>
-          <td>{{ledger.remainingAmount}}</td>
-          <td>{{ledger.loanEndDate}}</td>
-          <td>{{ledger.loanStatus}}</td>
-          <td>{{ledger.defaulterCount}}</td>
+        <tr *ngFor="let c of customers">
+      
+          <td>{{c.customerName | uppercase}}</td>
+          <td>{{c.currentloandetails.currentloanNo}}</td>
+          <td>{{c.ledger.ledgerId}}</td>
+          <td>{{c.currentloandetails.emidetails.emiAmountMonthly}}</td>
+          <td>{{c.loandisbursement.totalAmount}}</td>
+          <td>{{c.ledger.payableAmountwithInterest}}</td>
+          <td>{{c.ledger.amountPaidtillDate }}</td>
+          <td>{{c.ledger.currentMonthEmiStatus}}</td>
+        
         </tr>
       </tbody>
     </table>
   </div>
+  
   

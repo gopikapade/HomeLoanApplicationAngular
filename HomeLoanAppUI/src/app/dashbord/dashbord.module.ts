@@ -11,6 +11,7 @@ import { TransformNamePipe } from './Pipe/transform-name.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -19,7 +20,8 @@ import { TransformNamePipe } from './Pipe/transform-name.pipe';
     DashComponent,
     NavComponent,
     TransformNamePipe,
-    SidenavComponent
+    SidenavComponent,
+ 
   ],
   imports: [
     CommonModule,
