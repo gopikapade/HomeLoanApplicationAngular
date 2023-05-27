@@ -17,14 +17,11 @@ export class LoanDisburstmentComponent {
     loandisbursement:FormGroup;
     ngOnInit()
     {
-      this.ahservice.getAllSanctionsLoan().subscribe((data:any)=>{
+      this.ahservice.getAllLoanAcounts().subscribe((data:any)=>{
         this.customers =data.body
         console.log(data)
       })
       console.log(this.customers);
-
-
-
       this.loandisbursement= this.fb.group({
         loanNo: [''],
         agreementDate: [''],
@@ -44,7 +41,6 @@ export class LoanDisburstmentComponent {
 
     disburstment()
     {
-
       this.ahservice.proceedeDisbustment(this.cust.loandisbursement.loanDisbursementid,
          this.loandisbursement.value).subscribe((data:any)=>{
          console.log(data)
