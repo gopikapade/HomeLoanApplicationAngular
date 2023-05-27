@@ -168,8 +168,6 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
           district: [''],
           state: [''],
           pincode: ['']
-
-
         })
 
       }),
@@ -244,15 +242,33 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
             customerEmail:this.loan.enq.email,
             //customerAge:this.loan.enq.age
             customerMobileNumber:this.loan.enq.mobileNo,
-            customerTotalLoanRequired:this.loan.enq.loanAmmount,
+            customerTotalLoanRequired:this.loan.enq.loanAmmount
+          })
 
-            educationalInfo: this.formBuilder.group({
-              higherEducation: this.loan.enq.education.higherEducation
-            }),
+          this.customerForm.get('educationalInfo').patchValue({
+            higherEducation:this.loan.enq.education.higherEducation
+          })
+          this.customerForm.get('profession').patchValue({
+            professionsalary:this.loan.enq.education.income
           })
 
 
 
+          this.customerForm.get('currentloandetails').patchValue({
+            currentloanNo: this.getRandomSixDigitNumber(),
+            tenure: this.loan.enq.tenure,
+            totalAmounttobepaid: this.calculateTotalLoanAmount(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
+            rateOfInterest:7,
+            totalInterest:  this.calculateInterest(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
+            sanctionDate: [''],
+            remark: [''],
+            status: [''],
+            emidetails: this.formBuilder.group({
+              nextEmiDueDate: [''],
+              previousEmiStatus: [''],
+              emiAmountMonthly: ['']
+            })
+          })
 
           this.professionsalaryslips= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
           this.mortgagePropertyProof =this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
@@ -264,9 +280,13 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
           this.noc= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
 
         }
-
   }
 
+  getRandomSixDigitNumber(): number {
+    const min = 100000;
+    const max = 999999;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   onSubmit() {
     alert("in ts")
@@ -323,45 +343,29 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 
   onProfessionSalarySlips(event){
     this.professionsalaryslips = event.target.files[0]
-
   }
-
-
   onPropertyProofChange(event) {
     this.mortgagePropertyProof = event.target.files[0];
-
   }
   onPropertyInsuranceChange(event) {
     this.mortgagePropertyInsurance = event.target.files[0];
-
   }
-
   handleFileChangeBuildingPermission(event: any) {
     this.buildingpermission = event.target.files[0];
 
   }
-
   handleFileChangeLayout(event: any) {
     this.layout = event.target.files[0];
-
   }
-
   handleFileChangeBuildingPlan(event: any) {
     this.buildingPlan = event.target.files[0];
-
   }
-
   handleFileChangeEstimate(event: any) {
     this.estimate = event.target.files[0];
-
   }
-
   handleFileChangeNOC(event: any) {
     this.noc = event.target.files[0];
-
   }
-
-
   base64ToFile(base64Code: string, fileName: string): File {
     const byteCharacters = atob(base64Code);
     const byteNumbers = new Array(byteCharacters.length);
@@ -373,4 +377,25 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
     return file;
   }
 
+  calculateEMI(amount: number, tenure: number, rate: number): number {
+    rate = 7 / 12 / 100;
+    tenure = tenure * 12;
+    // const monthlyRate = rate / 100 / 12;
+    const emi = (amount * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
+    return Math.floor(emi);
+  }
+
+
+  calculateTotalLoanAmount(amount: number, tenure: number, rate: number): number {
+    const emi = this.calculateEMI(amount, tenure, rate);
+    const total = emi * tenure * 12;
+    return Math.floor(total);
+  }
+
+  calculateInterest(amount: number, tenure: number, rate: number): number {
+    const total = this.calculateTotalLoanAmount(amount, tenure, rate);
+    const interest = total - amount;
+    return Math.floor(interest);
+  }
 }
+
