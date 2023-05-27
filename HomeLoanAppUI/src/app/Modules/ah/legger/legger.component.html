@@ -1,1 +1,43 @@
-<p>legger works!</p>
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ledger ID</th>
+          <th>Ledger Created Date</th>
+          <th>Total Loan Amount</th>
+          <th>Amount Paid Till Date</th>
+          <th>Payable Amount with Interest</th>
+          <th>Monthly EMI</th>
+          <th>Tenure</th>
+          <th>Next EMI Date (Start)</th>
+          <th>Next EMI Date (End)</th>
+          <th>Previous EMI Status</th>
+          <th>Current Month EMI Status</th>
+          <th>Remaining Amount</th>
+          <th>Loan End Date</th>
+          <th>Loan Status</th>
+          <th>Defaulter Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>date</td>
+          <td>{{ledger.totalLoanAmount}}</td>
+          <td>{{ledger.amountPaidtillDate}}</td>
+          <td>{{ledger.payableAmountwithInterest}}</td>
+          <td>{{ledger.monthlyEMI}}</td>
+          <td>{{ledger.tenure}}</td>
+          <td>{{ledger.nextEmiDatestart}}</td>
+          <td>{{ledger.nextEmiDateEnd}}</td>
+          <td>{{ledger.previousEmitStatus}}</td>
+          <td>{{ledger.currentMonthEmiStatus}}</td>
+          <td>{{ledger.remainingAmount}}</td>
+          <td>{{ledger.loanEndDate}}</td>
+          <td>{{ledger.loanStatus}}</td>
+          <td>{{ledger.defaulterCount}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
