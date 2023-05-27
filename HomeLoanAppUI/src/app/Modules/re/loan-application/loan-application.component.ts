@@ -64,12 +64,6 @@ export class LoanApplicationComponent {
              cbillScore:['', Validators.required],
              remark:['', Validators.required],
             })
-    }),
-    creditManeger:this.formBuilder.group({
-      id:[],
-      emi:this.formBuilder.group({
-        id:[],
-      })
     })
   })
 
