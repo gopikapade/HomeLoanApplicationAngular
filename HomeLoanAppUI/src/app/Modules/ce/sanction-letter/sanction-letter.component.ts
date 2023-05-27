@@ -13,7 +13,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 export class SanctionLetterComponent {
 
 
-   emi: any={};
+   emi:any={};
 
    constructor(public ces: CeserviceService, private fb: FormBuilder) { }
 
@@ -43,11 +43,26 @@ export class SanctionLetterComponent {
          tenure: doc.enq.tenure,
          intrestrate: 7
       });
+      console.log(doc)
 
       this.ces.getEMI(Emi.value).subscribe((data: any) => {
          this.emi = data.body;
+         console.log(this.emi);
+
+
+         if(this.emi !=null){
+             console.log("IN EMI IF ")
+         this.ces.updateemidata(doc.creditManeger.id,this.emi).subscribe((data:any)=>{
+            this.emi=data.body
+   
+            console.log(data)
+          })
+   
+            
+          }
       })
-      console.log(this.emi);
+      console.log(this.emi)
+
 
    }
 
@@ -62,7 +77,7 @@ export class SanctionLetterComponent {
          rateOfInterest: doc.enq.tenure,
          loanTenure: doc.enq.tenure,
          contactno: doc.enq.contactno,
-         monthlyEmiAmount: this.emi.monthlyEmiAmount,
+         monthlyEmiAmount: this.emi.monthlyEmi,
          loanammount: doc.enq.loanAmmount
       })
 
@@ -71,6 +86,7 @@ export class SanctionLetterComponent {
 
       this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data:any)=>{
           console.log(data);
+          window.location.reload();
       })
 
    }

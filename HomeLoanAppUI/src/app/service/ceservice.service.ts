@@ -31,6 +31,13 @@ export class CeserviceService {
   genrateSanctionLetter(sanctionLetter, doc){
     return this.http.put("http://localhost:8080/pdf/sanctionletterpdf/"+JSON.stringify(sanctionLetter), doc);
   }
+   
+  updateemidata(id,emi){
+
+    return this.http.put("http://localhost:8080/cm/emiupdate/"+id,emi);
+    
+  }
+
 
  
  

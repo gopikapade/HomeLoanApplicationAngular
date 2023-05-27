@@ -44,6 +44,7 @@ export class LoanApplicationComponent {
       remark:[''],
       status1:[''],
       status2:[''],
+     
     enq : this.formBuilder.group({
       enquryId:['',Validators.required],
       firstName: ['', Validators.required],
@@ -142,6 +143,7 @@ export class LoanApplicationComponent {
             this.loanapplicationform.reset();
 
       },(responce:any)=>{alert(responce.error.massage)});
+      console.log(this.loanapplicationform.value)
 
      }
 

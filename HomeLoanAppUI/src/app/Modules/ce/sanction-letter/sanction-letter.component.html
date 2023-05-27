@@ -26,10 +26,10 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
           (click)="calculateEmi(doc)">EMI</button>
 
-      <td *ngIf="doc.creditManeger==null else gerrated"><button class="btn btn-warning"
-          (click)="getSanctionLettter(doc)">Genrate</button></td>
-          <!--<td><button class="btn btn-warning"
-            (click)="getSanctionLettter(doc)">Genrate</button></td>-->
+      <!-- <td *ngIf="doc.creditManeger.sanctionLetter==null else gerrated"><button class="btn btn-warning"
+          (click)="getSanctionLettter(doc)">Genrate</button></td> -->
+          <td><button class="btn btn-warning"
+            (click)="getSanctionLettter(doc)">Genrate</button></td>
         <td>
         <button class="btn btn-warning" (click)="openPDFPreview(doc.creditManeger.sanctionLetter)">View Sanction Letter</button>
         </td>
