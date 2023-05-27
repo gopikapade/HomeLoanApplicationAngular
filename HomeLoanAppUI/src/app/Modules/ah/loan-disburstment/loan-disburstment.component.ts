@@ -54,13 +54,13 @@ export class LoanDisburstmentComponent {
           loanNo: customer.currentloandetails.currentloanNo,
           agreementDate: [''],
           amountPayType: [''],
-          bankName: [''],
-          ifsc: [''],
+          bankName: customer.accountdetails.bankanme,
+          ifsc:  customer.accountdetails.ifsc,
           accountType:  customer.accountdetails.accountType,
           paymentStatus: [''],
           amountPaidDate: [''],
           totalAmount: customer.customerTotalLoanRequired,
-          transferAmount:customer.customerTotalLoanRequired,
+          transferAmount:customer.customerTotalLoanRequired -  (customer.customerTotalLoanRequired*3/100) ,
           accountNumber: customer.accountdetails.accountNumber
         })
       this.cust = customer;

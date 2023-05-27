@@ -68,7 +68,6 @@ export class SanctionLetterComponent {
 
 
       console.log(sanctioLetter.value)
-
       this.ces.genrateSanctionLetter(sanctioLetter.value, doc).subscribe((data:any)=>{
           console.log(data);
       })
