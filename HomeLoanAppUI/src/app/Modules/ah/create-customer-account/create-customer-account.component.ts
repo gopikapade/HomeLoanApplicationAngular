@@ -240,7 +240,7 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
           this.customerForm.patchValue({
             customerName:this.loan.enq.firstName+" "+this.loan.enq.lastName,
             customerEmail:this.loan.enq.email,
-            //customerAge:this.loan.enq.age
+            customerAge:this.loan.enq.age,
             customerMobileNumber:this.loan.enq.mobileNo,
             customerTotalLoanRequired:this.loan.enq.loanAmmount
           })
