@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { elementAt } from 'rxjs';
 import { CeserviceService } from 'src/app/service/ceservice.service';
 import * as pdfjsLib from 'pdfjs-dist';
+import { EMI } from 'src/app/model/enquiry';
 
 
 @Component({
@@ -13,7 +14,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 export class SanctionLetterComponent {
 
 
-   emi:any={};
+   emi:EMI=new EMI();
 
    constructor(public ces: CeserviceService, private fb: FormBuilder) { }
 
@@ -50,7 +51,7 @@ export class SanctionLetterComponent {
          console.log(this.emi);
 
 
-         if(this.emi !=null){
+         if(this.emi ==null){
              console.log("IN EMI IF ")
          this.ces.updateemidata(doc.creditManeger.id,this.emi).subscribe((data:any)=>{
             this.emi=data.body
