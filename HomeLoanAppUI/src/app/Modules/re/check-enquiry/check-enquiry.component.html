@@ -1,4 +1,4 @@
-<table class="table align-middle mb-0 bg-white mx-auto text-dark">
+<table class="table">
   <thead class="bg-light">
     <tr>
       <th>Index</th>
@@ -32,9 +32,9 @@
       <td>{{enqury.marrtialStatus}}</td>
       <td>{{enqury.pancardNo}}</td>
       <td>{{enqury.age}}</td>
-      <td>{{enqury.mobileNo}}</td>
-      <td>{{enqury.income}}</td>
-      <td>{{enqury.loanAmmount}}</td>
+      <td>+91-{{enqury.mobileNo }}</td>
+      <td>{{enqury.income | currency:'INR':'symbol'}}</td>
+      <td>{{enqury.loanAmmount | currency: 'INR':'symbol' }}</td>
       <td>{{enqury.education.higherEducation}}</td>
       <td *ngIf="enqury.forwardToOe!=true, else other">
         <a (click)="forwrdToOe(enqury.enquryId, enqury)">

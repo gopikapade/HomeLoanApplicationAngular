@@ -7,6 +7,7 @@
       <th>Email</th>
       <th>sanctionLetters</th>
       <th>Mail</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -21,9 +22,11 @@
           Pdf</button>
       </td>
       <td>
-        <button type="button" class="btn  btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <button  type="button" class="btn  btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
           (click)="mailBody(sanction)">Mail</button>
       </td>
+
+
       <td *ngIf="sanction.status2==null; else forworded">
         <button class="btn btn-outline-success" (click)="forwordToah(sanction)">Forword To AH</button></td>
 
@@ -56,8 +59,10 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Message:</label>
-                  <input type="file" name="sanctionLetter" (change)="sanctionLetter($event)">
+                  <label for="message-text" class="col-form-label">Attchment:</label><pre></pre>
+                  <!-- <input type="file" name="sanctionLetter" (change)="sanctionLetter($event)"> -->
+                  <button class="btn btn-warning" (click)="openPDFPreview(sanction.creditManeger.sanctionLetter)">Sanction Letter</button>
+                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

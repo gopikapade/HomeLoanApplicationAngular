@@ -435,7 +435,7 @@ body:after {
 }
 
 .site-navbar .site-navigation .site-menu .active {
-  color: #007bff;
+  color: #ffffff;
   display: inline-block;
   padding: 20px 20px;
 }
@@ -451,13 +451,14 @@ body:after {
 
 .site-navbar .site-navigation .site-menu>li>a {
   padding: 20px 20px;
-  color: #000;
+  color: #ffffff;
+  font-size: larger;
   display: inline-block;
   text-decoration: none !important;
 }
 
 .site-navbar .site-navigation .site-menu>li>a:hover {
-  color: #007bff;
+  color: #ff0040;
 }
 
 .site-navbar .site-navigation .site-menu>li.social>a {

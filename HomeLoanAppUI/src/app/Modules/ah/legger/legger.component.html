@@ -14,42 +14,25 @@
         </tr>
       </thead>
       <tbody>
-<<<<<<< HEAD
-        <tr *ngFor="let ledger of leagers">
-          <td>1</td>
-          <td>date</td>
-          <td>{{ledger.customerTotalLoanRequired}}</td>
-          <td>{{ledger.currentloandetails.totalAmounttobepaid}}</td>
-          <td>{{ledger.currentloandetails.emiDetails[0].monthlyEMI}}</td>
-          <td>{{ledger.monthlyEMI}}</td>
-          <td>{{ledger.tenure}}</td>
-          <td>{{ledger.nextEmiDatestart}}</td>
-          <td>{{ledger.nextEmiDateEnd}}</td>
-          <td>{{ledger.previousEmitStatus}}</td>
-          <td>{{ledger.currentMonthEmiStatus}}</td>
-          <td>{{ledger.remainingAmount}}</td>
-          <td>{{ledger.loanEndDate}}</td>
-          <td>{{ledger.loanStatus}}</td>
-          <td>{{ledger.defaulterCount}}</td>
-=======
-        <tr *ngFor="let c of customers">
+        <tr *ngFor="let c of leagers">
       
           <td>{{c.customerName | uppercase}}</td>
           <td>{{c.currentloandetails.currentloanNo}}</td>
           <td>{{c.ledger.ledgerId}}</td>
-          <td>{{c.currentloandetails.emidetails.emiAmountMonthly}}</td>
-          <td>{{c.loandisbursement.totalAmount}}</td>
+          <td>{{c.currentloandetails.emiDetails[0]?.emiAmountMonthly | currency:'INR':'symbol':'1.2-2'}}</td>
+      
+          
+          
+
+          <td>{{c.customerTotalLoanRequired | currency:'INR':'symbol':'1.2-2'}}</td>
+          <td>{{c.currentloandetails.totalAmounttobepaid | currency:'INR':'symbol':'1.2-2'}}</td>
           <td>{{c.ledger.payableAmountwithInterest}}</td>
           <td>{{c.ledger.amountPaidtillDate }}</td>
-          <td>{{c.ledger.currentMonthEmiStatus}}</td>
+          <td>{{c.loandisbursement.paymentStatus | uppercase}}</td>
         
->>>>>>> parent of f113065 (Revert "Gopi Front End Update 00.11")
         </tr>
       </tbody>
     </table>
   </div>
-<<<<<<< HEAD
-=======
   
   
->>>>>>> parent of f113065 (Revert "Gopi Front End Update 00.11")

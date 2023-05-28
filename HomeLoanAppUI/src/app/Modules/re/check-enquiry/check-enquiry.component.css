@@ -1,135 +1,38 @@
-.table {
+.my-table {
   border-collapse: collapse;
   width: 100%;
-  margin: 0 auto;
-  font-size: 14px;
-  text-align: center;
 }
-.table th,
-.table td {
-  padding: 12px;
+
+.my-table th,
+.my-table td {
   border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
-.table th {
+.my-table th {
   background-color: #f2f2f2;
-  font-weight: bold;
-  color: #333;
 }
 
-
-
-.table tr:hover {
- background-color: #f5f5f5;
+.my-table tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.table td:first-child,
-.table th:first-child {
-  width: 50px;
-}
-
-.table td:nth-child(2),
-.table th:nth-child(2) {
-  width: 100px;
-}
-
-.table td:nth-child(3),
-.table th:nth-child(3) {
-  width: 100px;
-}
-
-.table td:nth-child(4),
-.table:nth-child(4) {
-  width: 200px;
-}
-
-.table td:nth-child(5),
-.table th:nth-child(5) {
-  width: 100px;
-}
-
-.table td:nth-child(6),
-.table th:nth-child(6) {
-  width:150px;
-}
-
-.table td:nth-child(7),
-.table th:nth-child(7) {
-  width: 50px;
-}
-
-.table td:nth-child(8),
-.table th:nth-child(8) {
-  width: 150px;}
-.table td:nth-child(9),
-.table th:nth-child(9) {
-  width: 150px;
-}
-
-.table td:nth-child(10),
-.table th:nth-child(10) {
-  width: 150px;
-}
-
-.table td:nth-child(11),
-.table th:nth-child(11) {
-  width: 150px;
-}
-
-.table td:last-child,
-.table th:last-child {
-  width: 100px;
-}
-
-.pagination-controls {
+.pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-.pagination-previous,
-.pagination-next {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 4px;
+.pagination button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin: 0 5px;
+  padding: 5px 10px;
 }
 
-.pagination-previous:hover,
-.pagination-next:hover {
-  background-color: #0062cc;
+.pagination button {
+  background-color: #f2f2f2;
 }
-
-.pagination-disabled {
-  background-color: #ddd;
-  color: #999;
-  cursor: not-allowed;
-}
-
-.paginationellipsis {
-  margin: 0 8px;
-  color: #999;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: #007bff;
-  color: #fff;
-}
-
-.btn:hover {
-  background-color: #0062cc;
-}
-

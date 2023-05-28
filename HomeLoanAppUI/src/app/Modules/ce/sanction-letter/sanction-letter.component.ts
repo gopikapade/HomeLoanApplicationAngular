@@ -69,6 +69,7 @@ export class SanctionLetterComponent {
 
    getSanctionLettter(doc:any) {
       const sanctioLetter = this.fb.group({
+         sanctionDate:[],
          applicantName: doc.enq.firstName + " "+ doc.enq.lastName,
          producthomeEquity: "new home",
          modeOfPayment: "online",

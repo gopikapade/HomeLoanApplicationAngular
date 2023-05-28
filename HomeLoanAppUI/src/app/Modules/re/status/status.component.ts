@@ -59,6 +59,7 @@ export class StatusComponent {
     })
     this.reservice.emailsend(this.emailform).subscribe((data: any) => {
       console.log(data)
+      window.location.reload()
     })
 
   }
@@ -69,6 +70,8 @@ export class StatusComponent {
   forMailData(enqury: any) {
     this.email = enqury.email
     this.firstname = enqury.firstname
+   
+
   }
 
 

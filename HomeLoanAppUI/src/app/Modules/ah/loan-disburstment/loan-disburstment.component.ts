@@ -56,12 +56,13 @@ export class LoanDisburstmentComponent {
       console.log(customer)
         this.loandisbursement.patchValue({
           loanNo: customer.currentloandetails.currentloanNo,
-          bankName: customer.accountdetails.bankanme,
+          bankName: customer.accountdetails.bankname,
           ifsc:  customer.accountdetails.ifsc,
           accountType:  customer.accountdetails.accountType,
           totalAmount: customer.customerTotalLoanRequired,
           transferAmount:customer.customerTotalLoanRequired -  (customer.customerTotalLoanRequired*3/100) ,
           accountNumber: customer.accountdetails.accountNumber
+      
         })
       this.cust = customer;
     }
