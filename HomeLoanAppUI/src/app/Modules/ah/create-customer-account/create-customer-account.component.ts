@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AhserviceService } from 'src/app/service/ahservice.service';
@@ -125,11 +125,12 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
         sanctionDate: [''],
         remark: [''],
         status: [''],
-        emidetails: this.formBuilder.group({
-          nextEmiDueDate: [''],
-          previousEmiStatus: [''],
-          emiAmountMonthly: ['']
-        })
+        // emidetails: this.formBuilder.Group({
+        //   // nextEmiDueDate: [''],
+        //   // previousEmiStatus: [''],
+        //   // emiAmountMonthly: ['']
+        // })
+        emiDetails:this.formBuilder.array([])
       }),
 
       previousloan: this.formBuilder.group({
@@ -280,6 +281,22 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
           this.noc= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
 
         }
+
+        const emiGroup= this.formBuilder.group({
+          nextEmiDueDate: [''],
+          previousEmiStatus: [''],
+          emiAmountMonthly: ['']
+        })
+     this.emiDetails.push(emiGroup);
+
+
+    console.log(this.emiDetails);
+  }
+
+
+
+  get emiDetails() {
+    return this.customerForm.controls['currentloandetails'].get('emiDetails') as FormArray;
   }
 
   getRandomSixDigitNumber(): number {
@@ -290,6 +307,10 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 
   onSubmit() {
     alert("in ts")
+
+
+
+
     const customeraccount = JSON.stringify(this.customerForm.value);
     const data = new FormData();
     data.append('customeraccount', customeraccount);
@@ -335,9 +356,7 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
     this.service.createCustomerAccount(data).subscribe(()=>{
       alert("account Created Sucessfully")
       console.log((data))
-
-      // window.location.reload();
-
+      window.location.reload();
     });
   }
 
