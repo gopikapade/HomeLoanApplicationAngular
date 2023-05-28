@@ -7,15 +7,19 @@
 
   .progress {
     margin-bottom: 20px;
+    background-color: #ffffff;
+    color: #f7760d;
   }
 
 
   label{
-     color: cadetblue;
+     color: rgb(255, 255, 255);
   }
 
   .step-container h3 {
     margin-top: 0;
+
+   
   }
 
   .step-container.active {
@@ -23,5 +27,18 @@
   }
 button{
   margin-top: 20px;
+  background-color: #f7760d;
 }
 
+h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  /* Add any other desired styling */
+  color: rgb(58, 49, 49);
+  background-color: #ffa44f;
+  text-align: center;
+  text-transform: uppercase;
+  text-size-adjust: initial;
+}
+h3{
+  color: #ffffff;
+}

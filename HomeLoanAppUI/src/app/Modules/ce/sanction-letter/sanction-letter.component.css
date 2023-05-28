@@ -1,59 +1,12 @@
-label{
-    border: 1px solid green;
-    border-spacing:2px ;
-    border-radius: 20px;
-    background-color: rgb(172, 215, 172);
-    padding: 5px 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: black;
-}
 
-.card {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .card-body {
-    padding: 20px;
-  }
-
-  .card-text {
-    margin-bottom: 10px;
-  }
-
-  .card-text span {
-    font-weight: bold;
-  }
-
-  .text-success {
-    color: #004410;
-  }
-
-  .card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-
-
-  
 table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: #fff;
   border-collapse: collapse;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
   
 }
 
@@ -64,23 +17,24 @@ th, td {
   font-size: 14px;
 
 
+
 }
 
 th {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
   font-size: 14px; 
   font-weight: bold;
   text-align: left;
-  background-color: #f2f2f2;
+  background-color: #cfcfcf;
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: #ffffff;
+  background-color: #696969;
 }
 
 tbody tr:hover {
-  background-color: #942626;
-  color: #ffffff;
+  background-color: #c4c4c4;
+  color: #000000;
 }
 
 
@@ -93,5 +47,15 @@ a{
   color: green;
   transform: scale(1.2);
 }
+h2{
+color: rgb(58, 49, 49);
+background-color: #ffa44f;
+text-align: center;
+text-transform: uppercase;
+text-size-adjust: initial;
 
+}
+button{
+background-color: #ffa44f;
+}
 

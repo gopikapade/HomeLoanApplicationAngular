@@ -11,20 +11,20 @@ import { AhserviceService } from 'src/app/service/ahservice.service';
 })
 export class CreateCustomerAccountComponent {
 
- data:any;
-  constructor(private formBuilder: FormBuilder, private service: AhserviceService, private route:Router) {
+  data: any;
+  constructor(private formBuilder: FormBuilder, private service: AhserviceService, private route: Router) {
 
-       this.loan =this.route.getCurrentNavigation()?.extras?.state?.['data']
-//        localStorage.setItem('data', JSON.stringify(this.loan));
+    this.loan = this.route.getCurrentNavigation()?.extras?.state?.['data']
+    //        localStorage.setItem('data', JSON.stringify(this.loan));
 
-// // Retrieving the data from localStorage
-//  const storedData = localStorage.getItem('data');
-//  this.data = storedData ? JSON.parse(storedData) : null;
-   }
+    // // Retrieving the data from localStorage
+    //  const storedData = localStorage.getItem('data');
+    //  this.data = storedData ? JSON.parse(storedData) : null;
+  }
   professionsalaryslips: File;
   mortgagePropertyInsurance: File;
   mortgagePropertyProof: File;
-  customeraccount:any;
+  customeraccount: any;
   buildingpermission: File;
   layout: File;
   buildingPlan: File;
@@ -35,7 +35,7 @@ export class CreateCustomerAccountComponent {
   customerForm: FormGroup
   step: number = 1
 
-  loan:any;
+  loan: any;
 
   previous() {
     this.step = this.step - 1;
@@ -53,14 +53,14 @@ export class CreateCustomerAccountComponent {
 
 
 
-  patchvalue(){
-this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue({
-  areaname: this.customerForm.get('customerAddress').value.areaname,
-  cityname: this.customerForm.get('customerAddress').value.cityname,
-  district: this.customerForm.get('customerAddress').value.district,
-  state: this.customerForm.get('customerAddress').value.state,
-  pincode: this.customerForm.get('customerAddress').value.pincode,
-})
+  patchvalue() {
+    this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue({
+      areaname: this.customerForm.get('customerAddress').value.areaname,
+      cityname: this.customerForm.get('customerAddress').value.cityname,
+      district: this.customerForm.get('customerAddress').value.district,
+      state: this.customerForm.get('customerAddress').value.state,
+      pincode: this.customerForm.get('customerAddress').value.pincode,
+    })
   }
   ngOnInit() {
 
@@ -90,7 +90,7 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
         noOfFamilyMember: [''],
         noOfChild: ['']
       }),
-   customerAddress: this.formBuilder.group({
+      customerAddress: this.formBuilder.group({
         areaname: [''],
         cityname: [''],
         district: [''],
@@ -133,7 +133,7 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
         //   // previousEmiStatus: [''],
         //   // emiAmountMonthly: ['']
         // })
-        emiDetails:this.formBuilder.array([])
+        emiDetails: this.formBuilder.array([])
       }),
 
       previousloan: this.formBuilder.group({
@@ -154,8 +154,8 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
         accountBalance: [''],
         accountNumber: [''],
 
-        ifsc:[''],
-        bankname:['']
+        ifsc: [''],
+        bankname: ['']
       }),
       propertyinfo: this.formBuilder.group({
         propertyType: [''],
@@ -240,69 +240,77 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 
     });
 
-    if(this.loan!=null){
-          this.customerForm.patchValue({
-            customerName:this.loan.enq.firstName+" "+this.loan.enq.lastName,
-            customerEmail:this.loan.enq.email,
+    if (this.loan != null) {
+      this.customerForm.patchValue({
+        customerName: this.loan.enq.firstName + " " + this.loan.enq.lastName,
+        customerEmail: this.loan.enq.email,
 
-            customerAge:this.loan.enq.age,
-            customerMobileNumber:this.loan.enq.mobileNo,
-            customerTotalLoanRequired:this.loan.enq.loanAmmount
-          })
+        customerAge: this.loan.enq.age,
+        customerMobileNumber: this.loan.enq.mobileNo,
+        customerTotalLoanRequired: this.loan.enq.loanAmmount
+      })
 
-          this.customerForm.get('educationalInfo').patchValue({
-            higherEducation:this.loan.enq.education.higherEducation
-          })
-          this.customerForm.get('profession').patchValue({
-            professionsalary:this.loan.enq.education.income
-          })
-
-
-
-          this.customerForm.get('currentloandetails').patchValue({
-            currentloanNo: this.getRandomSixDigitNumber(),
-            tenure: this.loan.enq.tenure,
-            totalAmounttobepaid: this.calculateTotalLoanAmount(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
-            rateOfInterest:7,
-            totalInterest:  this.calculateInterest(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
+      this.customerForm.get('educationalInfo').patchValue({
+        higherEducation: this.loan.enq.education.higherEducation
+      })
+      this.customerForm.get('profession').patchValue({
+        professionsalary: this.loan.enq.education.income
+      })
 
 
 
-
-          })
-
-          this.customerForm.get('profession').patchValue({
-            professionsalary:this.loan.enq.income,
-          })
-
-
-          this.customerForm.get('ledger').patchValue({
-            monthlyEMI:this.calculateEMI(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7)
-          })
-          this.customerForm.get('accountdetails').patchValue({
-            accountHolderName:this.loan.enq.firstName+" "+this.loan.enq.lastName,
-            accountNumber:this.getRandomSixDigitNumber(),
+      this.customerForm.get('currentloandetails').patchValue({
+        currentloanNo: this.getRandomSixDigitNumber(),
+        tenure: this.loan.enq.tenure,
+        totalAmounttobepaid: this.calculateTotalLoanAmount(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
+        rateOfInterest: 7,
+        totalInterest: this.calculateInterest(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
 
 
-          })
-
-          this.buildingPlan  = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.buildingPlan, 'buildingPlan');
-
-          this.buildingpermission = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission, 'buildingpermission')
-          this.layout = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.layout, 'layout');
-          this.estimate= this.base64ToFile(this.loan.personalDocuments.propertyDocuments.estimate, 'estimate');
-          this.noc= this.base64ToFile(this.loan.personalDocuments.propertyDocuments.noc, 'salarySlip')
-
-        }
-
-        const emiGroup= this.formBuilder.group({
-          nextEmiDueDate: [''],
-          previousEmiStatus: [''],
-          emiAmountMonthly: this.calculateEMI(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7)
-        })
-     this.emiDetails.push(emiGroup);
 
 
+      })
+
+      this.customerForm.get('profession').patchValue({
+        professionsalary: this.loan.enq.income,
+      })
+
+
+      this.customerForm.get('ledger').patchValue({
+        monthlyEMI: this.calculateEMI(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7)
+      })
+      this.customerForm.get('accountdetails').patchValue({
+        accountHolderName: this.loan.enq.firstName + " " + this.loan.enq.lastName,
+        accountNumber: this.getRandomSixDigitNumber(),
+
+
+      })
+
+      this.buildingPlan = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.buildingPlan, 'buildingPlan');
+
+      this.buildingpermission = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission, 'buildingpermission')
+      this.layout = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.layout, 'layout');
+      this.estimate = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.estimate, 'estimate');
+      this.noc = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.noc, 'salarySlip')
+
+    }
+
+    const emiGroup = this.formBuilder.group({
+
+      nextEmiDueDate: [''],
+
+      previousEmiStatus: [''],
+
+      emiAmountMonthly: []
+
+    })
+
+    emiGroup.patchValue({
+      emiAmountMonthly: this.calculateEMI(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7)
+      
+    })
+    
+    this.emiDetails.push(emiGroup);
     console.log(this.emiDetails);
   }
 
@@ -339,41 +347,41 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
     console.log(this.customerForm)
     if (this.professionsalaryslips) {
       data.append('professionsalaryslips', this.professionsalaryslips);
-      }
-      if (this.mortgagePropertyProof) {
+    }
+    if (this.mortgagePropertyProof) {
       data.append('mortgagePropertyProof', this.mortgagePropertyProof);
-      }
-      if (this.mortgagePropertyInsurance) {
+    }
+    if (this.mortgagePropertyInsurance) {
       data.append('mortgagePropertyInsurance', this.mortgagePropertyInsurance);
-      }
-      if (this.buildingpermission) {
+    }
+    if (this.buildingpermission) {
       data.append('buildingpermission', this.buildingpermission);
-      }
-      if (this.layout) {
+    }
+    if (this.layout) {
       data.append('layout', this.layout);
-      }
-      if (this.buildingPlan) {
+    }
+    if (this.buildingPlan) {
       data.append('buildingPlan', this.buildingPlan);
-      }
-      if (this.estimate) {
+    }
+    if (this.estimate) {
       data.append('estimate', this.estimate);
-      }
-      if (this.noc) {
+    }
+    if (this.noc) {
       data.append('noc', this.noc);
-      }
+    }
 
-   this. customeraccount=customeraccount
+    this.customeraccount = customeraccount
     console.log(customeraccount)
 
 
-    this.service.createCustomerAccount(data).subscribe(()=>{
+    this.service.createCustomerAccount(data).subscribe(() => {
       alert("account Created Sucessfully")
       console.log((data))
       window.location.reload();
     });
   }
 
-  onProfessionSalarySlips(event){
+  onProfessionSalarySlips(event) {
     this.professionsalaryslips = event.target.files[0]
   }
   onPropertyProofChange(event) {

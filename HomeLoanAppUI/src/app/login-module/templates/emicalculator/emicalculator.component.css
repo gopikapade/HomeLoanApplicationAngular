@@ -15,7 +15,7 @@
 .wrapper .div-bar{
   display: block;
   width: 120px;
-  background: #961251;
+  background: #f7760d;
   height: 6px;
   border-radius: 10px;
   margin: 10px 0px;
@@ -52,12 +52,12 @@
 
 .calculator .calculator-input input:focus{
   outline: none;
-  border: 1px solid #961251;
+  border: 1px solid #f7760d;
 }
 
 
 .calculator .calculator-input label{
-  color:#961251;
+  color:#f7760d;
   font-size: 16px;
   padding: 2px 4px;
   font-weight: 500;
@@ -70,7 +70,7 @@
   font-weight: 700;
   cursor: pointer;
   font-family: "Poppins",sans-serif;
-  background: #961251;
+  background: #f7760d;
   border: 0;
   color: #FFFFFF;
   font-size: 14px;

@@ -4,8 +4,8 @@
             [attr.aria-valuenow]="progressPercentage" aria-valuemin="0" aria-valuemax="100">{{ currentStep }} of 3
         </div>
     </div>
-    <form [formGroup]="loanapplicationform"  (ngSubmit)="submitForm()">
-        <h3 class="h2 text-center text-success">Loan Application Form</h3>
+    <form [formGroup]="loanapplicationform" (ngSubmit)="submitForm()">
+        <h2>Loan Application Form</h2>
         <div class="step-container" *ngIf="currentStep == 1">
             <!-- Search:<input type="text" [(ngModel)]="search" (input)="filterNames()"> -->
             <ul>
@@ -13,7 +13,7 @@
             </ul>
             <div formGroupName="enq">
                 <div>
-                    <h3 class="text-info mb-3 mt-3 text-success text-center">Personal Information</h3>
+                    <h3 class=" mb-3 mt-3  text-center" style="color: #ffa44f;">Personal Information</h3>
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <label for="firstName">First Name</label>
@@ -89,8 +89,8 @@
             </div>
         </div>
         <div class="step-container" *ngIf="currentStep == 2">
-            <div class="container">
-                <h3 class="text-info mb-3 mt-3 text-success text-center">Personal Documents Form</h3>
+            <div >
+                <h3 class=" mb-3 mt-3  text-center" style="color: #ffa44f;">Personal Documents Form</h3>
 
                 <div class="form-group">
                     <label class="form-label" for="addressProof">Address Proof</label>
@@ -130,33 +130,31 @@
             <div class="form-group">
                 <label class="form-label" for="buildingPermission">Building Permission</label>
                 <input type="file" (change)="onBuildingPermission($event)" class="form-control form-control-sm"
-                    id="buildingPermission"  required>
+                    id="buildingPermission" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="layout">Layout</label>
                 <input type="file" (change)="onLayout($event)" class="form-control form-control-sm" id="layout"
-                     required>
+                    required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="buildingPlan">Building Plan</label>
                 <input type="file" (change)="onBuildingPlan($event)" class="form-control form-control-sm"
-                    id="buildingPlan"  required>
+                    id="buildingPlan" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="estimate">Estimate</label>
                 <input type="file" (change)="onEsimate($event)" class="form-control form-control-sm" id="estimate"
-                     required>
+                    required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="noc">NOC</label>
-                <input type="file" (change)="onNoc($event)" class="form-control form-control-sm" id="noc"
-                     required>
+                <input type="file" (change)="onNoc($event)" class="form-control form-control-sm" id="noc" required>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-warning previous-button" *ngIf="currentStep != 1"
+        <button type="button" class="btn  previous-button" *ngIf="currentStep != 1"
             (click)="previous()">Previous</button>
-        <button type="button" class="btn btn-outline-info next-button ms-2" *ngIf="currentStep != 3"
-            (click)="next()">Next</button>
+        <button type="button" class="btn  next-button ms-2" *ngIf="currentStep != 3" (click)="next()">Next</button>
         <button type="submit" class="btn btn-outline-success submit-button" style="margin-left: 10px;"
             *ngIf="currentStep == 3">Submit</button>
 

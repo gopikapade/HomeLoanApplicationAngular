@@ -4,9 +4,10 @@
       [attr.aria-valuenow]="progressPercentage" aria-valuemin="0" aria-valuemax="100">{{ currentStep }} of 2</div>
   </div>
   <form [formGroup]="enquiryForm" (ngSubmit)="submitForm()" #form="ngForm">
-    <h3 class="h3 text-center text-success">Enquiry Form</h3>
+    <!-- <h3 class="h3 text-center text-success">Enquiry Form</h3> -->
+    <h2>Enquiry Form</h2>
     <div *ngIf="currentStep === 1" class="step-container">
-      <h3 class="text-info mb-3 mt-3 text-success text-center">Personal Information</h3>
+      <h3 class=" mb-3 mt-3 text-center">Personal Information</h3>
       <div class="form-group row">
         <div class="col-sm-6">
           <label for="firstName">First Name</label>

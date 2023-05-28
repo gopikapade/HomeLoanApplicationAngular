@@ -1,5 +1,6 @@
 <div class="container">
-  <table class="table table-striped">
+  <h2>Ledger Management</h2>
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Customer Name</th>
@@ -26,8 +27,7 @@
         <td>{{c.ledger.amountPaidtillDate |  currency:'INR':'symbol':'1.2-2'}}</td>
         <td>{{c.loandisbursement.paymentStatus | uppercase}}</td>
         <button type="button" (click)="payEmi(c)" class="btn btn-primary" data-bs-toggle="modal"
-        data-bs-target="#emiDetailsPopup">
-        Open EMI Details
+        data-bs-target="#emiDetailsPopup"> EMI Details
       </button>
       </tr>
     </tbody>
@@ -109,7 +109,7 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button (click)="pay()">Pay</button>
+        <button type="button" class="btn btn-secondary" (click)="pay()">Pay</button>
       </div>
     </div>
   </div>

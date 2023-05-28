@@ -1,4 +1,5 @@
-<table class="table align-middle mb-0 bg-dark mx-auto mt-5 text-light">
+<h2>Application Status</h2>
+<table class="table table-bordered">
   <thead class="">
     <tr>
       <th>Index</th>
@@ -9,9 +10,9 @@
       <th>Loan Ammount</th>
       <th>CIBIL</th>
       <th>OE Remark</th>
-      <th>Mail</th>
+      <th>Status</th>
       <th>Action</th>
-      <th>Action</th>
+      <th>Send Mail</th>
     </tr>
   </thead>
   <tbody>
@@ -34,12 +35,12 @@
       <td>{{enqury.cibilEnquiry.remark}}</td>
 
 
-      <td><button class="btn btn-danger" (click)="deleteEnq(enqury.enquryId)">Cancle</button></td>
+      <td><button class="btn btn-danger" (click)="deleteEnq(enqury.enquryId)">Cancel</button></td>
       <td *ngIf="enqury.cibilEnquiry.cbillScore>=500"><button class="btn btn-primary"
           (click)="application(enqury)">Application</button></td>
           <td>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
-              (click)="forMailData(enqury)">Send Mail</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="forMailData(enqury)">Mail</button>
            </td>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

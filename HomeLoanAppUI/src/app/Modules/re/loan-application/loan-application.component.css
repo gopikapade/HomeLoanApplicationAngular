@@ -1,6 +1,11 @@
-h3 {
+h2 {
   font-family: "Montserrat", Arial, sans-serif;
   /* Add any other desired styling */
+  color: rgb(58, 49, 49);
+  background-color: #ffa44f;
+  text-align: center;
+  text-transform: uppercase;
+  text-size-adjust: initial;
 }
 .btn-primary {
   background-color: #597600; /* Set primary button background color */
@@ -29,6 +34,8 @@ h3 {
 .step-container.active {
   display: block;
 }
-button{
+.btn{
+  background-color: #ffa44f;
+  color: #ffffff;
   margin-top: 20px;
 }

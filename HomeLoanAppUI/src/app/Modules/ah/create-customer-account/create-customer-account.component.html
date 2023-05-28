@@ -2,7 +2,7 @@
 
 
 <div class="container">
-    <h2>Customer Account Form</h2>
+    <h2 >Customer Account Form</h2>
 
     <div class="progress">
         <div class="progress-bar progress-bar-striped" [style.width.%]="progressPercentage" role="progressbar"
@@ -328,7 +328,7 @@
                       <div class="form-group">
                         <label for="nextEmiDueDate">Next EMI Due Date:</label>
                         <input type="text" class="form-control" id="nextEmiDueDate" formControlName="nextEmiDueDate"
-                          placeholder="Enter next EMI due date">
+                          placeholder="Format yyyy/mm/dd">
                       </div>
                       <div class="form-group">
                         <label for="previousEmiStatus">Previous EMI Status:</label>
@@ -403,10 +403,17 @@
                     <label for="accountHolderName">Account Holder Name:</label>
                     <input type="text" id="accountHolderName" class="form-control" formControlName="accountHolderName">
                 </div>
+               
                 <div class="form-group">
-                    <label for="accountType">Account Type:</label>
-                    <input type="text" id="accountType" class="form-control" formControlName="accountType">
-                </div>
+                    <label for="accountType">Account Type</label>
+                    <select class="form-control" id="accountType" formControlName="accountType" name="accountType">
+                      <option value="savings">Savings Account</option>
+                      <option value="current">Current Account</option>
+                      <option value="joint">Joint Account</option>
+                    
+                    </select>
+                  </div>
+
                 <div class="form-group">
                     <label for="accountStatus">Account Status:</label>
                     <input type="text" id="accountStatus" class="form-control" formControlName="accountStatus">
@@ -464,7 +471,7 @@
 
         <!-- Add other form fields for related entities here -->
         <button class="button" *ngIf="step !=1" (click)="previous()">Previous</button>
-        <button class="button ms-3" *ngIf="step !=10" (click)="next()">Next</button>
+        <button class="button ms-3" *ngIf="step !=9" (click)="next()">Next</button>
         <button type="submit" (click)="onSubmit()" *ngIf="step==9" class="button ms-3">Submit</button>
     </form>
 </div>

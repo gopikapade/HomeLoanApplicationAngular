@@ -422,6 +422,7 @@ body:after {
   top: 0;
   width: 100%;
   border-bottom: rgba(255, 255, 255, 0.7);
+
 }
 
 .site-navbar .site-logo {
@@ -432,6 +433,7 @@ body:after {
 
 .site-navbar .site-navigation .site-menu {
   margin-bottom: 0;
+ 
 }
 
 .site-navbar .site-navigation .site-menu .active {
@@ -620,11 +622,13 @@ body:after {
   float: left;
   padding-left: 20px;
   padding-right: 20px;
+
 }
 
 .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close {
   float: right;
   margin-top: 8px;
+ 
 }
 
 .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close span {
@@ -637,6 +641,7 @@ body:after {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
+ 
 }
 
 .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo {
