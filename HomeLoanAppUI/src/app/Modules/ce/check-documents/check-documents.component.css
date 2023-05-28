@@ -46,7 +46,7 @@
   }
 
   .document-image {
-    max-width: fit-content;
-    max-height: fit-content;
+    max-width: 450px;
+    max-height: 450px;
     object-fit: contain;
   }

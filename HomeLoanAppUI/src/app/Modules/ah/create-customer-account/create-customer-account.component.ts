@@ -63,6 +63,9 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
 })
   }
   ngOnInit() {
+
+
+
     console.log(this.data)
     this.customerForm = this.formBuilder.group({
       customerName: [''],
@@ -241,6 +244,7 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
           this.customerForm.patchValue({
             customerName:this.loan.enq.firstName+" "+this.loan.enq.lastName,
             customerEmail:this.loan.enq.email,
+      
             customerAge:this.loan.enq.age,
             customerMobileNumber:this.loan.enq.mobileNo,
             customerTotalLoanRequired:this.loan.enq.loanAmmount
@@ -261,24 +265,35 @@ this.customerForm.controls['customerAddress'].get('permanantAddress').patchValue
             totalAmounttobepaid: this.calculateTotalLoanAmount(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
             rateOfInterest:7,
             totalInterest:  this.calculateInterest(this.loan.enq.loanAmmount, this.loan.enq.tenure, 7),
-            sanctionDate: [''],
-            remark: [''],
-            status: [''],
-            emidetails: this.formBuilder.group({
-              nextEmiDueDate: [''],
-              previousEmiStatus: [''],
-              emiAmountMonthly: ['']
-            })
+        
+           
+
+
           })
 
-          this.professionsalaryslips= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
-          this.mortgagePropertyProof =this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
+          this.customerForm.get('profession').patchValue({
+            professionsalary:this.loan.enq.income,
+          })
 
-          this.buildingpermission = this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
-          this.layout = this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip');
-          this.buildingPlan  = this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip');
-          this.estimate= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip');
-          this.noc= this.base64ToFile(this.loan.personalDocuments.incomeTax, 'salarySlip')
+          this.customerForm.get('accountdetails').patchValue({
+            accountHolderName:this.loan.enq.firstName+" "+this.loan.enq.lastName,
+            accountNumber:this.getRandomSixDigitNumber(),
+
+
+          })
+          
+
+
+
+
+
+        
+          this.buildingPlan  = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.buildingPlan, 'buildingPlan');
+          
+          this.buildingpermission = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.buildingpermission, 'buildingpermission')
+          this.layout = this.base64ToFile(this.loan.personalDocuments.propertyDocuments.layout, 'layout');
+          this.estimate= this.base64ToFile(this.loan.personalDocuments.propertyDocuments.estimate, 'estimate');
+          this.noc= this.base64ToFile(this.loan.personalDocuments.propertyDocuments.noc, 'salarySlip')
 
         }
 
