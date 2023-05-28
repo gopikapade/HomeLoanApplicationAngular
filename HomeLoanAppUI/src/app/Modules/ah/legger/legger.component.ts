@@ -50,13 +50,13 @@ export class LeggerComponent{
 
 
 
-  @ViewChild('nextEmiDueDate') nextEmiDueDateInput!: ElementRef;
+  // @ViewChild('nextEmiDueDate') nextEmiDueDateInput!: ElementRef;
 
-  ngAfterViewInit() {
-    // Access the value after the view has been initialized
-    const inputValue = this.nextEmiDueDateInput.nativeElement.value;
-    console.log(inputValue);
-  }
+  // ngAfterViewInit() {
+  //   // Access the value after the view has been initialized
+  //   const inputValue = this.nextEmiDueDateInput.nativeElement.value;
+  //   console.log(inputValue);
+  // }
 
 
      get emiDetails() :FormArray
