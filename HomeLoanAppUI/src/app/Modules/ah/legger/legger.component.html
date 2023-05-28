@@ -1,38 +1,115 @@
 <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Customer Name</th>
-          <th>Loan No</th>
-          <th>Ledger Id</th>
-          <th>EMI</th>
-          <th>Loan Amount</th>
-          <th>Payable Amount with Interest</th>
-          <th>Amount Paid Till Date</th>
-          <th>Current Month EMI Status</th>
-         
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let c of leagers">
-      
-          <td>{{c.customerName | uppercase}}</td>
-          <td>{{c.currentloandetails.currentloanNo}}</td>
-          <td>{{c.ledger.ledgerId}}</td>
-          <td>{{c.currentloandetails.emiDetails[0]?.emiAmountMonthly | currency:'INR':'symbol':'1.2-2'}}</td>
-      
-          
-          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Loan No</th>
+        <th>Ledger Id</th>
+        <th>EMI</th>
+        <th>Loan Amount</th>
+        <th>Payable Amount with Interest</th>
+        <th>Amount Paid Till Date</th>
+        <th>Current Month EMI Status</th>
+        <th>Pay Emi</th>
 
-          <td>{{c.customerTotalLoanRequired | currency:'INR':'symbol':'1.2-2'}}</td>
-          <td>{{c.currentloandetails.totalAmounttobepaid | currency:'INR':'symbol':'1.2-2'}}</td>
-          <td>{{c.ledger.payableAmountwithInterest}}</td>
-          <td>{{c.ledger.amountPaidtillDate }}</td>
-          <td>{{c.loandisbursement.paymentStatus | uppercase}}</td>
-        
-        </tr>
-      </tbody>
-    </table>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of leagers">
+
+        <td>{{c.customerName | uppercase}}</td>
+        <td>{{c.currentloandetails.currentloanNo}}</td>
+        <td>{{c.ledger.ledgerId}}</td>
+        <td>{{c.currentloandetails.emiDetails[0]?.emiAmountMonthly | currency:'INR':'symbol':'1.2-2'}}</td>
+        <td>{{c.customerTotalLoanRequired | currency:'INR':'symbol':'1.2-2'}}</td>
+        <td>{{c.currentloandetails.totalAmounttobepaid | currency:'INR':'symbol':'1.2-2'}}</td>
+        <td>{{c.ledger.amountPaidtillDate |  currency:'INR':'symbol':'1.2-2'}}</td>
+        <td>{{c.loandisbursement.paymentStatus | uppercase}}</td>
+        <button type="button" (click)="payEmi(c)" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#emiDetailsPopup">
+        Open EMI Details
+      </button>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- <table class="table table-striped"> -->
+  <!-- <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Loan No</th>
+      <th>Ledger Id</th>
+      <th>EMI</th>
+      <th>Loan Amount</th>
+      <th>Payable Amount with Interest</th>
+      <th>Amount Paid Till Date</th>
+      <th>Current Month EMI Status</th>
+      <th>PayEmi</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of leagers">
+      <td>{{c.customerName | uppercase}}</td>
+      <td>{{c.currentloandetails.currentloanNo}}</td>
+      <td>{{c.ledger.ledgerId}}</td>
+      <td>{{c.ledger.monthlyEMI}}</td>
+      <td>{{c.loandisbursement.totalAmount}}</td>
+      <td>{{c.currentloandetails.totalAmounttobepaid}}</td>
+      <td>{{c.ledger.amountPaidtillDate }}</td>
+      <td>{{c.ledger.currentMonthEmiStatus}}</td>
+      <button type="button" (click)="payEmi(c)" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#emiDetailsPopup">
+        Open EMI Details
+      </button>
+    </tr>
+  </tbody>
+</table> -->
+
+
+
+<div class="modal fade" id="emiDetailsPopup" tabindex="-1" aria-labelledby="emiDetailsPopupLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emiDetailsPopupLabel">EMI Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="CurrentLoanDetails">
+        <div class="modal-body">
+          <div formArrayName="emiDetails">
+            <div *ngFor="let emi of emiDetails.controls; let i = index">
+              <div class="p-3 mt-3" style="border:1px solid black">
+                <div class="mb-3">
+                  <label for="emiID{{i}}" class="form-label">EMI ID:</label>
+                  <input type="text" class="form-control" id="emiID{{i}}" [value]="emi.get('emiID').value">
+                </div>
+                <div class="mb-3">
+                  <label for="nextEmiDueDate{{i}}" class="form-label">Next EMI Due Date:</label>
+                  <input type="text" class="form-control" id="nextEmiDueDate{{i}}"
+                    [value]="emi.get('nextEmiDueDate').value">
+                </div>
+                <div class="mb-3">
+                  <label for="previousEmiStatus{{i}}" class="form-label">Previous EMI Status:</label>
+                  <input type="text" class="form-control" id="previousEmiStatus{{i}}"
+                    [value]="emi.get('previousEmiStatus').value">
+                </div>
+
+                <div class="mb-3">
+                  <label for="emiAmountMonthly{{i}}" class="form-label">EMI Amount (Monthly):</label>
+                  <input type="text" class="form-control" id="emiAmountMonthly{{i}}"
+                    [value]="emi.get('emiAmountMonthly').value" readonly>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="pay()">Pay</button>
+      </div>
+    </div>
   </div>
-  
-  
