@@ -1,17 +1,18 @@
 
 <a  data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-    aria-controls="offcanvasExample">
-    <i class="fa-solid fa-sliders fa-lg"></i>
+   aria-controls="offcanvasExample">
+    <i class="fa-solid fa-sliders fa-lg mt-5 ms-5 text-success"></i>
 </a>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Welcome</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div>
-            <span class="d-block-inline mt-5">Welcome</span>
+            <span class="d-block-inline mt-5">{{menues.role | transformName}}</span>
+            <hr>
 
             <ul class="nav flex-column sticky-top pl-0 pt-3 mt-2">
                 <li *ngFor="let m of menues.menues">

@@ -44,6 +44,10 @@ export class LoanDisburstmentComponent {
       this.ahservice.proceedeDisbustment(this.cust.loandisbursement.loanDisbursementid,
          this.loandisbursement.value).subscribe((data:any)=>{
          console.log(data)
+         alert("Payment Disburemnt Processs Complete")
+         window.location.reload()
+      }, (error:any)=>{
+         alert("Process Payment Have a probleam")
       })
     }
 
@@ -52,13 +56,9 @@ export class LoanDisburstmentComponent {
       console.log(customer)
         this.loandisbursement.patchValue({
           loanNo: customer.currentloandetails.currentloanNo,
-          agreementDate: [''],
-          amountPayType: [''],
           bankName: customer.accountdetails.bankanme,
           ifsc:  customer.accountdetails.ifsc,
           accountType:  customer.accountdetails.accountType,
-          paymentStatus: [''],
-          amountPaidDate: [''],
           totalAmount: customer.customerTotalLoanRequired,
           transferAmount:customer.customerTotalLoanRequired -  (customer.customerTotalLoanRequired*3/100) ,
           accountNumber: customer.accountdetails.accountNumber

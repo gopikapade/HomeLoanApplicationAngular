@@ -322,24 +322,26 @@
                     <input type="text" class="form-control" id="status" formControlName="status"
                         placeholder="Enter status">
                 </div>
-                <div formGroupName="emidetails">
-                    <h3>EMI Details Form</h3>
-                    <div class="form-group">
+                <div formArrayName="emiDetails">
+                    <div *ngFor="let emiGroup of emiDetails.controls; let i = index" [formGroupName]="i">
+                      <h3>EMI Details Form {{ i + 1 }}</h3>
+                      <div class="form-group">
                         <label for="nextEmiDueDate">Next EMI Due Date:</label>
                         <input type="text" class="form-control" id="nextEmiDueDate" formControlName="nextEmiDueDate"
-                            placeholder="Enter next EMI due date">
-                    </div>
-                    <div class="form-group">
+                          placeholder="Enter next EMI due date">
+                      </div>
+                      <div class="form-group">
                         <label for="previousEmiStatus">Previous EMI Status:</label>
-                        <input type="text" class="form-control" id="previousEmiStatus"
-                            formControlName="previousEmiStatus" placeholder="Enter previous EMI status">
-                    </div>
-                    <div class="form-group">
+                        <input type="text" class="form-control" id="previousEmiStatus" formControlName="previousEmiStatus"
+                          placeholder="Enter previous EMI status">
+                      </div>
+                      <div class="form-group">
                         <label for="emiAmountMonthly">EMI Amount Monthly:</label>
-                        <input type="number" class="form-control" id="emiAmountMonthly"
-                            formControlName="emiAmountMonthly" placeholder="Enter EMI amount monthly">
+                        <input type="number" class="form-control" id="emiAmountMonthly" formControlName="emiAmountMonthly"
+                          placeholder="Enter EMI amount monthly">
+                      </div>
                     </div>
-                </div>
+                  </div>
             </div>
         </div>
 

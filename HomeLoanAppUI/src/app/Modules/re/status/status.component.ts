@@ -75,29 +75,29 @@ export class StatusComponent {
   onTableDataChange(event: any) {
     this.page = event;
     this.enquiryServices.getEnqiries().subscribe((data: any) => {
-      const allEnquries = data.body;
-
-      allEnquries.forEach(element => {
-        if (element.cibilEnquiry != null && element.loanapplication!=true) {
-          this.enquries.push(element);
-        }
-      });
+     this.enquries = data.body;
+      // allEnquries.forEach(element => {
+      //   if (element.cibilEnquiry != null && element.loanapplication!=true) {
+      //     this.enquries.push(element);
+      //   }
+      // });
     })
   }
-  // onTableSizeChange(event: any): void {
-  //   this.tableSize = event.target.value;
-  //   this.page = 1;
-  //   this.enquiryServices.getEnqiries().subscribe((data: any) => {
-  //     const allEnquries = data.body;
 
-  //     allEnquries.forEach(element => {
-  //       if (element.cibilEnquiry != null) {
-  //         this.enquries.push(element);
-  //       }
-  //     });
-  //   })
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.enquiryServices.getEnqiries().subscribe((data: any) => {
+      this.enquries = data.body;
 
-  // }
+      // allEnquries.forEach(element => {
+      //   if (element.cibilEnquiry != null) {
+      //     this.enquries.push(element);
+      //   }
+      // });
+    })
+
+  }
 
 
   application(enqury)
