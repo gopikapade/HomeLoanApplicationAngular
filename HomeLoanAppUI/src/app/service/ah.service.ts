@@ -19,6 +19,11 @@ export class AhService {
   {
      return this.http.put("http://localhost:8080/loandis/disbust/"+id, disburstment);
   }
+  payEmi(cld, id){
+
+      return this.http.put("http://localhost:8080/emiDetails/addEmiDetails/"+id, cld);
+
+  }
 
 
 }
