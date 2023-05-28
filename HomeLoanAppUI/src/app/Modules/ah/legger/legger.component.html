@@ -20,12 +20,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngFor="let ledger of leagers">
           <td>1</td>
           <td>date</td>
-          <td>{{ledger.totalLoanAmount}}</td>
-          <td>{{ledger.amountPaidtillDate}}</td>
-          <td>{{ledger.payableAmountwithInterest}}</td>
+          <td>{{ledger.customerTotalLoanRequired}}</td>
+          <td>{{ledger.currentloandetails.totalAmounttobepaid}}</td>
+          <td>{{ledger.currentloandetails.emiDetails[0].monthlyEMI}}</td>
           <td>{{ledger.monthlyEMI}}</td>
           <td>{{ledger.tenure}}</td>
           <td>{{ledger.nextEmiDatestart}}</td>
@@ -40,4 +40,3 @@
       </tbody>
     </table>
   </div>
-  
